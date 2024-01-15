@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap');
+
+.h3 {
+    font-family: 'Belanosima', sans-serif;
+    font-size: 30px;
+    color: white;
+}
+
+.guestUser {
+    color: #000;
+    font-family: "Belanosima", sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.background {
+    color: white;
+    flex-shrink: 0;
+    background-size: cover;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.4)),
+        url('https://s3-alpha-sig.figma.com/img/dba1/7672/c33ede9b2b9332ed14471d0d12cb2342?Expires=1705881600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GTwRx6sX23FV4CElymLTxdfdS0fdzkyUv3hp64KDV8H0a7N9VYtBN4o3yWy6XvnQF1pmEwBnJ2GvA2iVa-2c8hFUovK-WL64om9lMKDeYSW25EJl6M8cE-RLZW3NwRJ7raghu6pBpxh1~Sk1gWSG~mkvdoc7uYJp-K0jjHku0okQ47QlArOtOh~PZsSKpkHpznQ6dhUF4agF1mo4oq2Zo8jlK7KnlI9k7~tfkYrgzgLJMajFbq4zllq~DxJyj0OzyePQqe3ue~bHfEmsJMNR3KHqEp~b7Q4myC94AsLwYNVxVHn2--CQlpuWQxQuBFD70-bqYu77PCeyVjSudkFOjQ__');
+    background-position: center;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    color: #FFF;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 90px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 107.912%;
+    /* 97.121px */
+}
+
+.titleDetail {
+    color: #FFF;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 383px;
+}
+
+.button {
+    border-radius: 20px;
+    background: #FFF;
+    width: 300px;
+    height: 46px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonContent {
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 107.912%;
+    /* 34.532px */
+}
+
+.card {
+    border-radius: 25px;
+    background: rgba(147, 253, 211, 0.95);
+    box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.20);
+    width: 291px;
+    height: 216px;
+    flex-shrink: 0;
+}
+
+.cardImage {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.cardTitle {
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.cardContent {
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 10px;
+}
