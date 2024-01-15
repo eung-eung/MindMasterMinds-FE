@@ -9,8 +9,9 @@ import HomePage from './components/homePage/pages'
 
 export default function Home() {
   const { status } = useSession()
+  const { data: session } = useSession()
   console.log('status: ', status);
-
+  console.log('session: ', session)
   return (
     <div >
       <HomePage />
