@@ -1,0 +1,54 @@
+.image {
+    width: 100%;
+    height: 326.367px;
+    flex-shrink: 0;
+    border-radius: 25px 25px 0px 0px;
+}
+
+.border {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    border-radius: 25px;
+    background: #93FDD3;
+}
+
+.title {
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.p {
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.button {
+    border-radius: 19px;
+    background: #FFF;
+    width: 267.855px;
+    height: 55.949px;
+    flex-shrink: 0;
+    z-index: 999;
+}
+
+.typography {
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 108.412%;
+    /* 26.019px */
+}
