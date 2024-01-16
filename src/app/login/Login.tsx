@@ -15,7 +15,7 @@ export default function LoginPage() {
         return (
             <>
                 <button type="button" onClick={() => signOut()}>Sign out</button>
-                <UserCard user={session?.user} />
+                {/* <UserCard user={session?.user} /> */}
             </>
         )
     } else {

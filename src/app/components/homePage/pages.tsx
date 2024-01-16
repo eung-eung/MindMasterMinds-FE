@@ -29,7 +29,9 @@ export default function HomePage() {
                     :
                     <div style={{ backgroundColor: "white" }}>
                         <Header title="Taste of knowlegde."
-                            titleDetail="Daily updates of high-quality courses, documents, and academic articles." />
+                            titleDetail="Daily updates of high-quality courses, documents, and academic articles."
+                            isHome={true}
+                        />
                         <About />
                         <Admission />
                         <Explore />

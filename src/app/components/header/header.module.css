@@ -1,0 +1,13 @@
+.signin_button {
+    background: rgb(0, 149, 246);
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    padding: 7px 16px;
+    font-weight: 600;
+}
+
+.h3 {
+    font-family: 'Belanosima', sans-serif;
+    font-size: 30px;
+    color: white;
+}

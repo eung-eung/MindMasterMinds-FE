@@ -25,21 +25,17 @@ export default function SignInForm() {
     container
     mx-auto 
     text-center 
-    h-screen 
     flex 
     items-center 
-    justify-center 
     flex-col 
     w-5/6
    
     '
         >
-            {/* <Image className={classes.background_image} fill src='/images/transparentBackground.jpg' alt='aa' /> */}
-            <div className={' w-full flex flex-col items-center p-10  border-solid border border-black'}>
-
-                <h1 className={' text-5xl font-bold mb-3 xl:w-6/12 lg:w-2/4'}>Welcome to MasterMinds!</h1>
-                <p className={classes.light_grey + ' mb-14 text-sm font-medium w-8/12'}>Register for free to get the best study resources</p>
-
+            <div className={' w-full flex flex-col items-center p-10'}>
+                {/* <p className={classes.light_grey + ' mb-14 text-xl font-bold w-8/12'}>
+                    Register for free to get the best study resources
+                </p> */}
                 <form className='mb-14 xl:w-6/12 lg:w-2/4' onSubmit={handleForm}>
                     <div className='flex flex-col justify-left mb-6'>
                         <label htmlFor='username' className='text-left mb-3 font-medium	'>Username or email</label>
