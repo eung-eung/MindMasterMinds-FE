@@ -9,7 +9,7 @@ import { Metadata } from "next"
 import LoadingTheme from "./components/loadingTheme/loadingTheme"
 
 export const metadata: Metadata = {
-  title: 'Home'
+  title: 'MindMasterMinds'
 }
 export default function Home() {
 

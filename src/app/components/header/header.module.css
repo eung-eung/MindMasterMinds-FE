@@ -1,9 +1,22 @@
 .signin_button {
-    background: rgb(0, 149, 246);
+    background: rgba(0, 0, 0);
+    /* background: #000000; */
+    border-radius: 8px;
+    /* border: 1px solid #93FDD3; */
+    padding: 7px 20px;
+    font-weight: 600;
+    right: 0;
+    /* border: 1px solid #; */
+}
+
+.register_button {
+    background: rgb(206, 11, 255);
     border-radius: 8px;
     color: rgb(255, 255, 255);
     padding: 7px 16px;
+    border: 1px solid black;
     font-weight: 600;
+    right: 0;
 }
 
 .h3 {

@@ -1,0 +1,8 @@
+.avatar_post_item {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.writer_post_item {
+    font-weight: bold;
+}

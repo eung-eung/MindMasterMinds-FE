@@ -53,7 +53,9 @@ export default function SignInForm() {
                             className={classes.form_input}
                             placeholder='Password' />
                     </div>
-                    <button className={classes.submit_btn}><LoginIcon className='mr-4' /> Sign In</button>
+                    <button className={classes.submit_btn}>
+                        <LoginIcon className='mr-4' /> Sign In
+                    </button>
                 </form>
                 <div className={classes.after_before + ' xl:w-6/12 lg:w-2/4'}>
                     <p>OTHER</p>

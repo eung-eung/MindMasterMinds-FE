@@ -1,0 +1,39 @@
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 50px;
+
+}
+
+.image_wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wrapper {
+    flex: 3;
+    padding-right: 50px;
+    opacity: 0.7;
+
+}
+
+.wrapper:hover {
+    cursor: pointer;
+    opacity: 1;
+
+}
+
+.box {
+    padding: 10px;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid #dddddd;
+
+}
+
+.title {
+    padding-left: 10px;
+    font-weight: 600;
+}

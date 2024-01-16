@@ -14,6 +14,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, ChevronRightIcon, ChatBubbleLeftIcon, EnvelopeIcon, ArrowLeftEndOnRectangleIcon } from '@heroicons/react/20/solid'
 import { signOut } from 'next-auth/react';
+import Link from 'next/link';
 
 export default function Nav() {
   return (
@@ -223,9 +224,9 @@ export default function Nav() {
           </button>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12 ">
-          <a href="#" className=" text-sm font-semibold leading-6 ">
+          <Link href="/" className=" text-sm font-semibold leading-6 ">
             <h3 className={classes.h3}>MindMasterMinds</h3>
-          </a>
+          </Link>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900 pr-10">

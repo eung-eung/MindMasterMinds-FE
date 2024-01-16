@@ -26,6 +26,7 @@ export default NextAuth({
                     password: credentials?.password,
                 };
                 const user = { id: "1", email: payload.email }
+                console.log('xukabe');
 
                 console.log(payload);
 
@@ -40,14 +41,20 @@ export default NextAuth({
     ],
     secret: process.env.JWT_SECRET,
     callbacks: {
+        async signIn({ user, account, profile, email, credentials }) {
+            console.log(user, account, profile, email, credentials);
+            const isAllowed = false
+            if (!isAllowed) {
+                return '/explore'
+            }
+            return true
+        },
         async session({ session, user, token }) {
-            console.log('session: ', session);
-            console.log('session-user: ', user);
+            console.log(session)
             return session
         },
         async jwt({ token, user, account, profile, isNewUser }) {
-            console.log('token ', token);
-            console.log(user);
+
 
 
             return token
