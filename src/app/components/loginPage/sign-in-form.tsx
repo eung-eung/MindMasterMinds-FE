@@ -53,7 +53,7 @@ export default function SignInForm() {
                             className={classes.form_input}
                             placeholder='Password' />
                     </div>
-                    <button className={classes.submit_btn}><LoginIcon className='mr-4' /> Login</button>
+                    <button className={classes.submit_btn}><LoginIcon className='mr-4' /> Sign In</button>
                 </form>
                 <div className={classes.after_before + ' xl:w-6/12 lg:w-2/4'}>
                     <p>OTHER</p>
@@ -69,7 +69,7 @@ export default function SignInForm() {
 
                 </div>
                 {/* sign up */}
-                <Link href='/signUp' className={classes.light_grey + ' mt-10'}>Don't have an account? Get started for free</Link>
+                <Link href='/register' className={classes.light_grey + ' mt-10'}>Don't have an account? Get started for free</Link>
             </div>
         </div>
     )
