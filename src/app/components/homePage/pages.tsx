@@ -11,7 +11,7 @@ import Footer from './footer'
 export default function HomePage() {
     return (
         <div style={{ backgroundColor: "white" }}>
-            <Header />
+            <Header title="Taste of knowlegde." titleDetail="Daily updates of high-quality courses, documents, and academic articles."/>
             <About />
             <Admission />
             <Explore />
