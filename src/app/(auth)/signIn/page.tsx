@@ -1,4 +1,5 @@
 
+import Footer from '@/app/components/homePage/footer';
 import Header from '@/app/components/homePage/header';
 import SignInForm from '@/app/components/loginPage/sign-in-form';
 import { Metadata } from 'next';
@@ -11,10 +12,11 @@ export default function SignInPage() {
         <div>
 
             <Header
-                title="Welcome to MasterMinds!"
+                title="Welcome back!"
                 isHome={false}
             />
             <SignInForm />
+            <Footer />
         </div>
     )
 }
