@@ -11,7 +11,7 @@ import {
   BuildingOfficeIcon
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, ChevronRightIcon, ChatBubbleLeftIcon, EnvelopeIcon, ArrowLeftEndOnRectangleIcon } from '@heroicons/react/20/solid'
-import { signOut } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 import Nav from './nav'
 
@@ -24,21 +24,28 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ title, titleDetail, height }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { data: session, status } = useSession()
 
   return (
 
     <header className={classes.background} >
 
       {/* Navbar */}
-      <nav className="mx-auto flex max-w-7xl items-center justify-center p-6 lg:px-8" aria-label="Global">
-        <Popover.Group className="flex items-center">
-          <a href="#" className="text-sm font-semibold leading-6">
-            <h3 className={classes.h3}>MindMasterMinds</h3>
-          </a>
-        </Popover.Group>
-      </nav>
+      {
+        !session ?
+          <nav className="relative mx-auto flex max-w-7xl items-center justify-center p-6 lg:px-8" aria-label="Global">
+            <Popover.Group className="flex items-center">
+              <a href="#" className="text-sm font-semibold leading-6">
+                <h3 className={classes.h3}>MindMasterMinds</h3>
+              </a>
+            </Popover.Group>
+            <button type='button' className={classes.signin_button + ' absolute right-0'} onClick={() => signIn()}>Sign In</button>
+          </nav>
+          :
+          <Nav />
+      }
 
-      <Nav />
+
 
 
       {/* Responsive hambergur box */}

@@ -1,0 +1,56 @@
+.block {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: rgba(205, 205, 205, 0.1);
+    /* Black background with 0.5 opacity */
+    z-index: -9999;
+}
+
+.container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(0deg, black, rgb(44, 43, 43));
+    background-image: url('/images/icon.jpg');
+    object-fit: cover;
+    background-size: contain;
+    border-radius: 10px;
+}
+
+.container:after,
+.container:before {
+    position: absolute;
+    content: '';
+    left: -2px;
+    top: -2px;
+    border-radius: 10px;
+    /* background: linear-gradient(45deg, #e6fb04, #ff6600,
+            #00ff66, #00ffff, #ff00ff, #ff0099, #6e0dd0, #ff3300, #099fff); */
+    background: linear-gradient(45deg, #00DD9B, #49ff76, #00B8A7, #3bfff8f2,
+            #4af23af2, #67ff7d);
+    background-size: 400%;
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    z-index: -1;
+    animation: animate 20s linear infinite;
+}
+
+.container:after {
+    filter: blur(10px);
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
