@@ -136,10 +136,10 @@ export default function Nav() {
                           <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                         </div>
                         <div className="flex-auto">
-                          <a href="/explore" className="block font-semibold text-gray-900">
+                          <Link href="/explore" className="block font-semibold text-gray-900">
                             Explore
                             <span className="absolute inset-0" />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
