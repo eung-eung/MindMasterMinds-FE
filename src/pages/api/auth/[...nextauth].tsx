@@ -41,14 +41,14 @@ export default NextAuth({
     ],
     secret: process.env.JWT_SECRET,
     callbacks: {
-        async signIn({ user, account, profile, email, credentials }) {
-            console.log(user, account, profile, email, credentials);
-            const isAllowed = false
-            if (!isAllowed) {
-                return '/explore'
-            }
-            return true
-        },
+        // async signIn({ user, account, profile, email, credentials }) {
+        //     console.log(user, account, profile, email, credentials);
+        //     const isAllowed = false
+        //     if (isAllowed) {
+        //         return '/'
+        //     }
+        //     return true
+        // },
         async session({ session, user, token }) {
             console.log(session)
             return session
