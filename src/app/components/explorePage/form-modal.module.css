@@ -1,0 +1,38 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    background: #fff;
+    border: none;
+}
+
+.content {
+    padding: 10px;
+    font-size: 20px;
+    outline: none;
+    cursor: auto;
+}
+
+.content:empty::before {
+    position: absolute;
+    content: attr(placeholder);
+    opacity: 0.6;
+    z-index: -9999;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 600;
+    padding: 20px;
+    text-align: center;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
