@@ -7,7 +7,7 @@ import Explore from './explore'
 import Tutor from './tutor'
 import Article from './article'
 import Join from './join-now'
-import Footer from './footer'
+import Footer from '../footer/footer'
 import LoadingTheme from '../loadingTheme/loadingTheme'
 import { useSession } from 'next-auth/react'
 
