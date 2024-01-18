@@ -239,7 +239,7 @@ const Header: React.FC<HeaderProps> = ({ title, titleDetail, height, isHome }) =
                     </div>
                     <div className="lg:w-1/4 md:w-1/2 p-6 w-full hidden md:block">
                       <div className={`${classes.card} p-6 flex flex-col items-center justify-center text-center`}>
-                        <img className={classes.cardImage} src="https://s3-alpha-sig.figma.com/img/05a5/30de/deb5dfc09c55130b297bb8a21ae352e5?Expires=1706486400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=f72T6Q4geiwR4Xt3OMWGnTqIUaG2DrKLQmciQ-C~xPCw3~2Mm0oAqfEYR19qPWWxnj5yCyz5q9T7yK~b4TKftu2-OlN4vboUGnHpVT2WFH6Il4f9SRpAdftuP2E0QueBupBkBMXf0uUzIVoKqo2PocwRFT2KTW8oJGvXxcgBLsaZUOGJsZaQeuOkvdHJqb2CZMD2QkbRX6wqjz1Coa7ynT-xPaJomAef1I4ChfhJANRooaDNs10xdzv4L1wbdvMj1qSs0hqUcSMZN5v3fLMM9JARC20vJmanT4oiMeXkMNell0hJCvGSmm7AbiQpT~UkPhjkJBNq6bc-pNg6q8uqVw__" alt="content" />
+                        <img className={classes.cardImage} src="https://www.svgrepo.com/download/169825/graduation-hat.svg" alt="content" />
                         <h3 className={classes.cardTitle}>80%</h3>
                         <h2 className={`${classes.cardContent} b-4`}>Students in progress</h2>
                       </div>
