@@ -29,10 +29,10 @@ export default function HomePage() {
 
                         {/* Title list */}
 
-                        <section className=" body-font ">
+                        <section className="container mx-auto body-font ">
 
                             <div className={`${classes.customBorder} mt-12 py-2 flex flex-wrap md:flex-nowrap`}>
-                                <div className="container px-6 py-0 mx-20 flex items-center md:flex-row flex-col">
+                                <div className="container py-0 mx-16 flex items-center md:flex-row flex-col">
                                     <div className="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0 mb-16 w-full md:w-auto md:text-left text-center">
                                         <h1 className={classes.title}>CLASS REQUIREMENTS</h1>
                                     </div>
@@ -47,8 +47,8 @@ export default function HomePage() {
                             </div>
 
                             {/* Requirement List */}
-                            <div className=" px-6 py-12 mx-24">
-                                <div className="flex flex-wrap -m-2">
+                            <div className="px-2 w-full py-12 mx-auto">
+                                <div className="flex flex-wrap -m-2 ">
                                     <div className={`${classes.card} container p-0 mb-16 w-full`}>
 
                                         <div className="h-full w-full">
