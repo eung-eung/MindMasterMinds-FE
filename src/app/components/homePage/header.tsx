@@ -15,6 +15,7 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 
 import Nav from './nav'
 import HeaderNoAuth from '../header/headerNoAuth';
+import Link from 'next/link';
 
 
 
@@ -26,7 +27,6 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ title, titleDetail, height, isHome }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { data: session, status } = useSession()
 
   return (
@@ -41,166 +41,7 @@ const Header: React.FC<HeaderProps> = ({ title, titleDetail, height, isHome }) =
           :
           <Nav />
       }
-      {/* Responsive hambergur box */}
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-        <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <div>
-                  <div
-                    key="About Us"
-                    className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                  >
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                      <BuildingOfficeIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                    </div>
-                    <div className="flex-auto">
-                      <a href="#" className="block font-semibold text-gray-900">
-                        About Us
-                        <span className="absolute inset-0" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div
-                    key="Our Service"
-                    className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                  >
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                      <CursorArrowRaysIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                    </div>
-                    <div className="flex-auto">
-                      <a href="#" className="block font-semibold text-gray-900">
-                        Our Service
-                        <span className="absolute inset-0" />
-                      </a>
-                    </div>
-
-                  </div>
-                  <div className="ml-6">
-                    <div
-                      key="Our Service"
-                      className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                    >
-                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                      </div>
-                      <div className="flex-auto">
-                        <a href="#" className="block font-semibold text-gray-900">
-                          Find A Tutor
-                          <span className="absolute inset-0" />
-                        </a>
-                      </div>
-                    </div>
-                    <div
-                      key="Our Service"
-                      className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                    >
-                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                      </div>
-                      <div className="flex-auto">
-                        <a href="#" className="block font-semibold text-gray-900">
-                          Become A Tutor
-                          <span className="absolute inset-0" />
-                        </a>
-                      </div>
-                    </div>
-                    <div
-                      key="Our Service"
-                      className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                    >
-                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                      </div>
-                      <div className="flex-auto">
-                        <a href="#" className="block font-semibold text-gray-900">
-                          Blog
-                          <span className="absolute inset-0" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    key="Chat"
-                    className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                  >
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                      <ChatBubbleLeftIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                    </div>
-                    <div className="flex-auto">
-                      <a href="#" className="block font-semibold text-gray-900">
-                        Chat
-                        <span className="absolute inset-0" />
-                      </a>
-                    </div>
-
-                  </div>
-
-                  <div
-                    key="Contact Us"
-                    className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                  >
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                      <EnvelopeIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                    </div>
-                    <div className="flex-auto">
-                      <a href="#" className="block font-semibold text-gray-900">
-                        Contact Us
-                        <span className="absolute inset-0" />
-                      </a>
-                    </div>
-
-                  </div>
-                  <div
-                    key="History"
-                    className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                  >
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                      <ArrowPathIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                    </div>
-                    <div className="flex-auto">
-                      <a href="#" className="block font-semibold text-gray-900">
-                        History
-                        <span className="absolute inset-0" />
-                      </a>
-                    </div>
-
-                  </div>
-                  <div
-                    key="Log Out"
-                    className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                  >
-                    <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                      <ArrowLeftEndOnRectangleIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                    </div>
-                    <div className="flex-auto">
-                      <a href="#" className="block font-semibold text-gray-900">
-                        Log Out
-                        <span className="absolute inset-0" />
-                      </a>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
+     
 
       {/* Image */}
       <div className="container flex flex-col mx-auto bg-cover bg-center bg-no-repeat" >
