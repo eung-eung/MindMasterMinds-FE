@@ -111,7 +111,7 @@ export default function Nav() {
                           <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                         </div>
                         <div className="flex-auto">
-                          <Link href="/findTutor" className="block font-semibold text-gray-900">
+                          <Link href="findTutor" className="block font-semibold text-gray-900">
                             Find A Tutor
                             <span className="absolute inset-0" />
                           </Link>
@@ -125,7 +125,7 @@ export default function Nav() {
                           <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                         </div>
                         <div className="flex-auto">
-                          <Link href="/tutors" className="block font-semibold text-gray-900">
+                          <Link href="tutors" className="block font-semibold text-gray-900">
                             Become A Tutor
                             <span className="absolute inset-0" />
                           </Link>
