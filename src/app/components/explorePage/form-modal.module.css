@@ -3,14 +3,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%;
+    width: 30%;
+    height: auto;
     background: #fff;
-    border: none;
+    border-radius: 10px;
+    border: none !important;
+    outline: none;
 }
 
 .content {
-    padding: 10px;
+    padding: 20px;
     font-size: 20px;
     outline: none;
     cursor: auto;
@@ -18,7 +20,7 @@
 
 .content:empty::before {
     position: absolute;
-    content: attr(placeholder);
+    content: attr(content);
     opacity: 0.6;
     z-index: -9999;
 }
@@ -28,11 +30,51 @@
     font-weight: 600;
     padding: 20px;
     text-align: center;
+    border-bottom: 0.5px solid #dddddd;
 }
 
 .avatar {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.user_infor {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 15px;
+
+}
+
+.user_infor img {
+    margin-right: 20px;
+}
+
+.user_infor p {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.share_button {
+    width: 200px;
+    background: #93FDD3;
+    padding: 10px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.textbox {
+    width: 100%;
+}
+
+.close_post {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    cursor: pointer;
+    font-size: 30px !important;
 }

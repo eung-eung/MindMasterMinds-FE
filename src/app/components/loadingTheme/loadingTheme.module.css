@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     background: rgba(205, 205, 205, 0.1);
+
     /* Black background with 0.5 opacity */
     z-index: -9999;
 }

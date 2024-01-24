@@ -25,7 +25,7 @@ export default function ExplorePage() {
         <div>
             {isLoading ? <LoadingTheme /> :
                 <>
-                    <div style={{ background: "#fff" }}>
+                    <div style={{ background: "#F0F2F5" }}>
                         <Header title='Explore' isHome={false} />
                         <FormPostBlog />
                         <PostGrid />
