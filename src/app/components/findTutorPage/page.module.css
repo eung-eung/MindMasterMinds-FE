@@ -1,0 +1,42 @@
+.formButton {
+    border-radius: 60px;
+    background: #93FDD3;
+    width: 269px;
+    height: 48px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.typography {
+    color: rgba(0, 0, 0, 0.45);
+font-family: Belanosima;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.introLine {
+    color: rgba(0, 0, 0, 0.695);
+font-family: Belanosima;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.label {
+    color: #000;
+    font-family: Belanosima;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+

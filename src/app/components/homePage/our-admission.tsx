@@ -28,8 +28,8 @@ export default function Admission() {
                         <path d="M22.7178 32.333L17.5403 27.0975C16.9584 26.5091 16.0184 26.5091 15.4364 27.0975C14.8545 27.6859 14.8545 28.6365 15.4364 29.2249L21.6734 35.5316C22.2553 36.12 23.1953 36.12 23.7772 35.5316L39.5636 19.5687C40.1455 18.9803 40.1455 18.0297 39.5636 17.4413C38.9816 16.8529 38.0416 16.8529 37.4597 17.4413L22.7178 32.333Z" fill="black" />
                       </g>
                       <defs>
-                        <filter id="filter0_d_605_142" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <filter id="filter0_d_605_142" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                          <feFlood floodOpacity="0" result="BackgroundImageFix" />
                           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                           <feOffset dx="1" dy="2" />
                           <feGaussianBlur stdDeviation="1.5" />
@@ -55,8 +55,8 @@ export default function Admission() {
                         <path d="M22.7178 32.333L17.5403 27.0975C16.9584 26.5091 16.0184 26.5091 15.4364 27.0975C14.8545 27.6859 14.8545 28.6365 15.4364 29.2249L21.6734 35.5316C22.2553 36.12 23.1953 36.12 23.7772 35.5316L39.5636 19.5687C40.1455 18.9803 40.1455 18.0297 39.5636 17.4413C38.9816 16.8529 38.0416 16.8529 37.4597 17.4413L22.7178 32.333Z" fill="black" />
                       </g>
                       <defs>
-                        <filter id="filter0_d_605_142" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <filter id="filter0_d_605_142" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                          <feFlood floodOpacity="0" result="BackgroundImageFix" />
                           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                           <feOffset dx="1" dy="2" />
                           <feGaussianBlur stdDeviation="1.5" />
@@ -82,8 +82,8 @@ export default function Admission() {
                         <path d="M22.7178 32.333L17.5403 27.0975C16.9584 26.5091 16.0184 26.5091 15.4364 27.0975C14.8545 27.6859 14.8545 28.6365 15.4364 29.2249L21.6734 35.5316C22.2553 36.12 23.1953 36.12 23.7772 35.5316L39.5636 19.5687C40.1455 18.9803 40.1455 18.0297 39.5636 17.4413C38.9816 16.8529 38.0416 16.8529 37.4597 17.4413L22.7178 32.333Z" fill="black" />
                       </g>
                       <defs>
-                        <filter id="filter0_d_605_142" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <filter id="filter0_d_605_142" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                          <feFlood floodOpacity="0" result="BackgroundImageFix" />
                           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                           <feOffset dx="1" dy="2" />
                           <feGaussianBlur stdDeviation="1.5" />

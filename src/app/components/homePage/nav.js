@@ -132,6 +132,20 @@ export default function Nav() {
                         </div>
                       </div>
                       <div
+                        key="ListTutor"
+                        className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
+                      >
+                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                          <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                        </div>
+                        <div className="flex-auto">
+                          <Link href="/listTutor" className="block font-semibold text-gray-900">
+                            List of Tutors
+                            <span className="absolute inset-0" />
+                          </Link>
+                        </div>
+                      </div>
+                      <div
                         key="Explore"
                         className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
                       >
@@ -300,6 +314,20 @@ export default function Nav() {
                         <div className="flex-auto">
                           <Link href="/tutors" className="block font-semibold text-gray-900">
                             Become A Tutor
+                            <span className="absolute inset-0" />
+                          </Link>
+                        </div>
+                      </div>
+                      <div
+                        key="listTutor"
+                        className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
+                      >
+                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                          <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                        </div>
+                        <div className="flex-auto">
+                          <Link href="/listTutor" className="block font-semibold text-gray-900">
+                          List of Tutors
                             <span className="absolute inset-0" />
                           </Link>
                         </div>
