@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap');
+
+
+.cardIntroContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 23px;
+    background: #FFF;
+    box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.25);
+    width: 550px;
+    height: 350px;
+    flex-shrink: 0;
+}
+
+.cardIntroBorder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 23px;
+    background: #93FDD3;
+    box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+.cardIntroTitle {
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 107.912%;
+}
+
+.cardIntroContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    flex-grow: 1;
+    /* Allow content to take up remaining space */
+}
+
+.cardIntroButton {
+    margin-bottom: 25px;
+    border-radius: 60px;
+    background: #000;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 80px 10px 80px;
+    flex-shrink: 0;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 25px;
+    font-style: normal;
+    line-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.cardTutorImage {
+    border-radius: 29px;
+    width: 200px;
+    height: 380px;
+    flex-shrink: 0;
+}
+
+.cardTutorContainer {
+    width: 800px;
+    height: 380px;
+    flex-shrink: 0;
+    border-radius: 29px;
+    background: #FFF;
+    box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.25);
+}
+
+.cardTutorButton {
+    border-radius: 60px;
+    background: #000;
+    width: 160px;
+    height: 45px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 108.412%;
+}
+
+.tutorName {
+    color: #222;
+    font-family: Belanosima;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.tutorMajorTag {
+    width: 174px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 19px;
+    background: #93FDD3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tutorMajorContent {
+    display: flex;
+    width: 144px;
+    height: 13px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 107.912%;
+    /* 12.949px */
+}
+
+.tutorRate {
+    color: #59AA8A;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.tutorComment {
+    color: #000;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.commentImage {
+    border-radius: 40.111px;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.commentName {
+    color: #222;
+    font-family: Belanosima;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.commentDate {
+    color: #222;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.commentRatingTypography {
+    color: #000;
+    font-family: Belanosima;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.commentRating {
+    color: #59AA8A;
+    font-family: Belanosima;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.commentContent {
+    color: #666;
+    font-family: Belanosima;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.status {
+    width: 200px;
+    height: 46.149px;
+    flex-shrink: 0;
+    border-radius: 60px;
+    background: #93FDD3;
+    color: #222;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 108.412%;
+    /* 26.019px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchLabel {
+    color: #222;
+    font-family: Belanosima;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 25px;
+}
+
+.inputSearch {
+    color: #979797;
+    font-family: Belanosima;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: #FFF;
+    box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.25);
+}
+
+.cardAdvertise {
+    width: 283px;
+    height: 500px;
+    flex-shrink: 0;
+    margin-bottom: 50%;
+}
+
+.buttonSeeMore {
+    width: 266.724px;
+    height: 46.149px;
+    flex-shrink: 0;
+    border-radius: 60px;
+    background: #000;
+    color: #FFF;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 108.412%;
+    /* 26.019px */
+}
