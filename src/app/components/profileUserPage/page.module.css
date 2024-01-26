@@ -1,0 +1,85 @@
+.coverImage {
+    border-radius: 194px;
+    width: 194px;
+    height: 194px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.button {
+    border-radius: 60px;
+    background: #93FDD3;
+    width: 129px;
+    height: 48px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.button:hover {
+    border-radius: 60px;
+    background: #06462ddf;
+    width: 129px;
+    height: 48px;
+    flex-shrink: 0;
+    color: #ffffff;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.typographyWelcome {
+    color: #222;
+    font-family: Belanosima;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.createGoalBar {
+    width: 100%;
+height: 61px;
+flex-shrink: 0;
+background: #93FDD3;
+display: flex;
+align-items: center;
+padding-left: 50px;
+margin-top: 40px;
+font-family: Belanosima;
+font-size: 16px;
+}
+
+.typographyTitle {
+    color: #222;
+    font-family: Belanosima;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.typography {
+    color: #8b8b8b;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.typographyInput {
+    color: #2c2c2c;
+    font-family: Belanosima;
+    font-size: 18px;
+    font-style: normal;
+    line-height: normal;
+}

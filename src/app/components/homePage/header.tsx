@@ -13,9 +13,9 @@ import {
 import { ChevronDownIcon, ChevronRightIcon, ChatBubbleLeftIcon, EnvelopeIcon, ArrowLeftEndOnRectangleIcon } from '@heroicons/react/20/solid'
 import { signIn, signOut, useSession } from 'next-auth/react';
 
-import Nav from './nav'
 import HeaderNoAuth from '../header/headerNoAuth';
 import Link from 'next/link';
+import Nav from './nav';
 
 
 

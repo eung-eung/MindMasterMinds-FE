@@ -1,7 +1,13 @@
+import ProfileUserPage from '@/app/components/profileUserPage/page'
 import React from 'react'
-
-export default function ProfileUserPage() {
+import { Metadata } from 'next'
+export const metadata: Metadata = {
+    title: 'Profile User'
+}
+export default function ProfileUser() {
     return (
-        <div>Profile user page</div>
+        <div>
+            <ProfileUserPage />
+        </div>
     )
 }

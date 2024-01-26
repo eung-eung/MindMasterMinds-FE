@@ -6,12 +6,17 @@ import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import classes from './page.module.css'
 import Footer from '../../components/footer/footer'
+import ClassModal from './classModal'
 
 export default function BecomeTutorPage() {
+    const [isDialogOpen, setDialogOpen] = React.useState<boolean>(false);
     const { data: session, status } = useSession()
     const [isLoading, setLoading] = React.useState<boolean>(true)
     console.log(session);
 
+    const handleButtonClick = () => {
+        setDialogOpen(true);
+      };
 
     React.useEffect(() => {
         if (status !== 'loading') setLoading(false)
@@ -49,7 +54,7 @@ export default function BecomeTutorPage() {
                             {/* Requirement List */}
                             <div className="px-2 w-full py-12 mx-auto">
                                 <div className="flex flex-wrap -m-2 ">
-                                    <div className={`${classes.card} container p-0 mb-16 w-full`}>
+                                    <div onClick={handleButtonClick} className={`${classes.card} container p-0 mb-16 w-full`}>
 
                                         <div className="h-full w-full">
                                             {/* First set of content */}
@@ -94,8 +99,9 @@ export default function BecomeTutorPage() {
                                             </div>
                                         </div>
                                     </div>
+                                    <ClassModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
 
-                                    <div className={`${classes.card} container p-0 mb-16 w-full`}>
+                                    <div onClick={handleButtonClick} className={`${classes.card} container p-0 mb-16 w-full`}>
                                         <div className="h-full w-full">
                                             {/* First set of content */}
                                             <div className="flex p-3 ">
@@ -139,7 +145,9 @@ export default function BecomeTutorPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className={`${classes.card} container p-0 mb-16 w-full`}>
+                                    <ClassModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
+
+                                    <div onClick={handleButtonClick} className={`${classes.card} container p-0 mb-16 w-full`}>
                                         <div className="h-full w-full">
                                             {/* First set of content */}
                                             <div className="flex p-3 ">
@@ -183,7 +191,9 @@ export default function BecomeTutorPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className={`${classes.card} container p-0 mb-16 w-full`}>
+                                    <ClassModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
+
+                                    <div onClick={handleButtonClick} className={`${classes.card} container p-0 mb-16 w-full`}>
                                         <div className="h-full w-full">
                                             {/* First set of content */}
                                             <div className="flex p-3 ">
@@ -227,7 +237,9 @@ export default function BecomeTutorPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className={`${classes.card} container p-0 mb-16 w-full`}>
+                                    <ClassModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
+
+                                    <div onClick={handleButtonClick} className={`${classes.card} container p-0 mb-16 w-full`}>
                                         <div className="h-full w-full">
                                             {/* First set of content */}
                                             <div className="flex p-3 ">
@@ -271,7 +283,9 @@ export default function BecomeTutorPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className={`${classes.card} container p-0 mb-16 w-full`}>
+                                    <ClassModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
+
+                                    <div onClick={handleButtonClick} className={`${classes.card} container p-0 mb-16 w-full`}>
                                         <div className="h-full w-full">
                                             {/* First set of content */}
                                             <div className="flex p-3 ">
@@ -315,7 +329,9 @@ export default function BecomeTutorPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className={`${classes.card} container p-0 mb-16 w-full`}>
+                                    <ClassModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
+
+                                    <div onClick={handleButtonClick} className={`${classes.card} container p-0 mb-16 w-full`}>
                                         <div className="h-full w-full">
                                             {/* First set of content */}
                                             <div className="flex p-3 ">
@@ -359,7 +375,9 @@ export default function BecomeTutorPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className={`${classes.card} container p-0 mb-16 w-full`}>
+                                    <ClassModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
+
+                                    <div onClick={handleButtonClick} className={`${classes.card} container p-0 mb-16 w-full`}>
                                         <div className="h-full w-full">
                                             {/* First set of content */}
                                             <div className="flex p-3 ">
@@ -403,6 +421,7 @@ export default function BecomeTutorPage() {
                                             </div>
                                         </div>
                                     </div>
+                                    <ClassModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
 
                                 </div>
                             </div>

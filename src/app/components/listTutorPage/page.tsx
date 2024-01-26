@@ -64,7 +64,7 @@ export default function ListTutorPage() {
                 <label htmlFor="searchTutor" className={classes.searchLabel}>
                   Tutors’ Portfolio
                 </label>
-                <div className={`${classes.inputSearch} block w-full rounded-md border-0 py-3 px-4 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 mt-4`}>
+                <div className={`${classes.inputSearch} block w-full rounded-md border-0 py-3 px-4 text-gray-600 shadow-sm ring-1 ring-inset ring-white placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6 mt-4`}>
                   <div className="flex items-center">
                     <button className="mr-4">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 text-gray-600">
