@@ -3,6 +3,7 @@ import classes from './post-item.module.css'
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import Link from 'next/link';
 export default function PostItem() {
     return (
         <div className={classes.post_item + ' w-full border'}>
@@ -38,10 +39,16 @@ export default function PostItem() {
                     <ThumbUpOutlinedIcon />
                     <span>Like</span>
                 </div>
+
                 <div className={classes.action_box}>
-                    <ChatBubbleOutlineOutlinedIcon />
-                    <span>Comment</span>
+                    <Link href='/explores/1'>
+                        <ChatBubbleOutlineOutlinedIcon />
+                        <span>Comment</span>
+
+                    </Link>
                 </div>
+
+
             </div>
         </div>
 
