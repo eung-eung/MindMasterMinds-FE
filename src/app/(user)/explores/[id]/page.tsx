@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import photos, { Photo } from '@/app/lib/photos'
+
 
 
 export default function PhotoPage({
@@ -7,7 +7,7 @@ export default function PhotoPage({
 }: {
   params: { id: string }
 }) {
-  const photo: Photo = photos.find(p => p.id === id)!
+
 
   return (
     <section className='py-24'>
