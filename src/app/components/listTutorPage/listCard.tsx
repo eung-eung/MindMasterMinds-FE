@@ -1,7 +1,16 @@
-import React from 'react'
+"use-client"
+import React, { useState } from 'react'
 import classes from './page.module.css'
+import TutorModal from './tutorModal';
 
 export default function ListCard() {
+  const [isDialogOpen, setDialogOpen] = useState(false);
+
+  const handleButtonClick = () => {
+    setDialogOpen(true);
+  };
+
+
   return (
     <div>
       <section className="text-gray-600 body-font">
@@ -24,8 +33,10 @@ export default function ListCard() {
                     <h2 className={`${classes.tutorName} w-full`}>Adrian Bui</h2>
                   </div>
                   <div className="sm:col-span-3">
-                    <button className={classes.cardTutorButton}>See Details</button>
+                    <button className={classes.cardTutorButton}  onClick={handleButtonClick}>See Details</button>
                   </div>
+
+                  <TutorModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
 
                   <div className="sm:col-span-4 ">
                     <div className={classes.tutorMajorTag}>
@@ -84,8 +95,9 @@ export default function ListCard() {
                     <h2 className={`${classes.tutorName} w-full`}>Adrian Bui</h2>
                   </div>
                   <div className="sm:col-span-3">
-                    <button className={classes.cardTutorButton}>See Details</button>
+                    <button className={classes.cardTutorButton} onClick={handleButtonClick}>See Details</button>
                   </div>
+                  <TutorModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
 
                   <div className="sm:col-span-4 ">
                     <div className={classes.tutorMajorTag}>
@@ -144,8 +156,10 @@ export default function ListCard() {
                     <h2 className={`${classes.tutorName} w-full`}>Adrian Bui</h2>
                   </div>
                   <div className="sm:col-span-3">
-                    <button className={classes.cardTutorButton}>See Details</button>
+                    <button className={classes.cardTutorButton} onClick={handleButtonClick}>See Details</button>
                   </div>
+
+                  <TutorModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
 
                   <div className="sm:col-span-4 ">
                     <div className={classes.tutorMajorTag}>
@@ -204,8 +218,10 @@ export default function ListCard() {
                     <h2 className={`${classes.tutorName} w-full`}>Adrian Bui</h2>
                   </div>
                   <div className="sm:col-span-3">
-                    <button className={classes.cardTutorButton}>See Details</button>
+                    <button className={classes.cardTutorButton} onClick={handleButtonClick}>See Details</button>
                   </div>
+
+                  <TutorModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
 
                   <div className="sm:col-span-4 ">
                     <div className={classes.tutorMajorTag}>
@@ -264,9 +280,11 @@ export default function ListCard() {
                     <h2 className={`${classes.tutorName} w-full`}>Adrian Bui</h2>
                   </div>
                   <div className="sm:col-span-3">
-                    <button className={classes.cardTutorButton}>See Details</button>
+                    <button className={classes.cardTutorButton} onClick={handleButtonClick}>See Details</button>
                   </div>
 
+                  <TutorModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
+      
                   <div className="sm:col-span-4 ">
                     <div className={classes.tutorMajorTag}>
                       <p className={classes.tutorMajorContent}>
@@ -324,8 +342,10 @@ export default function ListCard() {
                     <h2 className={`${classes.tutorName} w-full`}>Adrian Bui</h2>
                   </div>
                   <div className="sm:col-span-3">
-                    <button className={classes.cardTutorButton}>See Details</button>
+                    <button className={classes.cardTutorButton} onClick={handleButtonClick}>See Details</button>
                   </div>
+
+                  <TutorModal isOpen={isDialogOpen} onClose={() => setDialogOpen(false)} />
 
                   <div className="sm:col-span-4 ">
                     <div className={classes.tutorMajorTag}>

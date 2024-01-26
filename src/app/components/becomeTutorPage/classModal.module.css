@@ -1,0 +1,41 @@
+.button {
+    border-radius: 60px;
+    background: #93FDD3;
+    width: 129px;
+    height: 48px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.button:hover {
+    border-radius: 60px;
+    background: #06462ddf;
+    width: 129px;
+    height: 48px;
+    flex-shrink: 0;
+    color: #ffffff;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.typographyTitle {
+    color: #222;
+    font-family: Belanosima;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+

@@ -6,7 +6,6 @@ import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import classes from './page.module.css'
 import Footer from '../../components/footer/footer'
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 export default function FindTutorPage() {
     const { data: session, status } = useSession()
