@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import classes from '../loginPage/sign-in-form.module.css'
+import classesSignUp from './sign-up-form.module.css'
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import Link from 'next/link';
 export default function SignUpForm() {
@@ -50,13 +51,35 @@ export default function SignUpForm() {
                             placeholder='Email' />
                     </div>
 
-                    <div className='flex flex-col justify-center'>
-                        <label htmlFor='password' className='text-left mb-3 font-medium	'>Password</label>
+                    <div className='flex flex-col justify-center mb-6'>
+                        <label htmlFor='password' className='text-left mb-3 font-medium'>Password</label>
                         <input
                             // ref={passwordInput}
                             type='password' id='password'
                             className={classes.form_input}
                             placeholder='Password' />
+                    </div>
+                    <div className='flex flex-col justify-center mb-6'>
+                        <label htmlFor='c-password' className='text-left mb-3 font-medium'>Confirm Password</label>
+                        <input
+                            // ref={passwordInput}
+                            type='password' id='c-password'
+                            className={classes.form_input}
+                            placeholder='Confirm Password' />
+                    </div>
+                    <div className='flex flex-col justify-center mb-6'>
+                        <label htmlFor='otp' className='text-left mb-3 font-medium'>OTP</label>
+                        <div className='flex '>
+                            <input
+                                // ref={passwordInput}
+                                type='text' id='otp'
+                                className={classes.form_input}
+                                style={{ flex: 3, }}
+                                placeholder='OTP' />
+                            <button
+                                style={{ borderColor: '#93FDD3' }}
+                                className={classes.form_input + ' ml-5'}>Send OTP</button>
+                        </div>
                     </div>
                     <button className={classes.submit_btn}><PersonAddAltOutlinedIcon className='mr-4' /> Register</button>
                 </form>
