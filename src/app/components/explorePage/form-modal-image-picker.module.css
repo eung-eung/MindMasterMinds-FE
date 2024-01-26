@@ -1,0 +1,24 @@
+.input {
+    display: none;
+}
+
+.post_action {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #dddddd;
+    padding: 10px;
+    width: 100%;
+}
+
+.placeholder {
+    color: #9c9c9c;
+
+}
+
+.picked_image {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
