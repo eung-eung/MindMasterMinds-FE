@@ -41,16 +41,34 @@ export default NextAuth({
     ],
     secret: process.env.JWT_SECRET,
     callbacks: {
-        // async signIn({ user, account, profile, email, credentials }) {
-        //     console.log(user, account, profile, email, credentials);
-        //     const isAllowed = false
-        //     if (isAllowed) {
-        //         return '/'
-        //     }
-        //     return true
-        // },
+        async signIn({ user, account, profile, email, credentials }) {
+            console.log('user: ', user);
+            console.log('account: ', account);
+            console.log('email: ', email);
+
+            const isAllowed = false
+            // fetch(`https://mindmastermindsapi.azurewebsites.net/api/user/send-OTP-email`, {
+            //     method: 'POST',
+            //     headers: { 'content-type': 'application/json' },
+            //     body: JSON.stringify(
+            //         user.email
+            //     )
+            // })
+            //     .then(res => {
+            //         return res.json()
+            //     })
+            //     .then(data =>
+            //         console.log('data: ', data)
+
+            //     )
+            console.log(user, account, profile, email, credentials);
+            // if (!isAllowed) {
+            //     return '/'
+            // }
+            return true
+        },
         async session({ session, user, token }) {
-            console.log(session)
+            // console.log(session)
             return session
         },
         async jwt({ token, user, account, profile, isNewUser }) {
