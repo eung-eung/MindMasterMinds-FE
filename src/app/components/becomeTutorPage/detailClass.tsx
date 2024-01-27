@@ -1,6 +1,8 @@
 import classes from './detailClass.module.css'
-
-export default function DetailClass() {
+interface DetailClassProps {
+    classId?: number;
+  }
+export default function DetailClass({ classId }: DetailClassProps) {
     return (
         <div>
         

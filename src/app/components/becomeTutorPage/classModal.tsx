@@ -7,9 +7,10 @@ import classes from './classModal.module.css'
 interface DialogComponentProps {
     isOpen: boolean;
     onClose: () => void;
+    classId?: number;
   }
 
-  const ClassModal: React.FC<DialogComponentProps> = ({ isOpen, onClose }) => {
+  const ClassModal: React.FC<DialogComponentProps> = ({ isOpen, onClose, classId }) => {
   const cancelButtonRef = useRef(null);
 
   return (
@@ -25,7 +26,7 @@ interface DialogComponentProps {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-15 transition-opacity" />
+          <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-35 transition-opacity" />
 
         </Transition.Child>
 
@@ -53,7 +54,7 @@ interface DialogComponentProps {
                       </Dialog.Title>
                       <div className="mt-2">
                    
-                         <DetailClass/>
+                      <DetailClass classId={classId} />
                       </div>
                      
                     </div>
