@@ -9,7 +9,7 @@
 .button {
     border-radius: 60px;
     background: #93FDD3;
-    width: 129px;
+    width: 150px;
     height: 48px;
     flex-shrink: 0;
     color: #000;
@@ -24,7 +24,7 @@
 .button:hover {
     border-radius: 60px;
     background: #06462ddf;
-    width: 129px;
+    width: 150px;
     height: 48px;
     flex-shrink: 0;
     color: #ffffff;
@@ -35,6 +35,8 @@
     font-weight: 400;
     line-height: normal;
 }
+
+
 
 .typographyWelcome {
     color: #222;
