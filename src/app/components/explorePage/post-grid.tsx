@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function PostGrid() {
     return (
-        <div className='container mx-auto flex flex-col	items-center  pb-20 mb-4 xl:w-2/4 sm:w-full'>
+        <div className='container mx-auto  pb-20 mb-4 xl:w-2/5 sm:w-full'>
             {/* <Link href='/explores/1' > */}
             <PostItem />
             {/* </Link> */}
