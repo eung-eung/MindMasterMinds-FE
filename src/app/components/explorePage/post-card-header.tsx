@@ -11,7 +11,7 @@ export default function PostCardHeader() {
 
     return (
         <div className='relative'>
-            <h2 className={classes.title}>This is 39saku_chan's post</h2>
+            <h2 className={classes.title}>This is Linda's post</h2>
             <CancelIcon className={classes.close_post} onClick={handleClose} />
         </div>
     )
