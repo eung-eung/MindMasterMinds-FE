@@ -8,7 +8,7 @@ export default function FormPostBlog() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     return (
-        <div className={classes.white_background + ' container mx-auto flex  items-center pt-10 pb-10 mb-4 xl:w-2/4 sm:w-full border'}>
+        <div className={classes.white_background + ' container mx-auto flex  items-center pt-10 pb-10 mb-4 xl:w-2/5 sm:w-full border'}>
             <div className={classes.image_wrapper}>
                 <img className={classes.avatar} src='/images/icon.jpg' />
             </div>
