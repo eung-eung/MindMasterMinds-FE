@@ -80,4 +80,12 @@
 
 .subaction_box {
     color: #6b6b6b;
+    display: flex;
+    align-items: center;
+}
+
+.subaction_box img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
