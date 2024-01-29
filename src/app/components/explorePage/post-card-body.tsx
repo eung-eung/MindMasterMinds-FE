@@ -8,34 +8,19 @@ export default function PostCardBody() {
         <div className={classes.body}>
             <div className={classes.header}>
                 <div className={classes.post_user}>
-                    <img src='/images/nhan-sac-go-yoon-jung-03.jpg' className='object-cover' />
+                    <img src='/images/linda.jpg' className='object-cover' />
                     <div className={classes.right_post_user}>
-                        <p className={classes.right_post_username}>39saku_chan</p>
-                        <p className={classes.right_post_user_create}>27/11/2024</p>
+                        <p className={classes.right_post_username}>Linda</p>
+                        <p className={classes.right_post_user_create}>17/1/2024</p>
                     </div>
                 </div>
 
                 <div className={classes.post_content}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Numquam possimus ab earum. Sed ullam, possimus nihil d
-                    istinctio fugiat, voluptatibus voluptatem laborum imped
-                    it minus voluptates consequuntur animi aspernatur recusandae nesciunt aperiam.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Numquam possimus ab earum. Sed ullam, possimus nihil d
-                    istinctio fugiat, voluptatibus voluptatem laborum imped
-                    it minus voluptates consequuntur animi aspernatur recusandae nesciunt aperiam.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Numquam possimus ab earum. Sed ullam, possimus nihil d
-                    istinctio fugiat, voluptatibus voluptatem laborum imped
-                    it minus voluptates consequuntur animi aspernatur recusandae nesciunt aperiam.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Numquam possimus ab earum. Sed ullam, possimus nihil d
-                    istinctio fugiat, voluptatibus voluptatem laborum imped
-                    it minus voluptates consequuntur animi aspernatur recusandae nesciunt aperiam.
+                    Pachapupa, woa, Kim chi đỏ auuuu, thơm phức í haaaaaa
                 </div>
                 <Image
                     alt=''
-                    src='/images/nhan-sac-go-yoon-jung-03.jpg'
+                    src='https://i.pinimg.com/564x/01/2b/0b/012b0bc2e871fc073c8dbf8008bdf20e.jpg'
                     height={600}
                     width={600}
                     style={{ background: 'antiquewhite' }}
