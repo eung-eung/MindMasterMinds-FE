@@ -20,7 +20,10 @@ export default function PostCardInputComment() {
     return (
         <>
             <div className={classes.box}>
-                <img className={classes.avatar} src='/images/nhan-sac-go-yoon-jung-03.jpg' />
+                <div>
+                    <img className={classes.avatar} src='/images/nhan-sac-go-yoon-jung-03.jpg' />
+                </div>
+
                 <div
                     className={classes.content}
                     content="Write comment..."
