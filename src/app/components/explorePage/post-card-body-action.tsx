@@ -2,8 +2,7 @@ import React from 'react'
 import classes from './post-card-body-action.module.css'
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import Link from 'next/link';
+
 export default function PostCardBodyAction() {
     return (
         <div>

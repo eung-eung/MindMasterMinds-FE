@@ -17,7 +17,8 @@
     display: flex;
     justify-content: space-around;
     padding: 5px;
-    border: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
 
 }
 
