@@ -1,6 +1,10 @@
+import PostItemById from '@/app/components/explorePage/post-item-by-id'
+import { Metadata } from 'next'
 import Link from 'next/link'
 
-
+export const metadata: Metadata = {
+  title: 'MindMasterMinds'
+}
 
 export default function PhotoPage({
   params: { id }
@@ -10,20 +14,9 @@ export default function PhotoPage({
 
 
   return (
-    <section className='py-24'>
-      <div className='container'>
-        <div>
-          <Link
-            href='/explores'
-            className='font-semibold italic text-sky-600 underline'
-          >
-            Back to explores
-          </Link>
-        </div>
-
-        <div className='mt-10 w-1/3'>
-
-        </div>
+    <section>
+      <div>
+        <PostItemById />
       </div>
     </section>
   )
