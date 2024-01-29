@@ -3,8 +3,8 @@ import classes from './form-modal-image-picker.module.css'
 import PermMediaOutlinedIcon from '@mui/icons-material/PermMediaOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 export default function FormModalImagePicker() {
-    const [pickedImage, setPickedImage] = React.useState(null)
-    const imagePicker = React.useRef<HTMLInputElement>()
+    const [pickedImage, setPickedImage] = React.useState(String)
+    const imagePicker = React.useRef<HTMLInputElement>(null)
     console.log('src: ', pickedImage)
     const handlePickClick = () => {
         if (imagePicker.current) {
@@ -12,21 +12,30 @@ export default function FormModalImagePicker() {
         }
 
     }
-    const handleImageChange = event => {
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!event.target.files) {
+            return
+        }
         const file = event.target.files[0]
         if (!file) {
-            setPickedImage(null)
+            setPickedImage('')
             return
         }
         const fileReader = new FileReader()
+
         fileReader.onload = () => {
-            setPickedImage(fileReader.result)
+            if (!fileReader.result) {
+                return
+            }
+            setPickedImage(fileReader.result.toString())
         }
+
+
         fileReader.readAsDataURL(file)
     }
 
     const handleImageRemove = () => {
-        setPickedImage(s => null)
+        setPickedImage('')
     }
     return (
         <>
