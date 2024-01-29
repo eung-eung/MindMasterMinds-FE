@@ -1,0 +1,36 @@
+.action_box {
+    display: flex;
+}
+
+.amount_react {
+    color: #888888;
+    font-size: 13px;
+}
+
+.icon_react {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.action {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    border: 1px solid #dddddd;
+
+}
+
+.action_box {
+    flex: 1;
+    justify-content: center;
+    padding: 5px;
+    cursor: pointer;
+    color: #989898;
+    border-radius: 10px;
+}
+
+.action_box:hover {
+    background: #F2F3F5;
+
+}
