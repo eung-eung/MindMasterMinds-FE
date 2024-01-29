@@ -1,8 +1,10 @@
+
 import Modal from '@/app/components/explorePage/modal'
+import PostCard from '@/app/components/explorePage/post-card'
 
 
 
-export default function PhotoModal({
+export default function ExploreModal({
   params: { id }
 }: {
   params: { id: string }
@@ -12,7 +14,7 @@ export default function PhotoModal({
   return (
     <Modal>
       {/* <PhotoCard photo={photo} /> */}
-      asdasd
+      <PostCard />
     </Modal>
   )
 }
