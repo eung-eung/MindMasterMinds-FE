@@ -1,0 +1,16 @@
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 0.5px solid #dddddd;
+
+}
+
+.close_post {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    cursor: pointer;
+    font-size: 30px !important;
+}
