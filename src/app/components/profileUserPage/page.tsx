@@ -8,6 +8,7 @@ import classNamees from './page.module.css'
 import Footer from '../../components/footer/footer'
 import { PaperClipIcon } from '@heroicons/react/24/outline'
 import classes from './page.module.css'
+import Link from 'next/link'
 
 export default function ProfileUserPage() {
     const [fullName, setFullName] = React.useState('');
@@ -56,7 +57,7 @@ export default function ProfileUserPage() {
         <div>
             {isLoading ? <LoadingTheme /> :
                 <>
-                    <Header title='Find A Tutor' isHome={false} />
+                    <Header title='Profile User' isHome={false} />
 
                     {/* Profile information */}
                     <section className="text-gray-600 body-font">
@@ -166,6 +167,14 @@ export default function ProfileUserPage() {
                         <button type="submit" onClick={handleSubmit} className={`${classes.button} rounded-md px-3 py-2`}>
                             Save
                         </button>
+                        <Link href="/historyOrder">
+                        <button type="submit" className={`${classes.button} rounded-md px-3 py-2`}>
+                            History Order
+                        </button>
+                        </Link>
+                    </div>
+                    <div className="mt-6 flex items-center justify-start gap-x-6">
+                       
                     </div>
                 </div>
             </div>
