@@ -1,0 +1,12 @@
+.right {
+    flex: 1;
+    background: #fff;
+}
+
+.scroll_part {
+    padding-left: 10px;
+    max-height: 90vh;
+    overflow-y: scroll;
+}
+
+.box_grid {}
