@@ -4,25 +4,26 @@ import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import Link from 'next/link';
-export default function PostItem() {
+export default function PostItem({ name, content, imageUrl, avatar }
+    : { name: string, content: string, imageUrl: string, avatar: string }) {
     return (
         <div className={classes.post_item + ' w-full border'}>
             <div className={classes.header}>
                 <div className={classes.header_left}>
-                    <img className={classes.avatar_post_item} src='https://i.pinimg.com/236x/3c/97/67/3c9767924858fc128cd2c8945ff28fa6.jpg' />
+                    <img className={classes.avatar_post_item}
+                        src={avatar} />
                 </div>
                 <div className={classes.header_right}>
-                    <p className={classes.writer_post_item}>39saku_chan</p>
+                    <p className={classes.writer_post_item}>{name}</p>
                     <span className={classes.date_post_item}>17/1/2024</span>
                 </div>
             </div>
             <div className={classes.body}>
                 <div className={classes.body_content}>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem omnis dicta, aperiam ipsam facilis
-                    soluta molestiae, sequi culpa quod minima hic assumenda quia. Iure maxime quae id facere ipsa sunt.
+                    {content}
                 </div>
                 <div className={classes.image_body}>
-                    <img src='https://i.pinimg.com/564x/01/2b/0b/012b0bc2e871fc073c8dbf8008bdf20e.jpg' />
+                    <img src={imageUrl} />
                 </div>
             </div>
             <div className={classes.sub_action}>
@@ -41,7 +42,7 @@ export default function PostItem() {
                 </div>
 
                 <div className={classes.action_box}>
-                    <Link href='/explores/1'>
+                    <Link href='/explores/1' style={{ display: 'block', width: '100%', textAlign: 'center' }}>
                         <ChatBubbleOutlineOutlinedIcon />
                         <span>Comment</span>
 

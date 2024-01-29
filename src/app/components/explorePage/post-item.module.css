@@ -1,6 +1,8 @@
 .avatar_post_item {
-    width: 50px;
+    width: 55px;
     border-radius: 50%;
+    height: 55px;
+    object-fit: cover;
 }
 
 .writer_post_item {
