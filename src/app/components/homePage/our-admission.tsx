@@ -11,7 +11,7 @@ export default function Admission() {
               Your Premier Choice for Academic Success
             </h1>
             <p className={`${classes.p} lg:w-1/2 w-ful;`}>
-              Where You'll Find the Exclusive Three Outstanding Features
+              Where Youll Find the Exclusive Three Outstanding Features
             </p>
           </div>
           <section className="text-gray-600 body-font">

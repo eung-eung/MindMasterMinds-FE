@@ -48,7 +48,7 @@ export default function FindTutorPage() {
                                                     autoComplete="summary"
                                                     className="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                     placeholder="Example: Looking for a tutor to teach MKT304, 3rd semester, for final exam purposes."
-                                                    style= {{fontFamily: 'Belanosima', fontSize: '16px'}} 
+                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
                                                 />
                                             </div>
                                         </div>
@@ -65,7 +65,7 @@ export default function FindTutorPage() {
                                                     autoComplete="Major"
                                                     className="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                     placeholder="Example: International Business"
-                                                    style= {{fontFamily: 'Belanosima', fontSize: '16px'}} 
+                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
                                                 />
                                             </div>
                                         </div>
@@ -82,7 +82,7 @@ export default function FindTutorPage() {
                                                     autoComplete="Subject"
                                                     className="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                     placeholder="Example: MKT304"
-                                                    style= {{fontFamily: 'Belanosima', fontSize: '16px'}} 
+                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
                                                 />
                                             </div>
                                         </div>
@@ -99,7 +99,7 @@ export default function FindTutorPage() {
                                                     autoComplete="Student Code"
                                                     className="block w-full rounded-md border-0 py-3 px-4 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                     placeholder="Example: SS170000"
-                                                    style= {{fontFamily: 'Belanosima', fontSize: '16px'}} 
+                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
                                                 />
                                             </div>
                                         </div>
@@ -116,7 +116,7 @@ export default function FindTutorPage() {
                                                     autoComplete="Estimated"
                                                     className="block w-full rounded-md border-0 py-3 px-4 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                     placeholder="Example: 300.000"
-                                                    style= {{fontFamily: 'Belanosima', fontSize: '16px'}} 
+                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
                                                 />
                                             </div>
                                         </div>
@@ -130,7 +130,7 @@ export default function FindTutorPage() {
                                                         name="normal"
                                                         type="radio"
                                                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                                                        
+
                                                     />
                                                     <label htmlFor="normal" className={classes.typography}>
                                                         Normal
@@ -164,7 +164,7 @@ export default function FindTutorPage() {
                                                     autoComplete="Phone"
                                                     className="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                     placeholder="Example: 0912345678"
-                                                    style= {{fontFamily: 'Belanosima', fontSize: '16px'}} 
+                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
                                                 />
                                             </div>
                                         </div>
@@ -183,7 +183,7 @@ export default function FindTutorPage() {
                                                     className="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                     defaultValue={''}
                                                     placeholder="Describe in detail the content you want to learn here..."
-                                                    style= {{fontFamily: 'Belanosima', fontSize: '16px'}} 
+                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
                                                 />
                                             </div>
                                         </div>
@@ -197,7 +197,7 @@ export default function FindTutorPage() {
                                                         name="1Session"
                                                         type="radio"
                                                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                                                        style= {{fontFamily: 'Belanosima', fontSize: '16px'}} 
+                                                        style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
                                                     />
                                                     <label htmlFor="1Session" className={classes.typography}>
                                                         <span className="mr-2">1</span><span>Session</span>
@@ -255,7 +255,7 @@ export default function FindTutorPage() {
                                                     autoComplete="Student Code"
                                                     className="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                     placeholder="Example: 01/01/2024"
-                                                    style= {{fontFamily: 'Belanosima', fontSize: '16px'}} 
+                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
                                                 />
                                             </div>
                                         </div>
@@ -277,20 +277,20 @@ export default function FindTutorPage() {
 
 
                                 <fieldset>
-                                    
-                                        <div className="relative flex gap-x-3">
-                                            <div className="flex h-6 items-center">
-                                                <input
-                                                    id="commit"
-                                                    name="commit"
-                                                    type="checkbox"
-                                                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                                                />
-                                            </div>
-                                            <div className={classes.typography}>
-                                                <p className="text-gray-500">I commit that the class creation information is true and accept MindMasterminds' regulation</p>
-                                            </div>
-                                        
+
+                                    <div className="relative flex gap-x-3">
+                                        <div className="flex h-6 items-center">
+                                            <input
+                                                id="commit"
+                                                name="commit"
+                                                type="checkbox"
+                                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                            />
+                                        </div>
+                                        <div className={classes.typography}>
+                                            <p className="text-gray-500">I commit that the class creation information is true and accept MindMasterminds regulation</p>
+                                        </div>
+
                                     </div>
                                 </fieldset>
                             </div>

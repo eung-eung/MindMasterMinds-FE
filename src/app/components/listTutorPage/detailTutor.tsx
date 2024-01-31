@@ -9,7 +9,7 @@ export default function DetailTutor() {
                 <img className="lg:w-3/6 md:w-3/6 mb-10 object-fill object-center rounded" style={{ width: "350px", height: "450px" }} alt="hero" src="https://s3-alpha-sig.figma.com/img/6181/1ae8/89b0660d6dd91bdedba586139a98a0fe?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Cpole3t8w0X8hD0gFj1jlfCH53VsmP8Jr5YSD0GT1N4Zj3QT7YPQThO3UtnCZtIJz00mgRApSBkQ83N43JiIRPU9B2tqs6b~pKRFjskljdfKcD-W1t8KOMWqstIRogHfC-3aEhEgT~vAdqU0AnruqX26Xdf8EMAOC22oJ3-qNqmwjlDis4EarC20MjQVzXszmnjAHFtI0n6WxW-IMCFFFqRo1vhDu~iW0OoQOnH5b7wT-IhT71oUgMjFP2b~tpf-QOA3F-R~~WBkEogi8~0FB5Imf5qGAjDsEUeqY9jI9lmCK6MIehsRjDfxEvdGSFM5U1bMdl5YroRoMDqMl7ps2A__" />
                 <div className="text-left lg:w-3/4 w-full">
                     <div className="text-align px-2 sm:px-0 flex items-center justify-center">
-                        <h3 className={classes.typographyIntro}>Tutor's Information</h3>
+                        <h3 className={classes.typographyIntro}>Tutor Information</h3>
                     </div>
 
                     <div className="mt-6 border-t border-gray-100">

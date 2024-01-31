@@ -13,7 +13,7 @@ export default function Article() {
 
             <div className="lg:w-1/3 w-full leading-relaxed">
               <p className={classes.p}>
-                Exclusive articles and the latest knowledge from all students' experiences across the country.
+                Exclusive articles and the latest knowledge from all students experiences across the country.
               </p>
 
               <button className={`${classes.button} flex mx-auto mt-6 text-white py-2 px-8 mr-0`}>
@@ -45,7 +45,7 @@ export default function Article() {
                     <img className={`${classes.image} lg:h-48 md:h-36 w-full object-cover object-center`} src="https://s3-alpha-sig.figma.com/img/9047/6ccc/06c02ee23bec1abfaf36be41c910821c?Expires=1706486400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p0xXakSO5fC2a5VzmRczUHjY2YiI2Euqj~59dSprbFmp~vJdMOLkSH6jR3a9mLbahYbYOW7TV68dMHRib8NETYKM~e54bTDU0FNsBO6LHfEl5U4gEBEcTLIDPDUKxNwigm-BB-5A9I3p9hoECsKBzqzaLfYas9dijgqRIGyGfy8ZtiMHPWX25lUkbVrwQMpI2owR1Y3lkf4NVoOiobDM4qAfFP8dafTOl078f0HacAJItZfMRXz0v4uY5tYEdBvWQTGGdPPCDdUCl0VtJGwccCAFMx8J11KnW5Hku4MU5xIOWfWhE1z4x~Q-fPJ3R9ZslMTwVZsGGAoKNST3iF3f2A__" alt="article" />
                     <div className="p-6">
                       <h2 className={classes.date}>12 Dec 2023</h2>
-                      <h1 className={classes.cardTitle}>Tips so you don't get lazy when studying Philosophy subjects</h1>
+                      <h1 className={classes.cardTitle}>Tips so you dont get lazy when studying Philosophy subjects</h1>
                       <p className={classes.cardContent}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                       <div className="flex items-center flex-wrap ">
                         <button className={`${classes.cardButton} flex mx-auto mt-6 text-white py-2 px-8 ml-0`}>
