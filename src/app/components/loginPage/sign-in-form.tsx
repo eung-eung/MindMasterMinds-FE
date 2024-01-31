@@ -1,23 +1,68 @@
 'use client'
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import React from 'react'
 import classes from './sign-in-form.module.css'
-import GoogleIcon from '@mui/icons-material/Google';
 import LoginIcon from '@mui/icons-material/Login';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function SignInForm() {
+    const router = useRouter()
+    const { data: session } = useSession()
     const emailInput = React.useRef<any>()
     const passwordInput = React.useRef<any>()
+    const toastId = React.useRef<any>()
+
+
     async function handleForm(event: React.FormEvent) {
         event.preventDefault()
-        const res = await signIn('credentials', {
-            username: emailInput.current,
-            password: passwordInput.current,
-            callbackUrl: '/'
+        if (!emailInput.current.value || !passwordInput.current.value) return
 
+        toastId.current = toast.loading("Loading...")
+        const res = await signIn('credentials', {
+            redirect: false,
+            username: emailInput.current.value,
+            password: passwordInput.current.value,
+            callbackUrl: '/'
         });
-        console.log(res);
+        console.log('response: ', res);
+        if (!res || !res.url) {
+            toast.update(toastId.current, {
+                render: "Login failed",
+                type: "error",
+                isLoading: false,
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            })
+            return
+        }
+        else if (res.ok) {
+            toast.update(toastId.current, {
+                render: "Login successful, Redirecting...",
+                type: "success",
+                isLoading: false,
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            })
+            router.replace(res?.url)
+
+        }
 
     }
     return (
@@ -32,10 +77,20 @@ export default function SignInForm() {
    
     '
         >
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+
+            />
             <div className={' w-full flex flex-col items-center p-10'}>
-                {/* <p className={classes.light_grey + ' mb-14 text-xl font-bold w-8/12'}>
-                    Register for free to get the best study resources
-                </p> */}
                 <form className='mb-14 xl:w-6/12 lg:w-2/4' onSubmit={handleForm}>
                     <div className='flex flex-col justify-left mb-6'>
                         <label htmlFor='username' className='text-left mb-3 font-medium	'>Username or email</label>
@@ -53,7 +108,7 @@ export default function SignInForm() {
                             className={classes.form_input}
                             placeholder='Password' />
                     </div>
-                    <button className={classes.submit_btn}>
+                    <button type='submit' className={classes.submit_btn}>
                         <LoginIcon className='mr-4' /> Sign In
                     </button>
                 </form>
@@ -71,7 +126,7 @@ export default function SignInForm() {
 
                 </div>
                 {/* sign up */}
-                <Link href='/register' className={classes.light_grey + ' mt-10'}>Don't have an account? Get started for free</Link>
+                <Link href='/register' className={classes.light_grey + ' mt-10'}>Dont have an account? Get started for free</Link>
             </div>
         </div>
     )
