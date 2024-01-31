@@ -19,7 +19,9 @@ import Link from 'next/link';
 
 export default function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
+  const handleLogOut = async () => {
+    const data = await signOut({ redirect: false, callbackUrl: "/" })
+  }
   return (
     <div>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -214,7 +216,7 @@ export default function Nav() {
                         <ArrowLeftEndOnRectangleIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                       </div>
                       <div className="flex-auto">
-                        <p className="block font-semibold text-gray-900" onClick={() => signOut()}>
+                        <p className="block font-semibold text-gray-900" onClick={handleLogOut}>
                           Log Out
                           <span className="absolute inset-0" />
                         </p>
