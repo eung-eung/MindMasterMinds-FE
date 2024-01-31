@@ -49,13 +49,29 @@
 }
 
 
-
-.typographyTitle {
-    color: #222;
+.typographyIntro {
+    color: #282828;
     font-family: Belanosima;
-    font-size: 30px;
+    font-size: 24px;
     font-style: normal;
-    font-weight: 400;
     line-height: normal;
 }
+
+.typographyTitle {
+    color: #8b8b8b;
+    font-family: Belanosima;
+    font-size: 22px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.typography {
+    color: #222;
+    font-family: Belanosima;
+    font-size: 18px;
+    font-style: normal;
+    line-height: normal;
+}
+
+
 

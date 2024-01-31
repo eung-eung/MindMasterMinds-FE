@@ -1,0 +1,49 @@
+.title {
+    color: #222;
+font-family: Belanosima;
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-bottom: 80px;
+}
+
+.subject {
+    color: #222;
+font-family: Belanosima;
+font-size: 26px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.titleItem {
+    color: #000000;
+font-family: Belanosima;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.contentItem {
+    color: #686868;
+font-family: Belanosima;
+font-size: 20px;
+font-style: normal;
+line-height: normal;
+}
+
+.link {
+    color: #59AA8A;
+font-family: Belanosima;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.paginationBackground:focus {
+    color: #59AA8A;
+    color: white;
+}

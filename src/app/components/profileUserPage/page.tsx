@@ -168,7 +168,7 @@ export default function ProfileUserPage() {
                             Save
                         </button>
                         <Link href="/historyOrder">
-                        <button type="submit" className={`${classes.button} rounded-md px-3 py-2`}>
+                        <button type="button" className={`${classes.button} rounded-md px-3 py-2`}>
                             History Order
                         </button>
                         </Link>
