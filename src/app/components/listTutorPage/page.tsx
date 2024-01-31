@@ -67,8 +67,8 @@ export default function ListTutorPage() {
                 <div className={`${classes.inputSearch} block w-full rounded-md border-0 py-3 px-4 text-gray-600 shadow-sm ring-1 ring-inset ring-white placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6 mt-4`}>
                   <div className="flex items-center">
                     <button className="mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 text-gray-600">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-gray-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                       </svg>
                     </button>
                     <input
@@ -83,11 +83,12 @@ export default function ListTutorPage() {
 
 
               </div>
+              
             </div>
 
             {/* Card Tutor List */}
             <div className={` mt-0 py-2 flex flex-wrap md:flex-nowrap`}>
-              <div className="container py-0 mx-auto flex items-center md:flex-row flex-col">
+              <div className="container py-0 mx-auto flex items-start md:flex-row flex-col">
                 <div className="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0 mb-16 w-full md:w-auto md:text-left text-center">
                   <ListCard />
                 </div>

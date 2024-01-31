@@ -65,7 +65,7 @@ const Header: React.FC<HeaderProps> = ({ title, titleDetail, height, isHome }) =
                     </div>
                     <div className="lg:w-1/4 md:w-1/2 p-6 w-full hidden md:block">
                       <div className={`${classes.card} p-6 flex flex-col items-center justify-center text-center`}>
-                        <img className={classes.cardImage} src="https://s3-alpha-sig.figma.com/img/fbd0/c642/71da4f09ca896e95e08896b21b901035?Expires=1706486400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=CRK~QkddrkuW5MZ3bEAy4pumcW3CLQIuaH7FtWGPoFaAn2WkyEWTdGparP9Hm6a64RMBJfj~3LBaoPNtbJ8gthahZMBo-DKvcpoq2umKO~z4fKx67h-WHKZRFJm6LdfcgI23~HCQfmAQguNF2OC7DIp3UG5jR7R70Kgk1qJRbZEklB1zkkW9AF5p-nlmsQHJjlfDBhme4rUHDWktKgyb6wyi4h-6FC5yOZgzsMCCoWzWHrlqXlPcN~ITehDGX~UE4~jVedShwhXx24eAeBAjHd0DPvJJfo4W5~F7RjnqjbZqfuGDBhXrcelroV1lt0n3BBQzpYk5pvXV9Z-ENkVQ~Q__" alt="content" />
+                        <img className={classes.cardImage} src="https://s3-alpha-sig.figma.com/img/999c/4ff0/df012989e410c105873ddedec4ac834c?Expires=1707696000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jpvQ~0UEaEM6huZvOT2vgYIzi1kCFk0cczf326ZtB26AdK0vr4MBYRLqFa-Btg3JULVC~BMml35lTRc2zta4CRuzToRIiXMcPftB7a3feTb4NxFH7bRWCs5rboCL10mQRV5hvZIqZZw-d-xvWh67AC8KLIl88j3iLjaQoL8VNlp7VJvaNuvI8Ep1anliVxnh1pEPUbMlrmwgaOB9fYIWGMeuA~T2oatdoonSlx4DJ75QKY98ZI1Au7n5dUDtF1O6HmZvI1ECuy6Ic~BSQZbB~ViYBBzuGfRZs~XFpSGLkpgcuNc45ob1c-cNV8Z529~2znNYjkEUMN6yILoNMQcr6Q__" alt="content" />
                         <h3 className={classes.cardTitle}>100%</h3>
                         <h2 className={`${classes.cardContent} b-4`}>Reputable teachers</h2>
                       </div>

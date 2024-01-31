@@ -17,7 +17,7 @@ export default function Admission() {
           <section className="text-gray-600 body-font">
             <div className="container px-5 py-12 mx-auto flex flex-wrap">
               <div className="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
-                <img alt="feature" className={classes.image} src="https://s3-alpha-sig.figma.com/img/7c0c/0795/7dea5a35491c670e26a4ba76df23245f?Expires=1705881600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mW9B0jYuCnYEPE~igzBe~y2qFBVKsyU3NBf-lPqBHHBU3CVcAZsR3Hc~cKkA4TVMCxLcH6Ijb1AuEmJnxtZJ9jNodAEEPdxKWLBq6b7tBbQ2lzg2YVAbGolZEFNgmn-Ygh3YyiFOA0ZDo9s0RdBp~9ZRtwCycnjAL7s3c73UrI5C5Y8TYEQxSqYZmLJXJd-v9fsg2LmTZQOw8AMj8p6KpdKhdXUfZ1TZYLkNtuBfIhn2fP3fEuItqyJtOZc1DfCOKbIwRAypao1yCk4oxHrYOLSmCXBUUK5NbeSx7NlxttvqA4DW2837JTXD-waUrYrAoQ3zuTfaTF~0KvUKpYPC5w__" />
+                <img alt="feature" className={classes.image} src="https://s3-alpha-sig.figma.com/img/7c0c/0795/7dea5a35491c670e26a4ba76df23245f?Expires=1707696000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pY7SqubbTci~4zvZ0oV~ITeIkwEY5J~ma1NamhLpV6c1AdSgDBS4A1uJDzQXZmv60eLbCSN0NV6hXxUl5G5rJL4VsNOaE7heRV-E7T1kAp9qHCWVpw-AksNgeJiSTKTp1ttEGW6vCcBcP9ZY6CntzQbvHOjlaIXLBbPOwZ6VxFqcWOQTQqyaq3sTEpB8wddO78KlWizt3n-lRvqxAcqdli7Jomv0fxEStnYq5G8UrXIgCdnV4CVaPbqdk-ydp6i2TrgLRYEkItTiTRlV1iMaShXb8jlpOKj9tKTUQGdobIktMKbDRptBDOWjcqudLzbtyPTQjmN7xpwyDJx~~6iNcg__" />
               </div>
               <div className="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
                 <div className="flex flex-row items-center mb-10 lg:items-start items-center">

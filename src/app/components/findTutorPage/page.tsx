@@ -189,7 +189,7 @@ export default function FindTutorPage() {
                                         </div>
 
                                         <fieldset className="sm:col-span-full">
-                                            <legend className="text-sm font-semibold leading-6 text-gray-900">Status</legend>
+                                            <legend className={`${classes.label} text-sm font-semibold leading-6 text-gray-900`}>Number of lessons per week: </legend>
                                             <div className="mt-4 flex gap-x-24">
                                                 <div className="flex items-center gap-x-3">
                                                     <input
