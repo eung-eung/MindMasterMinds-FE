@@ -5,18 +5,21 @@ declare module "next-auth" {
             id: string,
             accessToken: string,
             refreshToken: string,
-            email: string,
-            phoneNumber: string,
-            firstName: string,
-            lastName: string,
-            isDeleted: boolean,
-            creationDate: Date,
-            lastUpdateDate: Date,
-            avatar: string,
-            userRole: {
-                id: string,
-                roleName: string
+            userViewLogin: {
+                email: string,
+                phoneNumber: string,
+                firstName: string,
+                lastName: string,
+                isDeleted: boolean,
+                creationDate: Date,
+                lastUpdateDate: Date,
+                avatar: string,
+                userRole: {
+                    id: string,
+                    roleName: string
+                }
             }
+
         }
     }
 }
