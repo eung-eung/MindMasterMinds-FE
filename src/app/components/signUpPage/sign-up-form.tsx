@@ -39,31 +39,63 @@ export default function SignUpForm() {
             });
             return
         }
-
-        const response = await axios.post(process.env.API_KEY + '/User/send-OTP-email',
-            email.current?.value
-            , {
-                headers: {
-                    'Content-Type': 'application/json'
+        try {
+            const response = await axios.post(process.env.API_KEY + '/User/send-OTP-email',
+                email.current?.value
+                , {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
                 }
-            }
-        )
-        console.log(response);
+            )
+            console.log(response);
+        } catch (error: any) {
+            console.log('error: ', error.response.data.Message)
+            toast.error(error.response.data.Message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        }
+
+
+
     }
 
     const registerAccount = async (
         account: AccountRegister
     ) => {
-        const response = await axios.post(
-            process.env.API_KEY + '/User/register-student',
-            account,
-            {
-                headers: {
-                    'Content-Type': 'application/json'
+        try {
+            const response = await axios.post(
+                process.env.API_KEY + '/User/register-student',
+                account,
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
                 }
-            }
-        )
-        console.log(response.data);
+            )
+        } catch (error: any) {
+            toast.error(error.response.data.Message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        }
+
+
 
     }
 
@@ -107,13 +139,13 @@ export default function SignUpForm() {
             });
             return
         }
-        // const account: AccountRegister = {}
-        // account.firstName = firstNameValue
-        // account.lastName = lastNameValue
-        // account.password = passwordValue
-        // account.email = emailValue
-        // account.otpEmailCode = otpValue
-        // registerAccount(account)
+        const account: AccountRegister = {}
+        account.firstName = firstNameValue
+        account.lastName = lastNameValue
+        account.password = passwordValue
+        account.email = emailValue
+        account.otpEmailCode = otpValue
+        registerAccount(account)
     }
 
 
