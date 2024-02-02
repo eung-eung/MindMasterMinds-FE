@@ -11,13 +11,17 @@ import classes from './page.module.css'
 import Link from 'next/link'
 
 export default function ProfileUserPage() {
-    const [fullName, setFullName] = React.useState('');
-    const [phoneNum, setPhoneNum] = React.useState('');
-    const [email, setEmail] = React.useState('');
+
+    const { data: session, status } = useSession()
+
+    const [firstName, setFirstName] = React.useState(session?.user.userViewLogin.firstName);
+    const [lastName, setLastName] = React.useState(session?.user.userViewLogin.lastName);
+    const [phoneNum, setPhoneNum] = React.useState(session?.user.userViewLogin.phoneNumber);
+    const [email, setEmail] = React.useState(session?.user.userViewLogin.email);
     const [phoneNumError, setPhoneNumError] = React.useState('');
     const [emailError, setEmailError] = React.useState('');
 
-    const { data: session, status } = useSession()
+   
     const [isLoading, setLoading] = React.useState<boolean>(true)
     console.log(session);
 
@@ -30,11 +34,14 @@ export default function ProfileUserPage() {
 
     const handleSubmit = () => {
         // Validation checks
+        if(phoneNum!=null && email!=null) {
+
+        
         const isPhoneNumberValid = Boolean(phoneNum.match(/^0?[0-9]{9}$/));
         const isEmailValid = Boolean(email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/));
 
         if (isPhoneNumberValid && isEmailValid) {
-            alert('Form submitted with valid values: ' + JSON.stringify({ fullName, phoneNum, email }));
+            alert('Form submitted with valid values: ' + JSON.stringify({ firstName, lastName, phoneNum, email }));
 
         } else {
             if (!isPhoneNumberValid) {
@@ -51,6 +58,7 @@ export default function ProfileUserPage() {
 
             console.error('Validation failed. Please check phone number and email.');
         }
+    }
     };
 
     return (
@@ -63,7 +71,7 @@ export default function ProfileUserPage() {
                     <section className="text-gray-600 body-font">
                         <div className="container px-1 py-24 mx-auto flex flex-col">
                             <div className="lg:w-5/6 mx-auto mb-16">
-                                <h1 className={classes.typographyWelcome}>Welcome, Thang Nguyen!</h1>
+                                <h1 className={classes.typographyWelcome}>Welcome, {session?.user.userViewLogin.firstName} {session?.user.userViewLogin.lastName}</h1>
                                 <div className={classes.createGoalBar}>
                                     <span className='mr-4'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
@@ -117,14 +125,25 @@ export default function ProfileUserPage() {
                 </div>
                 <div className="mt-6 border-t border-gray-200">
                     <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt className={classes.typography}>Full name</dt>
+                        <dt className={classes.typography}>First name</dt>
                         <input
                             type="text"
-                            name="fullName"
-                            id="fullName"
+                            name="firstName"
+                            id="firstName"
                             className={`${classes.typographyInput} w-96 rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
-                            value={fullName}
-                            onChange={(e) => setFullName(e.target.value)}
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                        />
+                    </div>
+                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                        <dt className={classes.typography}>Last name</dt>
+                        <input
+                            type="text"
+                            name="lastName"
+                            id="lastName"
+                            className={`${classes.typographyInput} w-96 rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
                         />
                     </div>
                     <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
