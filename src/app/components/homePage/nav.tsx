@@ -11,13 +11,18 @@ import {
   Bars3Icon,
   CursorArrowRaysIcon,
   XMarkIcon,
-  BuildingOfficeIcon
+  BuildingOfficeIcon,
+  BanknotesIcon
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, ChevronRightIcon, ChatBubbleLeftIcon, EnvelopeIcon, ArrowLeftEndOnRectangleIcon } from '@heroicons/react/20/solid'
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 export default function Nav() {
+  const { data: session } = useSession()
+  
+  
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const handleLogOut = async () => {
     const data = await signOut({ redirect: false, callbackUrl: "/" })
@@ -58,7 +63,7 @@ export default function Nav() {
                     <div className="flex items-center justify-between sm:mt-2">
                       <div className="flex items-center">
                         <div className="flex flex-col mt-6">
-                          <div className={classes.guestUser}>Guest User</div>
+                          <div className={classes.guestUser}>{session?.user.userViewLogin.firstName} {session?.user.userViewLogin.lastName}</div>
                           <div className="flex-auto text-gray-400 my-2">
                             <span className="mr-3 ">
                               <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -148,7 +153,7 @@ export default function Nav() {
                         </div>
                       </div>
                       <div
-                        key="findTutor"
+                        key="findClass"
                         className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
                       >
                         <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
@@ -176,6 +181,23 @@ export default function Nav() {
                         </div>
                       </div>
                     </div>
+
+                    <div
+                      key="pricing"
+                      className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
+                    >
+                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <BanknotesIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                      </div>
+                      <div className="flex-auto">
+                        <a href="/pricing" className="block font-semibold text-gray-900">
+                          Pricing
+                          <span className="absolute inset-0" />
+                        </a>
+                      </div>
+
+                    </div>
+
                     <div
                       key="Chat"
                       className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
@@ -191,6 +213,8 @@ export default function Nav() {
                       </div>
 
                     </div>
+
+                   
 
                     <div
                       key="Contact Us"

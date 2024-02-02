@@ -1,0 +1,42 @@
+.name {
+    color: #222;
+    font-family: Belanosima;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: 180%;
+    /* 50.4px */
+}
+
+.price {
+    color: #222;
+    font-family: Belanosima;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.button {
+    border-radius: 15px;
+    background: #93FDD3;
+    color: rgb(0, 0, 0);
+    font-family: Belanosima;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+}
+
+.title {
+    color: #222;
+    font-family: Belanosima;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: 180%;
+   padding-bottom: 40px;
+   display: flex;
+   justify-content: center;
+}
