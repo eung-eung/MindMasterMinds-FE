@@ -2,6 +2,7 @@ import NextAuth from "next-auth/next"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from 'next-auth/providers/credentials'
 import axios from "axios";
+import { User } from "next-auth";
 
 const { GOOGLE_CLIENT_ID = '', GOOGLE_CLIENT_SECRET = '' } = process.env;
 
@@ -12,8 +13,29 @@ export default NextAuth({
     providers: [
         GoogleProvider({
             clientId: GOOGLE_CLIENT_ID,
-            clientSecret: GOOGLE_CLIENT_SECRET
-        }),
+            clientSecret: GOOGLE_CLIENT_SECRET,
+            profile: async (profile) => {
+                try {
+                    const response = await axios.post(
+                        process.env.API_KEY + '/Auth/login-email',
+                        profile.email,
+                        {
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        }
+                    )
+                    return {
+                        id: profile.sub,
+                        ...profile,
+                        ...response.data
+                    };
+                } catch (error) {
+                    console.log("Error: ", error);
+                }
+            }
+        }
+        ),
         CredentialsProvider({
             id: 'credentials',
             name: "Credentials",
@@ -46,33 +68,12 @@ export default NextAuth({
     ],
     secret: process.env.JWT_SECRET,
     callbacks: {
-        // async signIn({ user, account, profile, email, credentials }) {
-        //     console.log('user: ', user);
-        //     console.log('account: ', account);
-        //     console.log('email: ', email);
-
-        //     const isAllowed = false
-        //     // fetch(`https://mindmastermindsapi.azurewebsites.net/api/user/send-OTP-email`, {
-        //     //     method: 'POST',
-        //     //     headers: { 'content-type': 'application/json' },
-        //     //     body: JSON.stringify(
-        //     //         user.email
-        //     //     )
-        //     // })
-        //     //     .then(res => {
-        //     //         return res.json()
-        //     //     })
-        //     //     .then(data =>
-        //     //         console.log('data: ', data)
-
-        //     //     )
-        //     console.log(user, account, profile, email, credentials);
-        //     // if (!isAllowed) {
-        //     //     return '/'
-        //     // }
-        //     return true
-        // },
+        async signIn({ user }) {
+            return true
+        },
         async jwt({ token, user }) {
+            console.log('jwt: ', token);
+
             return { ...token, ...user }
         },
         async session({ session, user, token }) {
@@ -80,9 +81,6 @@ export default NextAuth({
             return session
         },
         async redirect({ url, baseUrl }) {
-            console.log('url: ', url)
-            console.log('base url: ', baseUrl)
-
             return url.startsWith(baseUrl)
                 ? Promise.resolve(url)
                 : Promise.resolve(baseUrl);
