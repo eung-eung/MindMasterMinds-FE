@@ -1,22 +1,25 @@
 'use client'
-import React, { FormEvent, ReactEventHandler } from 'react'
+import React from 'react'
 import classes from '../loginPage/sign-in-form.module.css'
-import classesSignUp from './sign-up-form.module.css'
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 import Link from 'next/link';
 import axios from 'axios';
 import { AccountRegister } from '@/app/types/AccountRegister';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/navigation';
+
 export default function SignUpForm() {
+    const router = useRouter()
     const firstName = React.useRef<HTMLInputElement>(null)
     const lastName = React.useRef<HTMLInputElement>(null)
     const email = React.useRef<HTMLInputElement>(null)
     const password = React.useRef<HTMLInputElement>(null)
     const confirmPassword = React.useRef<HTMLInputElement>(null)
+    const toastId = React.useRef<any>()
     const otp = React.useRef<HTMLInputElement>(null)
     const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
-    console.log(process.env.API_KEY);
+
 
     const isValidMail = (mail: any) => {
         if (regex.test(mail)) {
@@ -41,6 +44,7 @@ export default function SignUpForm() {
             return
         }
         try {
+            toastId.current = toast.loading("Sending OTP...")
             const response = await axios.post(process.env.API_KEY + '/User/send-OTP-email',
                 email.current?.value
                 , {
@@ -49,6 +53,21 @@ export default function SignUpForm() {
                     }
                 }
             )
+            if (response.status === 200) {
+                toast.update(toastId.current, {
+                    render: "Sent successfully",
+                    type: "success",
+                    isLoading: false,
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                })
+            }
             console.log(response);
         } catch (error: any) {
             console.log('error: ', error.response.data.Message)
@@ -73,6 +92,7 @@ export default function SignUpForm() {
         account: AccountRegister
     ) => {
         try {
+
             const response = await axios.post(
                 process.env.API_KEY + '/User/register-student',
                 account,
@@ -82,6 +102,24 @@ export default function SignUpForm() {
                     }
                 }
             )
+            if (response.status === 200) {
+                toast.update(toastId.current, {
+                    render: "Register successful",
+                    type: "success",
+                    isLoading: false,
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                })
+                setTimeout(() => {
+                    router.push('/signIn')
+                }, 2000)
+            }
         } catch (error: any) {
             toast.error(error.response.data.Message, {
                 position: "top-right",
@@ -95,9 +133,6 @@ export default function SignUpForm() {
                 transition: Bounce,
             });
         }
-
-
-
     }
 
     const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
@@ -147,6 +182,7 @@ export default function SignUpForm() {
         account.email = emailValue
         account.otpEmailCode = otpValue
         registerAccount(account)
+
     }
 
 
@@ -177,11 +213,8 @@ export default function SignUpForm() {
             />
             {/* Same as */}
             <ToastContainer />
-            <div className={' w-full flex flex-col items-center p-10'}>
-                {/* <p className={classes.light_grey + ' mb-14 text-xl font-bold w-8/12'}>
-                    Register for free to get the best study resources
-                </p> */}
 
+            <div className={' w-full flex flex-col items-center p-10'}>
                 <form className='mb-14 xl:w-6/12 lg:w-2/4' onSubmit={handleForm}>
                     <div className='flex flex-col justify-left mb-6'>
                         <label htmlFor='firstName' className='text-left mb-3 font-medium	'>First name</label>
