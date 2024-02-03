@@ -1,7 +1,7 @@
-'use client'
+
 import ProvidersWrapper from './ProvidersWrapper'
 import './globals.css'
-import { usePathname } from 'next/navigation'
+
 export default function RootLayout({
   children,
 }: {
