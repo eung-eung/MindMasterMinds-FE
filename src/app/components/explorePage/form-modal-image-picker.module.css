@@ -18,7 +18,7 @@
 .picked_image {
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 200px;
-    height: 200px;
+    max-width: 100%;
+    height: 300px;
     object-fit: contain;
 }
