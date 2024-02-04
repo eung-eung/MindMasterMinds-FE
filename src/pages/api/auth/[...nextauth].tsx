@@ -3,6 +3,7 @@ import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from 'next-auth/providers/credentials'
 import axios from "axios";
 import { User } from "next-auth";
+import axious from "@/app/lib/axious";
 
 const { GOOGLE_CLIENT_ID = '', GOOGLE_CLIENT_SECRET = '' } = process.env;
 
@@ -16,15 +17,7 @@ export default NextAuth({
             clientSecret: GOOGLE_CLIENT_SECRET,
             profile: async (profile) => {
                 try {
-                    const response = await axios.post(
-                        process.env.API_KEY + '/Auth/login-email',
-                        profile.email,
-                        {
-                            headers: {
-                                'Content-Type': 'application/json'
-                            }
-                        }
-                    )
+                    const response = await axious.post('/Auth/login-email', profile.email)
                     return {
                         id: profile.sub,
                         ...profile,
