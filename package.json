@@ -17,6 +17,7 @@
     "@mui/material": "^5.15.6",
     "axios": "^1.6.7",
     "dotenv": "^16.4.1",
+    "moment-timezone": "^0.5.45",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "react": "^18",
