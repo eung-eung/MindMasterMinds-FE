@@ -12,12 +12,14 @@ export default function PostGrid({ listPost }: { listPost: PostExplore[] }) {
             {/* <Link href='/explores/1' > */}
             {listPost.map(post =>
                 <PostItem
+                    key={post.id}
                     name={post.user.firstName + post.user.lastName}
                     imageUrl={post.image || ''}
                     avatar={post.user.avatar || '/images/noAvatar.jpg'}
                     content={post.content}
                     reactionsCount={post.reactionsCount}
                     commentsCount={post.commentsCount}
+                    createDate={post.creationDate}
                 />
             )}
 
