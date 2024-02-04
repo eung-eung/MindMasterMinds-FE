@@ -8,6 +8,7 @@ import { AccountRegister } from '@/app/types/AccountRegister';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/navigation';
+import axious from '@/app/lib/axious';
 
 export default function SignUpForm() {
     const router = useRouter()
@@ -19,8 +20,8 @@ export default function SignUpForm() {
     const toastId = React.useRef<any>()
     const otp = React.useRef<HTMLInputElement>(null)
     const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
-
-
+    const [isValidPasswordLenght, setValidPasswordLength] = React.useState(true)
+    const [inputPassword, setPassword] = React.useState('')
     const isValidMail = (mail: any) => {
         if (regex.test(mail)) {
             return true
@@ -28,6 +29,16 @@ export default function SignUpForm() {
         return false
     }
 
+    const handleLengthPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value)
+
+        e.target.value.length < 8
+            ? setValidPasswordLength(false)
+            : setValidPasswordLength(true)
+
+
+
+    }
     const handleSendOTP = async () => {
         if (!email.current?.value || !isValidMail(email.current?.value)) {
             toast.error('Incorrect email format!', {
@@ -45,14 +56,8 @@ export default function SignUpForm() {
         }
         try {
             toastId.current = toast.loading("Sending OTP...")
-            const response = await axios.post(process.env.API_KEY + '/User/send-OTP-email',
-                email.current?.value
-                , {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }
-            )
+            const response = await axious.post('/User/send-OTP-email', email.current.value)
+            console.log(response);
             if (response.status === 200) {
                 toast.update(toastId.current, {
                     render: "Sent successfully",
@@ -68,20 +73,21 @@ export default function SignUpForm() {
                     transition: Bounce,
                 })
             }
-            console.log(response);
         } catch (error: any) {
             console.log('error: ', error.response.data.Message)
-            toast.error(error.response.data.Message, {
-                position: "top-right",
+            toast.update(toastId.current, {
+                render: error.response.data.Message,
+                type: "error",
+                isLoading: false,
+                position: "top-center",
                 autoClose: 5000,
-                hideProgressBar: false,
+                hideProgressBar: true,
                 closeOnClick: true,
-                pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
                 theme: "light",
                 transition: Bounce,
-            });
+            })
         }
 
 
@@ -143,6 +149,19 @@ export default function SignUpForm() {
         const passwordValue = password.current?.value
         const confirmPasswordValue = confirmPassword.current?.value
         const otpValue = otp.current?.value
+        if (inputPassword.length < 8) {
+            toast.error('Password needs to be more than 7 characters', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            });
+            return
+        }
         if (!firstNameValue?.trim()
             || !lastNameValue?.trim()
             || !emailValue?.trim()
@@ -150,9 +169,8 @@ export default function SignUpForm() {
             || !otpValue?.trim()) {
             toast.error('Please fill all fields!', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
-                closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
@@ -164,9 +182,8 @@ export default function SignUpForm() {
         if (passwordValue !== confirmPasswordValue) {
             toast.error('Confirm password is not correct', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
-                closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
@@ -175,6 +192,7 @@ export default function SignUpForm() {
             });
             return
         }
+
         const account: AccountRegister = {}
         account.firstName = firstNameValue
         account.lastName = lastNameValue
@@ -244,10 +262,17 @@ export default function SignUpForm() {
                     <div className='flex flex-col justify-center mb-6'>
                         <label htmlFor='password' className='text-left mb-3 font-medium'>Password</label>
                         <input
+                            onChange={handleLengthPassword}
                             ref={password}
+                            value={inputPassword}
                             type='password' id='password'
                             className={classes.form_input}
                             placeholder='Password' />
+                        {
+                            !isValidPasswordLenght
+                            &&
+                            <span className='text-sm text-red-800 font-medium dark:text-red-400'>Password needs to be more than 7 characters</span>
+                        }
                     </div>
                     <div className='flex flex-col justify-center mb-6'>
                         <label htmlFor='c-password' className='text-left mb-3 font-medium'>Confirm Password</label>
