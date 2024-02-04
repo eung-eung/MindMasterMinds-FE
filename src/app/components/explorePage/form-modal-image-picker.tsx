@@ -2,10 +2,10 @@ import React from 'react'
 import classes from './form-modal-image-picker.module.css'
 import PermMediaOutlinedIcon from '@mui/icons-material/PermMediaOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-export default function FormModalImagePicker() {
+export default function FormModalImagePicker({ fileImage }: { fileImage: any }) {
     const [pickedImage, setPickedImage] = React.useState(String)
-    const imagePicker = React.useRef<HTMLInputElement>(null)
-    console.log('src: ', pickedImage)
+    const imagePicker = fileImage
+
     const handlePickClick = () => {
         if (imagePicker.current) {
             imagePicker.current.click()
