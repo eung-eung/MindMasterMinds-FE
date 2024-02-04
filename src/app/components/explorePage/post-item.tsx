@@ -2,10 +2,15 @@ import React from 'react'
 import classes from './post-item.module.css'
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import moment from 'moment-timezone'
 import Link from 'next/link';
-export default function PostItem({ name, content, imageUrl, avatar, reactionsCount, commentsCount }
-    : { name: string, content: string, imageUrl: string, avatar: string, reactionsCount: number, commentsCount: number }) {
+export default function PostItem({ name, content, imageUrl, avatar, reactionsCount, commentsCount, createDate }
+    : {
+        name: string, content: string, imageUrl: string, avatar: string,
+        reactionsCount: number, commentsCount: number, createDate: Date
+    }) {
+
+
     return (
         <div className={classes.post_item + ' w-full border'}>
             <div className={classes.header}>
@@ -15,12 +20,16 @@ export default function PostItem({ name, content, imageUrl, avatar, reactionsCou
                 </div>
                 <div className={classes.header_right}>
                     <p className={classes.writer_post_item}>{name}</p>
-                    <span className={classes.date_post_item}>17/1/2024</span>
+                    <span className={classes.date_post_item}>{
+                        moment.utc(createDate).tz('Asia/Ho_Chi_Minh').format('DD-MM-YYYY HH:mm:ss')
+                    }
+                    </span>
                 </div>
             </div>
             <div className={classes.body}>
-                <div className={classes.body_content}>
-                    {content}
+                <div className={classes.body_content}
+                    dangerouslySetInnerHTML={{ __html: content }}>
+
                 </div>
                 <div className={classes.image_body}>
                     <img src={imageUrl} />
