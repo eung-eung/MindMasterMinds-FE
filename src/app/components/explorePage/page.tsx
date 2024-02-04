@@ -7,22 +7,31 @@ import FormPostBlog from './form-post-blog'
 import PostItem from './post-item'
 import PostGrid from './post-grid'
 import { redirect } from 'next/navigation'
+import useAxiosAuth from '@/app/lib/hooks/useAxiosAuth'
+import { PostExplore } from '@/app/types/Post-Explore'
 
 export default function ExplorePage() {
+    const axiosAuth = useAxiosAuth()
+    const [listPost, setListPost] = React.useState<PostExplore[]>([])
+    const getPosts = async () => {
+        const response = await axiosAuth.get('/Post?pageNumber=0&pageSize=5')
+
+        setListPost(response.data.data)
+
+    }
+    React.useEffect(() => {
+        getPosts()
+    }, [])
 
 
     return (
         <div>
-            {/* {isLoading ? <LoadingTheme /> : */}
             <>
                 <div style={{ background: "#F0F2F5" }}>
-                    {/* <Header title='Explore' isHome={false} /> */}
                     <FormPostBlog />
-                    <PostGrid />
+                    <PostGrid listPost={listPost} />
                 </div>
             </>
-            {/* } */}
-
         </div>
     )
 }
