@@ -13,6 +13,7 @@ import { PostExplore } from '@/app/types/Post-Explore'
 export default function ExplorePage() {
     const axiosAuth = useAxiosAuth()
     const [listPost, setListPost] = React.useState<PostExplore[]>([])
+    const [callGetPost, setCallGetPost] = React.useState<Boolean>(true)
     const getPosts = async () => {
         const response = await axiosAuth.get('/Post?pageNumber=0&pageSize=5')
 
@@ -21,14 +22,14 @@ export default function ExplorePage() {
     }
     React.useEffect(() => {
         getPosts()
-    }, [])
+    }, [callGetPost])
 
 
     return (
         <div>
             <>
                 <div style={{ background: "#F0F2F5" }}>
-                    <FormPostBlog />
+                    <FormPostBlog getPosts={setCallGetPost} />
                     <PostGrid listPost={listPost} />
                 </div>
             </>
