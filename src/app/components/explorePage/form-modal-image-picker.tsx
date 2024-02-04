@@ -3,18 +3,19 @@ import classes from './form-modal-image-picker.module.css'
 import PermMediaOutlinedIcon from '@mui/icons-material/PermMediaOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 export default function FormModalImagePicker({ fileImage }: { fileImage: any }) {
-    const [pickedImage, setPickedImage] = React.useState(String)
-    const imagePicker = fileImage
+    const [pickedImage, setPickedImage] = React.useState<string>('')
+
 
     const handlePickClick = () => {
-        if (imagePicker.current) {
-            imagePicker.current.click()
+        if (fileImage.current) {
+            fileImage.current.click()
         }
 
     }
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
         if (!event.target.files) {
-            return
+            return ""
         }
         const file = event.target.files[0]
         if (!file) {
@@ -35,6 +36,7 @@ export default function FormModalImagePicker({ fileImage }: { fileImage: any }) 
     }
 
     const handleImageRemove = () => {
+        fileImage.current.value = ""
         setPickedImage('')
     }
     return (
@@ -46,7 +48,7 @@ export default function FormModalImagePicker({ fileImage }: { fileImage: any }) 
                         className={classes.picked_image} alt='Image selected by user' />
                     <CloseOutlinedIcon
                         onClick={handleImageRemove}
-                        className='absolute top-0 right-0 cursor-pointer'
+                        className={classes.removeImage}
                     />
                 </div>
             }
@@ -55,7 +57,7 @@ export default function FormModalImagePicker({ fileImage }: { fileImage: any }) 
                 <span className={classes.placeholder}>Add image to your post </span>
                 <input
                     className={classes.input}
-                    ref={imagePicker}
+                    ref={fileImage}
                     type='file'
                     accept='image/png, image/jpeg'
                     onChange={handleImageChange}

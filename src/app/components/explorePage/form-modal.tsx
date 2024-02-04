@@ -1,11 +1,10 @@
-import React, { FormEvent, useState } from 'react'
+import React from 'react'
 import Modal from '@mui/material/Modal';
 import classes from './form-modal.module.css'
 import CancelIcon from '@mui/icons-material/Cancel';
 import FormModalImagePicker from './form-modal-image-picker';
 import { useSession } from 'next-auth/react';
 import { axiosAuth } from '@/app/lib/axious';
-import axios from 'axios';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -45,14 +44,12 @@ export default function FormModal({ open, handleClose, getPosts }:
                 })
                 handleClose()
                 getPosts((prev: any) => {
-                    console.log('prev: ', prev);
-
                     return !prev
                 })
             }
-        } catch (error) {
+        } catch (error: any) {
             toast.update(toastId.current, {
-                render: "Posted failed",
+                render: error.response.data.Message,
                 type: "error",
                 isLoading: false,
                 position: "top-center",
@@ -87,7 +84,7 @@ export default function FormModal({ open, handleClose, getPosts }:
                 open={open}
                 onClose={handleClose}
             >
-                <div className={classes.container}>
+                <div className={classes.container + ' lg:w-6/12 sm:w-full'}>
                     <div className='relative'>
                         <h3 className={classes.title}>Create a post</h3>
                         <CancelIcon
