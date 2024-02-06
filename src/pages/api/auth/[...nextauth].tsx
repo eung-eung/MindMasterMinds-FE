@@ -1,7 +1,6 @@
 import NextAuth from "next-auth/next"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from 'next-auth/providers/credentials'
-import axios from "axios";
 import { User } from "next-auth";
 import axious from "@/app/lib/axious";
 
@@ -41,14 +40,11 @@ export default NextAuth({
                     email: credentials?.username,
                     password: credentials?.password,
                 };
-
-                const response = await axios.post(process.env.API + '/Auth/login', {
+                const response = await axious.post('/Auth/login', {
                     email: payload.email,
                     password: payload.password
                 })
                 const user = response.data
-                console.log('36: ', user);
-
                 if (user) {
                     return user
                 }
