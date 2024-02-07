@@ -4,9 +4,7 @@ import Header from '@/app/components/homePage/header'
 import LoadingTheme from '@/app/components/loadingTheme/loadingTheme'
 import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
-import classNamees from './page.module.css'
 import Footer from '../../components/footer/footer'
-import { PaperClipIcon } from '@heroicons/react/24/outline'
 import classes from './page.module.css'
 import Link from 'next/link'
 
@@ -21,7 +19,7 @@ export default function ProfileUserPage() {
     const [phoneNumError, setPhoneNumError] = React.useState('');
     const [emailError, setEmailError] = React.useState('');
 
-   
+
     const [isLoading, setLoading] = React.useState<boolean>(true)
     console.log(session);
 
@@ -34,31 +32,31 @@ export default function ProfileUserPage() {
 
     const handleSubmit = () => {
         // Validation checks
-        if(phoneNum!=null && email!=null) {
+        if (phoneNum != null && email != null) {
 
-        
-        const isPhoneNumberValid = Boolean(phoneNum.match(/^0?[0-9]{9}$/));
-        const isEmailValid = Boolean(email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/));
 
-        if (isPhoneNumberValid && isEmailValid) {
-            alert('Form submitted with valid values: ' + JSON.stringify({ firstName, lastName, phoneNum, email }));
+            const isPhoneNumberValid = Boolean(phoneNum.match(/^0?[0-9]{9}$/));
+            const isEmailValid = Boolean(email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/));
 
-        } else {
-            if (!isPhoneNumberValid) {
-                setPhoneNumError('Phone number has 10 digits and start with 0.');
+            if (isPhoneNumberValid && isEmailValid) {
+                alert('Form submitted with valid values: ' + JSON.stringify({ firstName, lastName, phoneNum, email }));
+
             } else {
-                setPhoneNumError(''); 
-            }
+                if (!isPhoneNumberValid) {
+                    setPhoneNumError('Phone number has 10 digits and start with 0.');
+                } else {
+                    setPhoneNumError('');
+                }
 
-            if (!isEmailValid) {
-                setEmailError('Please enter a valid email.');
-            } else {
-                setEmailError(''); 
-            }
+                if (!isEmailValid) {
+                    setEmailError('Please enter a valid email.');
+                } else {
+                    setEmailError('');
+                }
 
-            console.error('Validation failed. Please check phone number and email.');
+                console.error('Validation failed. Please check phone number and email.');
+            }
         }
-    }
     };
 
     return (
@@ -119,85 +117,85 @@ export default function ProfileUserPage() {
                                     </div>
 
                                     <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-            <div>
-                <div className="px-4 sm:px-0">
-                    <h3 className={classes.typographyTitle}>Personal Information</h3>
-                </div>
-                <div className="mt-6 border-t border-gray-200">
-                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt className={classes.typography}>First name</dt>
-                        <input
-                            type="text"
-                            name="firstName"
-                            id="firstName"
-                            className={`${classes.typographyInput} w-96 rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
-                            value={firstName}
-                            onChange={(e) => setFirstName(e.target.value)}
-                        />
-                    </div>
-                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt className={classes.typography}>Last name</dt>
-                        <input
-                            type="text"
-                            name="lastName"
-                            id="lastName"
-                            className={`${classes.typographyInput} w-96 rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
-                            value={lastName}
-                            onChange={(e) => setLastName(e.target.value)}
-                        />
-                    </div>
-                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt className={classes.typography}>Phone number</dt>
-                        <input
-                            type="number"
-                            name="phoneNum"
-                            id="phoneNum"
-                            className={`${classes.typographyInput} w-96 rounded-md border-0 py-3 px-4 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
-                            value={phoneNum}
-                            onChange={(e) => {
-                                setPhoneNum(e.target.value);
-                                setPhoneNumError(''); // Clear the error message when the user types
-                            }}
-                        />
-                         
-                    </div>
-                    {phoneNumError && <p style={{fontFamily: "Belanosima"}} className="text-red-500 text-sm flex justify-center ml-24">{phoneNumError}</p>}
-                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt className={classes.typography}>Email</dt>
-                        <input
-                            type="email"
-                            name="email"
-                            id="email"
-                            className={`${classes.typographyInput} w-96 rounded-md border-0 py-3 px-4 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
-                            value={email}
-                            onChange={(e) => {
-                                setEmail(e.target.value);
-                                setEmailError(''); // Clear the error message when the user types
-                            }}
-                        />
-                        
-                    </div>
-                    {emailError && <p style={{fontFamily: "Belanosima"}} className="text-red-500 text-sm flex justify-center">{emailError}</p>}
-                    <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                        <dt className={classes.typography}>Balance</dt>
-                        <dd className={`${classes.typographyInput} mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0`}>$120,000</dd>
-                    </div>
-                    <div className="mt-6 flex items-center justify-start gap-x-6">
-                        <button type="submit" onClick={handleSubmit} className={`${classes.button} rounded-md px-3 py-2`}>
-                            Save
-                        </button>
-                        <Link href="/historyOrder">
-                        <button type="button" className={`${classes.button} rounded-md px-3 py-2`}>
-                            History Order
-                        </button>
-                        </Link>
-                    </div>
-                    <div className="mt-6 flex items-center justify-start gap-x-6">
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
+                                        <div>
+                                            <div className="px-4 sm:px-0">
+                                                <h3 className={classes.typographyTitle}>Personal Information</h3>
+                                            </div>
+                                            <div className="mt-6 border-t border-gray-200">
+                                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                                    <dt className={classes.typography}>First name</dt>
+                                                    <input
+                                                        type="text"
+                                                        name="firstName"
+                                                        id="firstName"
+                                                        className={`${classes.typographyInput} w-96 rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                                                        value={firstName}
+                                                        onChange={(e) => setFirstName(e.target.value)}
+                                                    />
+                                                </div>
+                                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                                    <dt className={classes.typography}>Last name</dt>
+                                                    <input
+                                                        type="text"
+                                                        name="lastName"
+                                                        id="lastName"
+                                                        className={`${classes.typographyInput} w-96 rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                                                        value={lastName}
+                                                        onChange={(e) => setLastName(e.target.value)}
+                                                    />
+                                                </div>
+                                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                                    <dt className={classes.typography}>Phone number</dt>
+                                                    <input
+                                                        type="number"
+                                                        name="phoneNum"
+                                                        id="phoneNum"
+                                                        className={`${classes.typographyInput} w-96 rounded-md border-0 py-3 px-4 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                                                        value={phoneNum}
+                                                        onChange={(e) => {
+                                                            setPhoneNum(e.target.value);
+                                                            setPhoneNumError(''); // Clear the error message when the user types
+                                                        }}
+                                                    />
+
+                                                </div>
+                                                {phoneNumError && <p style={{ fontFamily: "Belanosima" }} className="text-red-500 text-sm flex justify-center ml-24">{phoneNumError}</p>}
+                                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                                    <dt className={classes.typography}>Email</dt>
+                                                    <input
+                                                        type="email"
+                                                        name="email"
+                                                        id="email"
+                                                        className={`${classes.typographyInput} w-96 rounded-md border-0 py-3 px-4 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6`}
+                                                        value={email}
+                                                        onChange={(e) => {
+                                                            setEmail(e.target.value);
+                                                            setEmailError(''); // Clear the error message when the user types
+                                                        }}
+                                                    />
+
+                                                </div>
+                                                {emailError && <p style={{ fontFamily: "Belanosima" }} className="text-red-500 text-sm flex justify-center">{emailError}</p>}
+                                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                                    <dt className={classes.typography}>Balance</dt>
+                                                    <dd className={`${classes.typographyInput} mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0`}>$120,000</dd>
+                                                </div>
+                                                <div className="mt-6 flex items-center justify-start gap-x-6">
+                                                    <button type="submit" onClick={handleSubmit} className={`${classes.button} rounded-md px-3 py-2`}>
+                                                        Save
+                                                    </button>
+                                                    <Link href="/historyOrder">
+                                                        <button type="button" className={`${classes.button} rounded-md px-3 py-2`}>
+                                                            History Order
+                                                        </button>
+                                                    </Link>
+                                                </div>
+                                                <div className="mt-6 flex items-center justify-start gap-x-6">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>

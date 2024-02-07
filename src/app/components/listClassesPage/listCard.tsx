@@ -60,7 +60,7 @@ const ListCard: React.FC = () => {
             <div className="flex flex-wrap -m-4">
               {currentItem.map((classItem) => (
                 <>
-                <div key={classItem.id} className="p-4 md:w-1/3">
+                <div onClick={()=>handleButtonClick(classItem)} key={classItem.id} className="p-4 md:w-1/3">
                   <div className="h-full border-2 border-gray-400 border-opacity-60 rounded-lg overflow-hidden">
                     <div className="p-6">
                       <h1 className={`${classes.subject} subject-font mb-6`}>{classItem.subject}</h1>
