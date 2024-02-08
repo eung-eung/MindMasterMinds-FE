@@ -7,6 +7,7 @@ declare module "next-auth" {
             accessToken: string,
             refreshToken: string,
             userViewLogin: {
+                id: string
                 email: string,
                 phoneNumber: string,
                 firstName: string,
