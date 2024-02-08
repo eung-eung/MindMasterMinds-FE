@@ -6,6 +6,11 @@
     margin-right: 10px;
 }
 
+.creationDate {
+    color: #969696;
+    font-size: 12px;
+}
+
 .post_comment {
     display: flex;
     margin-top: 20px;
@@ -21,6 +26,9 @@
 .guest_name {
     font-weight: 600;
     margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .guest_comment {}
