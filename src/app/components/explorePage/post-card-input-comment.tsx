@@ -2,8 +2,11 @@
 import React from 'react'
 import classes from './post-card-input-comment.module.css'
 import SendIcon from '@mui/icons-material/Send';
+import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 export default function PostCardInputComment() {
     const inputField = React.useRef<HTMLDivElement>(null)
+    const { data: session } = useSession()
     const [comment, setComment] = React.useState(String)
     const handleComment = () => {
         console.log(inputField.current?.innerHTML);
@@ -21,7 +24,12 @@ export default function PostCardInputComment() {
         <>
             <div className={classes.box}>
                 <div>
-                    <img className={classes.avatar} src='/images/nhan-sac-go-yoon-jung-03.jpg' />
+                    <Image
+                        alt={session?.user.userViewLogin.firstName + '' + session?.user.userViewLogin.lastName}
+                        className={classes.avatar}
+                        width={50}
+                        height={50}
+                        src={session?.user.userViewLogin.avatar || '/images/noAvatar.jpg'} />
                 </div>
 
                 <div
