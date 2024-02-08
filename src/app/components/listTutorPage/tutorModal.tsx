@@ -62,46 +62,46 @@ const TutorModal: React.FC<DialogComponentProps> = ({ tutor, isOpen, onClose }) 
 
                       <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                         {/* Detai Tutor */}
-                          <div className="container mx-auto flex px-2 py-8 items-center justify-center flex-col">
-                            <img className="lg:w-3/6 md:w-3/6 mb-10 object-fill object-center rounded" style={{ width: "350px", height: "450px" }} alt="hero" src={tutor.image} />
-                            <div className="text-left lg:w-3/4 w-full">
-                              <div className="text-align px-2 sm:px-0 flex items-center justify-center">
-                                <h3 className={classes.typographyIntro}>Tutor's Information</h3>
-                              </div>
-
-                              <div className="mt-6 border-t border-gray-100">
-                                <dl className="divide-y divide-gray-100">
-                                  <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt className={classes.typographyTitle}>Full name</dt>
-                                    <dd className={`${classes.typography} mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0`}>{tutor.name}</dd>
-                                  </div>
-                                  <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt className={classes.typographyTitle}>Major</dt>
-                                    <dd className={`${classes.typography} mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0`}>{tutor.major}</dd>
-                                  </div>
-                                  <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt className={classes.typographyTitle}>Email </dt>
-                                    <dd className={`${classes.typography} mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0`}>margotfoster@example.com</dd>
-                                  </div>
-                                  <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt className={classes.typographyTitle}>Rating</dt>
-                                    <dd className={`${classes.typography} mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0`}>5/5</dd>
-                                  </div>
-                                  <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                    <dt className={classes.typographyTitle}>About</dt>
-                                    <dd className={`${classes.typography} mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0`}>
-                                      Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
-                                      qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
-                                      pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
-                                    </dd>
-                                  </div>
-
-                                </dl>
-                              </div>
+                        <div className="container mx-auto flex px-2 py-8 items-center justify-center flex-col">
+                          <img className="lg:w-3/6 md:w-3/6 mb-10 object-fill object-center rounded" style={{ width: "350px", height: "450px" }} alt="hero" src={tutor.image} />
+                          <div className="text-left lg:w-3/4 w-full">
+                            <div className="text-align px-2 sm:px-0 flex items-center justify-center">
+                              <h3 className={classes.typographyIntro}>Tutor&lsquos Information</h3>
                             </div>
 
+                            <div className="mt-6 border-t border-gray-100">
+                              <dl className="divide-y divide-gray-100">
+                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                  <dt className={classes.typographyTitle}>Full name</dt>
+                                  <dd className={`${classes.typography} mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0`}>{tutor.name}</dd>
+                                </div>
+                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                  <dt className={classes.typographyTitle}>Major</dt>
+                                  <dd className={`${classes.typography} mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0`}>{tutor.major}</dd>
+                                </div>
+                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                  <dt className={classes.typographyTitle}>Email </dt>
+                                  <dd className={`${classes.typography} mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0`}>margotfoster@example.com</dd>
+                                </div>
+                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                  <dt className={classes.typographyTitle}>Rating</dt>
+                                  <dd className={`${classes.typography} mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0`}>5/5</dd>
+                                </div>
+                                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                  <dt className={classes.typographyTitle}>About</dt>
+                                  <dd className={`${classes.typography} mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0`}>
+                                    Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
+                                    qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
+                                    pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+                                  </dd>
+                                </div>
+
+                              </dl>
+                            </div>
                           </div>
-                        
+
+                        </div>
+
 
                       </div>
                     </div>
