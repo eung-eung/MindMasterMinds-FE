@@ -30,7 +30,7 @@ const array: Item[] = [
     },
 
 ];
-export default function TutorDashboard() {
+export default function TutorDashboardPage() {
     const { data: session, status } = useSession()
   const [isLoading, setLoading] = React.useState<boolean>(true)
   console.log(session);
@@ -48,7 +48,7 @@ export default function TutorDashboard() {
           {/* Header */}
           <Header title='Tutor Dashboard' isHome={false} />
         <div className="container mx-auto">
-            <h1 className={`${classes.title} mb-20 mt-24 `}>History order</h1>
+            <h1 className={`${classes.title} mb-12 mt-24 `}>Dashboard</h1>
             <div className={classes.cardContainer}>
                 {array.map(item => <Card item={item} />)}
             </div>
