@@ -102,12 +102,12 @@ const ClassModal: React.FC<DialogComponentProps> = ({ item, isOpen, onClose }) =
                               <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                 <dt className={classes.typographyTitle}>Major</dt>
                                 <dd className={`${classes.typography} mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0`}>
-                                  {item.tags.map((tag) => 
-                                  <ul className='pb-4'>
-                                  <li>{tag}</li>
-                                </ul>
+                                  {item.tags.map((tag, i) =>
+                                    <ul key={i} className='pb-4'>
+                                      <li >{tag}</li>
+                                    </ul>
                                   )}
-                                  
+
 
                                 </dd>
                               </div>
@@ -126,7 +126,7 @@ const ClassModal: React.FC<DialogComponentProps> = ({ item, isOpen, onClose }) =
                     >
                       Close
                     </button>
-                  
+
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
