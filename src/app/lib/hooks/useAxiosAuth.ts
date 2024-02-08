@@ -7,7 +7,6 @@ const useAxiosAuth = () => {
     const { data: session } = useSession()
     useEffect(() => {
         const requestIntercept = axiosAuth.interceptors.request.use((config) => {
-            console.log('content type: ', config.headers["Content-Type"]);
             if (!config.headers["Content-Type"]) {
                 config.headers["Content-Type"] = 'application/json'
             }
@@ -15,7 +14,6 @@ const useAxiosAuth = () => {
             if (!config.headers["Authorization"]) {
                 config.headers["Authorization"] = `Bearer ${session?.user.accessToken}`
             }
-            console.log(config.headers["Authorization"]);
             return config
         })
 
