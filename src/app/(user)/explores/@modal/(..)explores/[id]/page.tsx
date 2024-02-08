@@ -38,7 +38,7 @@ export default function ExploreModal({
     return () => {
       controller.abort()
     }
-  }, [])
+  }, [id])
   return (
     <Modal>
       {error}
