@@ -32,7 +32,7 @@ export default function HistoryOrderPage() {
       {isLoading ? <LoadingTheme /> :
         <>
           {/* Header */}
-          <Header title='Find A Tutor' isHome={false} />
+          <Header title='History Order' isHome={false} />
 
           {/* Search bar */}
           <div className='container mx-auto my-24'>
