@@ -61,8 +61,6 @@ export default NextAuth({
             return true
         },
         async jwt({ token, user }) {
-            console.log('jwt: ', token);
-
             return { ...token, ...user }
         },
         async session({ session, user, token }) {
