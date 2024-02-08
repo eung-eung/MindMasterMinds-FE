@@ -3,7 +3,7 @@ import React from 'react'
 import classes from './form-post-blog.module.css'
 import FormModal from './form-modal';
 import Backdrop from "@mui/material/Backdrop";
-export default function FormPostBlog({ getPosts }: { getPosts: any }) {
+export default function FormPostBlog({ setPageNum }: { setPageNum: any }) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -18,7 +18,7 @@ export default function FormPostBlog({ getPosts }: { getPosts: any }) {
                     <span className={classes.title}>Share something?</span>
                 </div>
             </div>
-            <FormModal getPosts={getPosts} open={open} handleClose={handleClose} />
+            <FormModal setPageNum={setPageNum} open={open} handleClose={handleClose} />
             <Backdrop
                 className={classes.white}
                 sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
