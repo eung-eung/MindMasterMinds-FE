@@ -4,17 +4,22 @@ import classes from './form-modal.module.css'
 import CancelIcon from '@mui/icons-material/Cancel';
 import FormModalImagePicker from './form-modal-image-picker';
 import { useSession } from 'next-auth/react';
-import { axiosAuth } from '@/app/lib/axious';
+
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useAxiosAuth from '@/app/lib/hooks/useAxiosAuth';
 
-export default function FormModal({ open, handleClose, getPosts }:
-    { open: boolean, handleClose: any, getPosts: any }) {
+export default function FormModal({ open, handleClose, setPageNum }:
+    { open: boolean, handleClose: any, setPageNum: any }) {
     const contentArea = React.useRef<HTMLDivElement>(null)
     const fileImage = React.useRef<HTMLInputElement>(null)
+    const axiosAuth = useAxiosAuth()
     const toastId = React.useRef<any>()
     const { data: session } = useSession()
+
+
     const submitPost = async (e: React.MouseEvent<HTMLElement>) => {
+
         e.preventDefault()
         try {
             toastId.current = toast.loading("Posting...")
@@ -43,9 +48,7 @@ export default function FormModal({ open, handleClose, getPosts }:
                     transition: Bounce,
                 })
                 handleClose()
-                getPosts((prev: any) => {
-                    return !prev
-                })
+                setPageNum((prev: any) => 1)
             }
         } catch (error: any) {
             toast.update(toastId.current, {
