@@ -1,9 +1,9 @@
 .avatar_post_item {
-    /* width: 55px !important; */
     border-radius: 50% !important;
-    /* height: 55px !important; */
     transform: none !important;
     object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .header_left {
