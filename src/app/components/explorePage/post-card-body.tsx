@@ -6,7 +6,7 @@ import PostCardGridComments from './post-card-grid-comments'
 import { PostExplore } from '@/app/types/Post-Explore'
 import moment from 'moment-timezone'
 import { Skeleton } from '@mui/material'
-export default function PostCardBody({ post }: { post: PostExplore }) {
+export default function PostCardBody({ post, isRefresh }: { post: PostExplore, isRefresh: boolean }) {
     const [isLoading, setIsLoading] = useState(true)
 
     return (
@@ -58,7 +58,7 @@ export default function PostCardBody({ post }: { post: PostExplore }) {
                 }
             </div>
             <PostCardBodyAction />
-            <PostCardGridComments />
+            <PostCardGridComments isRefresh={isRefresh} postId={post.id} />
         </div>
     )
 }
