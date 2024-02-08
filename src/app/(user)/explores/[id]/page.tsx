@@ -1,6 +1,6 @@
 import PostItemById from '@/app/components/explorePage/post-item-by-id'
 import { Metadata } from 'next'
-import Link from 'next/link'
+
 
 export const metadata: Metadata = {
   title: 'MindMasterMinds'
@@ -9,14 +9,15 @@ export const metadata: Metadata = {
 export default function PhotoPage({
   params: { id }
 }: {
-  params: { id: string }
+  params: { id: any }
 }) {
+
 
 
   return (
     <section>
       <div>
-        <PostItemById />
+        <PostItemById id={id} />
       </div>
     </section>
   )
