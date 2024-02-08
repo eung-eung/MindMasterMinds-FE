@@ -8,6 +8,8 @@ export default function PostCardGridComments() {
             <PostCardComment />
             <PostCardComment />
             <PostCardComment />
+            <PostCardComment />
+            <PostCardComment />
         </div>
     )
 }
