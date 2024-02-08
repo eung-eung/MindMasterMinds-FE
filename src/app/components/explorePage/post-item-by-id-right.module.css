@@ -1,6 +1,7 @@
 .right {
     flex: 1;
     background: #fff;
+    position: relative;
 }
 
 .scroll_part {
@@ -8,6 +9,10 @@
     padding-left: 10px;
     max-height: 90vh;
     overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    bottom: 10%;
 }
 
 .box_grid {}
