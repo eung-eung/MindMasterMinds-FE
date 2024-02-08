@@ -1,18 +1,26 @@
 import React from 'react'
 import classes from './post-item-by-id-header.module.css'
-export default function PostItemByIdHeader() {
+import { PostExplore } from '@/app/types/Post-Explore'
+import moment from 'moment-timezone'
+export default function PostItemByIdHeader({ post }: { post: PostExplore }) {
     return (
         <div>
             <div className={classes.header}>
-                <img className={classes.avatar} src='https://i.pinimg.com/236x/3c/97/67/3c9767924858fc128cd2c8945ff28fa6.jpg' />
+                <img className={classes.avatar}
+                    src={post.user.avatar} />
                 <div className={classes.header_user}>
-                    <p className={classes.username}>39saku</p>
-                    <p className={classes.date}>29/1/2023</p>
+                    <p className={classes.username}>
+                        {post.user.firstName + ' ' + post.user.lastName}
+                    </p>
+                    <p className={classes.date}>
+                        {
+                            moment.utc(post.creationDate).tz('Asia/Ho_Chi_Minh').format('DD-MM-YYYY HH:mm:ss')
+                        }
+                    </p>
                 </div>
             </div>
             <div className={classes.content}>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio quaerat error modi, vitae totam quis et placeat accusantium numquam
-                harum iure suscipit inventore cum eum dolores beatae assumenda nisi. Corrupti!
+                {post?.content}
             </div>
         </div>
     )
