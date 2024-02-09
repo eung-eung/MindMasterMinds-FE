@@ -1,7 +1,5 @@
 'use client'
 import { useSession, signIn, signOut } from "next-auth/react"
-import UserCard from "../components/loginPage/userCard";
-import { decode } from "next-auth/jwt";
 export default function LoginPage() {
     const { data: session } = useSession()
     // const decoded = await decode({

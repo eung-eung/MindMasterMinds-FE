@@ -1,8 +1,15 @@
 .avatar_post_item {
-    width: 55px;
-    border-radius: 50%;
-    height: 55px;
+    border-radius: 50% !important;
+    transform: none !important;
     object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.header_left {
+    width: 55px;
+    height: 55px;
+
 }
 
 .writer_post_item {
@@ -40,13 +47,20 @@
 }
 
 .image_body {
+    /* position: relative;
+    width: 100%; */
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
-.image_body img {
+.image_body .img {
     max-width: 100%;
 
+}
+
+.header_right {
+    width: 100%;
 }
 
 .action {

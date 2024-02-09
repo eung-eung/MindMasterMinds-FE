@@ -4,12 +4,13 @@ import PostItemByIdBody from './post-item-by-id-body'
 import classes from './post-item-by-id-right.module.css'
 import PostCardGridComments from './post-card-grid-comments'
 import PostCardInputComment from './post-card-input-comment'
-export default function PostItemByIdRight() {
+import { PostExplore } from '@/app/types/Post-Explore'
+export default function PostItemByIdRight({ post }: { post: PostExplore }) {
     return (
         <div className={classes.right}>
             <div className={classes.scroll_part}>
-                <PostItemByIdHeader />
-                <PostItemByIdBody />
+                <PostItemByIdHeader post={post} />
+                <PostItemByIdBody post={post} />
                 <div className={classes.box_grid}>
                     <PostCardGridComments />
                 </div>

@@ -14,10 +14,6 @@ import { useSession } from 'next-auth/react'
 export default function HomePage() {
     const { data: session, status } = useSession()
     const [isLoading, setLoading] = useState<boolean>(true)
-    console.log('session: ', session);    
-    // console.log('session: ', session?.user.userViewLogin.lastName);
-
-
 
     useEffect(() => {
         if (status !== 'loading') setLoading(false)

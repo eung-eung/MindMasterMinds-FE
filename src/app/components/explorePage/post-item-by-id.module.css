@@ -1,6 +1,6 @@
 .box {
     display: flex;
-    height: 100vh;
+    height: 70vh;
     margin-right: 100px;
     margin-left: 100px;
     margin-top: 100px;
@@ -17,6 +17,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.post_image img {
+    height: -webkit-fill-available;
 }
 
 .post_image::after {

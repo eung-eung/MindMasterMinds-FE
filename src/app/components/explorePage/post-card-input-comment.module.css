@@ -4,7 +4,12 @@
     outline: none;
     cursor: auto;
     min-height: 24px;
+    flex: 8;
     width: 100%;
+}
+
+.box_1 {
+    flex: 1;
 }
 
 .content:empty::before {
@@ -29,4 +34,35 @@
     display: flex;
     align-items: center;
     padding: 10px;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    z-index: 9999;
+    height: 10%;
+    position: absolute;
+
+}
+
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 5px solid #bebebe;
+    border-bottom-color: rgba(147, 253, 211, 0.95);
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    overflow: hidden;
+    animation: rotation 1s linear infinite;
+}
+
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
