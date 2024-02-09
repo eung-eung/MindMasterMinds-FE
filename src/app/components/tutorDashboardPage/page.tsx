@@ -12,26 +12,26 @@ import Footer from '../footer/footer';
 
 
 interface Item {
-    total: number;
-    title: string;
-    label: string;
+  total: number;
+  title: string;
+  label: string;
 }
 
 const array: Item[] = [
-    {
-        title: "Total Number Of Sessions",
-        total: 3,
-        label: 'Sessions'
-    },
-    {
-        title: "Total Revenue From Sessions",
-        total: 200000,
-        label: 'VND'
-    },
+  {
+    title: "Total Number Of Sessions",
+    total: 3,
+    label: 'Sessions'
+  },
+  {
+    title: "Total Revenue From Sessions",
+    total: 200000,
+    label: 'VND'
+  },
 
 ];
 export default function TutorDashboardPage() {
-    const { data: session, status } = useSession()
+  const { data: session, status } = useSession()
   const [isLoading, setLoading] = React.useState<boolean>(true)
   console.log(session);
 
@@ -41,30 +41,30 @@ export default function TutorDashboardPage() {
       redirect('/signIn')
     }
   }, [status])
-    return (
-        <div>
-        {isLoading ? <LoadingTheme /> :
+  return (
+    <div>
+      {isLoading ? <LoadingTheme /> :
         <>
           {/* Header */}
           <Header title='Tutor Dashboard' isHome={false} />
-        <div className="container mx-auto">
+          <div className="container mx-auto">
             <h1 className={`${classes.title} mb-12 mt-24 `}>Dashboard</h1>
             <div className={classes.cardContainer}>
-                {array.map(item => <Card item={item} />)}
+              {array.map((item, i) => <Card key={i} item={item} />)}
             </div>
             <div className={classes.chartBar}>
-                <h3 style={{ textAlign: "left", marginBottom: "30px", fontFamily: "Belanosima", fontSize: "30px" }}>Revenue</h3>
-                <Revenue />
+              <h3 style={{ textAlign: "left", marginBottom: "30px", fontFamily: "Belanosima", fontSize: "30px" }}>Revenue</h3>
+              <Revenue />
             </div>
-            <div style={{ marginTop: "100px",marginBottom:"100px"}}>
-                <BasicTable />
+            <div style={{ marginTop: "100px", marginBottom: "100px" }}>
+              <BasicTable />
             </div>
 
-        </div>
+          </div>
 
-        <Footer />
+          <Footer />
         </>
       }
     </div>
-    )
+  )
 }

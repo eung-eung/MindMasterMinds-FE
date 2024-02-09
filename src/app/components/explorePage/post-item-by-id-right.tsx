@@ -12,10 +12,10 @@ export default function PostItemByIdRight({ post }: { post: PostExplore }) {
                 <PostItemByIdHeader post={post} />
                 <PostItemByIdBody post={post} />
                 <div className={classes.box_grid}>
-                    <PostCardGridComments />
+                    {/* <PostCardGridComments /> */}
                 </div>
             </div>
-            <PostCardInputComment />
+            {/* <PostCardInputComment /> */}
         </div>
     )
 }
