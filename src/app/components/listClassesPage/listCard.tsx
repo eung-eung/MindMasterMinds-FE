@@ -1,8 +1,12 @@
 "use-client"
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import classes from './listCard.module.css'
 import DetailModal from './detailModal';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import { Menu, Transition } from '@headlessui/react'
+
+
 
 interface ClassData {
   id: number;
@@ -15,7 +19,7 @@ interface ClassData {
   fee: number
 }
 
-const item: ClassData[] = [
+const classItem: ClassData[] = [
   { id: 1, subject: 'MKT304', major: 'International Business', tutor: 'Mary Han', dateOfStudy: new Date('2024-01-31'), session: 3, fee: 300000, about: 'Im okay , Im fine , quyn cha na , quyn cha na , teng neng neng neng neng , ku mê na hàn ra sa sakit , rasa sakit , a hem bu ' },
   { id: 2, subject: 'MLN111', major: 'International Business', tutor: 'Mary Han', dateOfStudy: new Date('2024-01-31'), session: 3,fee: 300000, about: 'Im okay , Im fine , quyn cha na , quyn cha na , teng neng neng neng neng , ku mê na hàn ra sa sakit , rasa sakit , a hem bu ' },
   { id: 3, subject: 'MLN122', major: 'Digital Marketing', tutor: 'Adrian Bui', dateOfStudy: new Date('2024-01-31'), session: 3,fee: 300000, about: 'Im okay , Im fine , quyn cha na , quyn cha na , teng neng neng neng neng , ku mê na hàn ra sa sakit , rasa sakit , a hem bu ' },
@@ -34,29 +38,99 @@ const ListCard: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedClass, setSelectedClass] = useState<ClassData | null>(null);
 
+  const [filterMajor, setFilterMajor] = useState('all');
+
+  const filterClassByMajor = classItem.filter((classByMajor) => {
+    if (filterMajor === 'all') {
+      return true; // Show all tutors
+    } else {
+      return classByMajor.major.toLowerCase() === filterMajor.toLowerCase();
+    }
+  });
+
+ 
+
+
   const startIndex = (currentPage - 1) * itemPerPage;
   const endIndex = startIndex + itemPerPage;
-  const currentItem = item.slice(startIndex, endIndex);
+  const currentItem = filterClassByMajor.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(classItem.length / itemPerPage);
+  const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
-  const totalPages = Math.ceil(item.length / itemPerPage);
+  
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
-  const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   // Handle open modal
   const handleButtonClick = (classItem: ClassData) => {
     setSelectedClass(classItem);
   };
 
+  const uniqueMajors = Array.from(new Set(classItem.map((thisClass) => thisClass.major)));
+
+
+
   return (
     <div>
       <div>
         <section className="text-gray-600 body-font">
           <div className="container px-5 pb-24 pt-2 mx-auto">
+            <div className="grid grid-cols-2">
             <h1 className={classes.title}>List Of Classes</h1>
+            <Menu as="div" className={`relative inline-block`}>
+  <div className='flex justify-end'>
+    <Menu.Button className={`${classes.filter} inline-flex w-auto justify-center items-center gap-x-1.5 rounded-md px-3 py-2`}>
+      Filter Major
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+      </svg>
+      <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+    </Menu.Button>
+  </div>
+
+  <Transition
+    as={Fragment}
+    enter="transition ease-out duration-100"
+    enterFrom="transform opacity-0 scale-95"
+    enterTo="transform opacity-100 scale-100"
+    leave="transition ease-in duration-75"
+    leaveFrom="transform opacity-100 scale-100"
+    leaveTo="transform opacity-0 scale-95"
+  >
+    <Menu.Items className="absolute right-0 z-10 mt-2 w-auto origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+      <div className="py-1 grid grid-cols-1 ">
+        {/* Add 'All Majors' button */}
+        <Menu.Item>
+          <button
+            style={{ padding: "10px", width: '100%', paddingBottom: "10px", paddingTop: "10px", fontFamily: "Belanosima" }}
+            className={`mr-4 ${filterMajor === 'all' ? 'bg-gray-100' : ''}`}
+            onClick={() => setFilterMajor('all')}
+          >
+            All Majors
+          </button>
+        </Menu.Item>
+
+        {/* Render other majors */}
+        {uniqueMajors.map((major) => (
+          <Menu.Item key={major}>
+            <button
+              style={{ padding: "10px", width: '100%', paddingBottom: "10px", paddingTop: "10px", fontFamily: "Belanosima" }}
+              className={`mr-4 ${filterMajor === major ? 'bg-gray-100' : ''}`}
+              onClick={() => setFilterMajor(major)}
+            >
+              {major}
+            </button>
+          </Menu.Item>
+        ))}
+      </div>
+    </Menu.Items>
+  </Transition>
+</Menu>
+            </div>
+            
             <div className="flex flex-wrap -m-4">
               {currentItem.map((classItem) => (
                 <>
@@ -129,8 +203,8 @@ const ListCard: React.FC = () => {
           <div>
             <p className="text-sm text-gray-700">
               Showing <span className="font-medium">{startIndex + 1}</span> to{' '}
-              <span className="font-medium">{endIndex > item.length ? item.length : endIndex}</span> of{' '}
-              <span className="font-medium">{item.length}</span> results
+              <span className="font-medium">{endIndex > classItem.length ? classItem.length : endIndex}</span> of{' '}
+              <span className="font-medium">{classItem.length}</span> results
             </p>
           </div>
           <div>

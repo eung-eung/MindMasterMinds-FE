@@ -16,15 +16,18 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon,
 } from '@heroicons/react/24/outline'
-import {  ChevronRightIcon, ChatBubbleLeftIcon, EnvelopeIcon, ArrowLeftEndOnRectangleIcon, BellAlertIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
-import {  signOut, useSession } from 'next-auth/react';
+import { ChevronRightIcon, ChatBubbleLeftIcon, EnvelopeIcon, ArrowLeftEndOnRectangleIcon, BellAlertIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import UserInfor from './user-infor';
+import { redirect } from 'next/navigation';
+import { Alert } from '@mui/material';
 
 
 const solutions = [
-  { name: 'Notification 1', description: 'Get a better understanding of your traffic', href: '#'},
+  { name: 'Notification 1', description: 'Get a better understanding of your traffic', href: '#' },
   { name: 'Notification 2', description: 'Speak directly to your customers', href: '#' },
-  { name: 'Notification 3', description: "Your customers' data will be safe and secure", href: '#'},
+  { name: 'Notification 3', description: "Your customers' data will be safe and secure", href: '#' },
   { name: 'Notification 4', description: 'Connect with third-party tools', href: '#' },
   { name: 'Notification 5', description: 'Build strategic funnels that will convert', href: '#' },
 ]
@@ -33,13 +36,30 @@ const solutions = [
 export default function Nav() {
   const { data: session } = useSession()
   const role = session?.user.userViewLogin.userRole.roleName;
+  const [modalOpen, setModalOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-
-
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const handleLogOut = async () => {
     const data = await signOut({ redirect: false, callbackUrl: "/" })
   }
+
+  const handleLinkRole = () => {
+    if (role === 'Tutor') {
+      // setModalOpen(true); // Update state to open the modal
+      redirect('/tutorDashboard');
+    } else if (role === 'Student') {
+      // Redirect logic for students
+      // redirect('/tutorDashboard');
+      alert('Not tutor')
+    }
+  };
+
+
+  const handleClose = () => {
+    setModalOpen(false);
+  };
+
+
   return (
     <div>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -63,34 +83,7 @@ export default function Nav() {
             >
               <Popover.Panel className="absolute -left-8 top-full z-10 mt-6 w-screen rounded-3xl max-w-md overflow-hidden bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div className="p-4">
-                  <div className="flex-none sm:flex">
-                    <div className=" relative h-20 w-20 mx-8 my-8  sm:mb-0">
-                      <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png" alt="imageUser" className="w-16 h-16 object-cover rounded-2xl" />
-                      <a href="#" className="absolute -right-2 bottom-2   -ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
-                          <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
-                          </path>
-                        </svg>
-                      </a>
-                    </div>
-                    <div className="flex items-center justify-between sm:mt-2">
-                      <div className="flex items-center">
-                        <div className="flex flex-col mt-6">
-                          <div className={classes.guestUser}>{session?.user.userViewLogin.firstName} {session?.user.userViewLogin.lastName}</div>
-                          <div className="flex-auto text-gray-400 my-2">
-                            <span className="mr-3 ">
-                              <div style={{ display: 'flex', alignItems: 'center' }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-                                  <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
-                                </svg>
-                                <span className="ml-2">Add your university or school</span>
-                              </div>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <UserInfor />
                   <div>
 
                     <div
@@ -109,9 +102,100 @@ export default function Nav() {
 
                     </div>
 
-                    {/* For student */}
-                    {role === "Student" && (
+
                     <div className="ml-6">
+
+                      {/* Check role */}
+                      <div
+                        key="tutorDashboard"
+                        className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
+                      >
+                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                          <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                        </div>
+                        <div className="flex-auto">
+                          {role === 'Tutor' ? (
+                            <Link href="/tutorDashboard" className="block font-semibold text-gray-900">
+                              Dashboard for tutor
+                              <span className="absolute inset-0" />
+                            </Link>
+                          ) : (
+                            <button onClick={() => setModalOpen(true)} className="block font-semibold text-gray-900">
+                              Dashboard for tutor
+                              <span className="absolute inset-0" />
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                      <Dialog
+                        as="div"
+                        className="fixed inset-0 z-10 overflow-y-auto my-24"
+                        open={modalOpen}
+                        onClose={handleClose}
+                      >
+                        <div className="min-h-screen px-4 text-center">
+                          {/* Background overlay */}
+                          <Transition
+                            as={Fragment}
+                            enter="ease-out duration-300"
+                            enterFrom="opacity-0"
+                            enterTo="opacity-100"
+                            leave="ease-in duration-200"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                          >
+                            <Dialog.Overlay className="fixed inset-0 bg-black opacity-70" />
+                          </Transition>
+
+                          {/* Dialog content */}
+                          <Transition
+                            as={Fragment}
+                            enter="ease-out duration-300"
+                            enterFrom="opacity-0 scale-95"
+                            enterTo="opacity-100 scale-100"
+                            leave="ease-in duration-200"
+                            leaveFrom="opacity-100 scale-100"
+                            leaveTo="opacity-0 scale-95"
+                          >
+                            <div className="inline-block align-middle my-8 w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-xl">
+                              {/* Close button */}
+                              <div className="absolute top-0 right-0 pt-4 pr-4">
+                                <button
+                                  className="text-gray-500 hover:text-gray-700"
+                                  onClick={() => setModalOpen(false)}
+                                >
+                                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                </button>
+                              </div>
+
+                              {/* Dialog title */}
+                              <Dialog.Title as="h3" className="text-lg font-medium text-gray-900">
+                              <Alert severity="warning">This is a warning Alert.</Alert>
+                              </Dialog.Title>
+
+                              {/* Dialog content */}
+                              <div className="mt-6 ml-2 flex items-center">
+                                <p className={classes.modalContent}>
+                                  You are not Tutor
+                                </p>
+                              </div>
+
+                              {/* Dialog actions */}
+                              <div className="mt-4 flex justify-end">
+                                <button
+                                  type="button"
+                                  className="inline-flex justify-center px-4 py-2 text-sm font-medium text-black bg-[#93FDD3] border border-transparent rounded-md shadow-sm hover:bg-[#559a7f] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-#6754"
+                                  onClick={() => setModalOpen(false)}
+                                >
+                                  Close
+                                </button>
+                              </div>
+                            </div>
+                          </Transition>
+                        </div>
+                      </Dialog>
+
+
                       <div
                         key="findTutor"
                         className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
@@ -183,83 +267,9 @@ export default function Nav() {
                         </div>
                       </div>
                     </div>
-)}
 
-      {/* For Tutor */}
-      {role === "Tutor" && (
-                    <div className="ml-6">
-                      <div
-                        key="tutorDashboard"
-                        className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                      >
-                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                          <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                        </div>
-                        <div className="flex-auto">
-                          <Link href="/tutorDashboard" className="block font-semibold text-gray-900">
-                            Dashboard for tutor
-                            <span className="absolute inset-0" />
-                          </Link>
-                        </div>
-                      </div>
-                      <div
-                        key="becomeTutor"
-                        className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                      >
-                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                          <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                        </div>
-                        <div className="flex-auto">
-                          <Link href="/tutors" className="block font-semibold text-gray-900">
-                            Become A Tutor
-                            <span className="absolute inset-0" />
-                          </Link>
-                        </div>
-                      </div>
-                      <div
-                        key="ListTutor"
-                        className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                      >
-                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                          <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                        </div>
-                        <div className="flex-auto">
-                          <Link href="/listTutor" className="block font-semibold text-gray-900">
-                            List of Tutors
-                            <span className="absolute inset-0" />
-                          </Link>
-                        </div>
-                      </div>
-                      <div
-                        key="findClass"
-                        className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                      >
-                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                          <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                        </div>
-                        <div className="flex-auto">
-                          <Link href="/listClasses" className="block font-semibold text-gray-900">
-                            List of Classes
-                            <span className="absolute inset-0" />
-                          </Link>
-                        </div>
-                      </div>
-                      <div
-                        key="Explore"
-                        className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                      >
-                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                          <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                        </div>
-                        <div className="flex-auto">
-                          <Link href="/explores" className="block font-semibold text-gray-900">
-                            Explore
-                            <span className="absolute inset-0" />
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-)}
+
+
                     <div
                       key="pricing"
                       className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
@@ -360,7 +370,7 @@ export default function Nav() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   <div>
-             
+
 
                     <div
                       key="Our Service"
@@ -508,45 +518,45 @@ export default function Nav() {
             </svg>
           </Link>
 
-            {/* Notification */}
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900 pr-10">
-          
-      
-      <Popover className="relative">
-      <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-      <BellAlertIcon style={{color:"white", width: "28px", height: "28px"}}/>
-      </Popover.Button>
+          {/* Notification */}
+          <a href="#" className="text-sm font-semibold leading-6 text-gray-900 pr-10">
 
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-200"
-        enterFrom="opacity-0 translate-y-1"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition ease-in duration-150"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 translate-y-1"
-      >
-        <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-3/4 px-4">
-          <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-            <div className="p-4">
-              {solutions.map((item) => (
-                <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-4 pl-8 hover:bg-gray-50">
-                  
-                  <div>
-                    <a href={item.href} className="font-semibold text-gray-900">
-                      {item.name}
-                      <span className="absolute inset-0" />
-                    </a>
-                    <p className="mt-1 text-gray-600">{item.description}</p>
+
+            <Popover className="relative">
+              <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                <BellAlertIcon style={{ color: "white", width: "28px", height: "28px" }} />
+              </Popover.Button>
+
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-200"
+                enterFrom="opacity-0 translate-y-1"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition ease-in duration-150"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo="opacity-0 translate-y-1"
+              >
+                <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-3/4 px-4">
+                  <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+                    <div className="p-4">
+                      {solutions.map((item) => (
+                        <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-4 pl-8 hover:bg-gray-50">
+
+                          <div>
+                            <a href={item.href} className="font-semibold text-gray-900">
+                              {item.name}
+                              <span className="absolute inset-0" />
+                            </a>
+                            <p className="mt-1 text-gray-600">{item.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
                   </div>
-                </div>
-              ))}
-            </div>
-           
-          </div>
-        </Popover.Panel>
-      </Transition>
-    </Popover>
+                </Popover.Panel>
+              </Transition>
+            </Popover>
           </a>
 
         </div>

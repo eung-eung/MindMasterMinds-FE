@@ -122,56 +122,56 @@ export default function ListCard() {
     <div>
       <section className="text-gray-600 body-font">
         <div className="flex justify-end my-2">
-         
-       <Menu as="div" className={`relative inline-block text-left mr-6`}>
-  <div>
-    <Menu.Button className={`${classes.filter} inline-flex w-full justify-center items-center gap-x-1.5 rounded-md px-3 py-2`}>
-      Filter Major
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
-      </svg>
-      <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
-    </Menu.Button>
-  </div>
 
-  <Transition
-    as={Fragment}
-    enter="transition ease-out duration-100"
-    enterFrom="transform opacity-0 scale-95"
-    enterTo="transform opacity-100 scale-100"
-    leave="transition ease-in duration-75"
-    leaveFrom="transform opacity-100 scale-100"
-    leaveTo="transform opacity-0 scale-95"
-  >
-    <Menu.Items className="absolute right-0 z-10 mt-2 w-54 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-      <div className="py-1">
-        {/* Add 'All Majors' button */}
-        <Menu.Item>
-          <button
-            style={{ paddingLeft: "10px", width: '250px', paddingBottom: "10px", paddingTop: "10px", fontFamily: "Belanosima" }}
-            className={`mr-4 ${filterMajor === 'all' ? 'text-blue-500 underline' : ''}`}
-            onClick={() => setFilterMajor('all')}
-          >
-            All Majors
-          </button>
-        </Menu.Item>
+          <Menu as="div" className={`relative inline-block text-left mr-6`}>
+            <div>
+              <Menu.Button className={`${classes.filter} inline-flex w-full justify-center items-center gap-x-1.5 rounded-md px-3 py-2`}>
+                Filter Major
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+                </svg>
+                <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+              </Menu.Button>
+            </div>
 
-        {/* Render other majors */}
-        {uniqueMajors.map((major) => (
-          <Menu.Item key={major}>
-            <button
-              style={{ paddingLeft: "10px", width: '250px', paddingBottom: "10px", paddingTop: "10px", fontFamily: "Belanosima" }}
-              className={`mr-4 ${filterMajor === major ? 'text-blue-500 underline' : ''}`}
-              onClick={() => setFilterMajor(major)}
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-100"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
             >
-              {major}
-            </button>
-          </Menu.Item>
-        ))}
-      </div>
-    </Menu.Items>
-  </Transition>
-</Menu>
+              <Menu.Items className="absolute right-0 z-10 mt-2 w-54 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <div className="py-1">
+                  {/* Add 'All Majors' button */}
+                  <Menu.Item>
+                    <button
+                      style={{ paddingLeft: "10px", width: '250px', paddingBottom: "10px", paddingTop: "10px", fontFamily: "Belanosima" }}
+                      className={`mr-4 ${filterMajor === 'all' ? 'text-blue-500 underline' : ''}`}
+                      onClick={() => setFilterMajor('all')}
+                    >
+                      All Majors
+                    </button>
+                  </Menu.Item>
+
+                  {/* Render other majors */}
+                  {uniqueMajors.map((major) => (
+                    <Menu.Item key={major}>
+                      <button
+                        style={{ paddingLeft: "10px", width: '250px', paddingBottom: "10px", paddingTop: "10px", fontFamily: "Belanosima" }}
+                        className={`mr-4 ${filterMajor === major ? 'text-blue-500 underline' : ''}`}
+                        onClick={() => setFilterMajor(major)}
+                      >
+                        {major}
+                      </button>
+                    </Menu.Item>
+                  ))}
+                </div>
+              </Menu.Items>
+            </Transition>
+          </Menu>
 
         </div>
 
@@ -222,7 +222,7 @@ export default function ListCard() {
                         <div className="ml-3">
                           <h3 className={classes.commentName}>{tutor.commentName}</h3>
                           <p className={classes.commentDate}>{tutor.commentDate}</p>
-                          </div>
+                        </div>
                         <div className="flex items-center ml-14">
                           <p className={`${classes.commentRatingTypography} mr-3`}>Rating</p>
                           <p className={classes.commentRating}>{tutor.commentRating}</p>
