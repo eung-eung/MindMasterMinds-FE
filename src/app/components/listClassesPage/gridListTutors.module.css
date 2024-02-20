@@ -1,0 +1,44 @@
+.grid_tutors {
+    border: 1px solid #ddd;
+    flex: 3;
+    max-height: 50vh;
+    overflow: auto;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/* width */
+.grid_tutors::-webkit-scrollbar {
+    width: 1px;
+}
+
+/* Track */
+.grid_tutors::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+/* Handle */
+.grid_tutors::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+
+.content {
+    flex: 2;
+}
+
+.box {
+    display: flex;
+    gap: 10px;
+}
+
+.title {
+    font-size: 29px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+}
