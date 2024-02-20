@@ -15,20 +15,20 @@
 
 .typography {
     color: rgba(0, 0, 0, 0.45);
-font-family: Belanosima;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-family: Belanosima;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .introLine {
     color: rgba(0, 0, 0, 0.695);
-font-family: Belanosima;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-family: Belanosima;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .label {
@@ -39,4 +39,3 @@ line-height: normal;
     font-weight: 400;
     line-height: normal;
 }
-
