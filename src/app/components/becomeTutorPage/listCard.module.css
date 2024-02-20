@@ -4,6 +4,13 @@
     border-bottom: 3px solid black;
 }
 
+.class_fee {
+    font-size: 20px;
+    color: #00cf7c;
+    font-weight: 600;
+
+}
+
 .title {
     color: #222;
     font-family: Belanosima;
@@ -19,7 +26,7 @@
     background: #FFF;
     box-shadow: 0px 3px 6px 2px rgba(0, 0, 0, 0.25);
     width: 100%;
-    height: 202px;
+    height: auto;
     flex-shrink: 0;
 }
 
@@ -43,7 +50,6 @@
     margin-top: 20px;
 }
 
-.studyDate {}
 
 .cardTagContent {
     color: #222;
@@ -54,13 +60,40 @@
     line-height: normal;
 }
 
-.cardButtonWaiting {
+.cardButtonWaiting,
+.cardButtonApply {
     border-radius: 15px;
-    background: #93FDD3;
-    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.25);
-    width: 215px;
-    height: 62px;
+
+    color: #000;
+    font-weight: 600;
     flex-shrink: 0;
+    min-width: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.cardButtonApply {
+    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.25);
+    background: #000;
+    color: #fff;
+}
+
+.cardButtonWaiting {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: red;
+    background: none;
+}
+
+.box_btn {
+    flex: 2;
+    display: flex;
+    align-items: end;
+}
+
+.box_content {
+    flex: 1;
+
 }
 
 .cardButtonAccepted {
@@ -98,11 +131,10 @@
     color: #222;
     text-align: center;
     font-family: Belanosima;
-    font-size: 22px;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 400;
     line-height: normal;
-    margin-right: 75px;
+
 }
 
 .buttonPagination {
