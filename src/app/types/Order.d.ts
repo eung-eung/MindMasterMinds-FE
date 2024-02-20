@@ -1,5 +1,4 @@
 export interface Order {
-    order: any;
     summary: string,
     courseSubjectId: string,
     stateInfo: boolean,
