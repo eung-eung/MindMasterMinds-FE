@@ -2,20 +2,12 @@
 import { Fragment, useRef, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import classes from './detailModal.module.css'
+import { Class } from '@/app/types/Class';
 
-interface DialogComponentProps {
+interface DialogComponentProps extends Class {
   isOpen: boolean;
   onClose: () => void;
-  classItem: {
-    id: number;
-    subject: string;
-    major: string;
-    tutor: string;
-    dateOfStudy: Date;
-    session: number;
-    about: string;
-    fee: number
-  };
+  classItem: Class
 }
 
 const DetailModal: React.FC<DialogComponentProps> = ({ classItem, isOpen, onClose }) => {
@@ -72,7 +64,7 @@ const DetailModal: React.FC<DialogComponentProps> = ({ classItem, isOpen, onClos
                                     </svg>
 
                                     <span className={`${classes.itemTitle} title-font font-medium mr-2 ml-2`}>Subject:</span>
-                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.subject}</span>
+                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.courseSubject.subject.code}</span>
                                   </div>
                                 </div>
                                 <div className="p-2 sm:w-1/2 w-full">
@@ -82,7 +74,7 @@ const DetailModal: React.FC<DialogComponentProps> = ({ classItem, isOpen, onClos
                                     </svg>
 
                                     <span className={`${classes.itemTitle} title-font font-medium mr-2 ml-2`}>Major:</span>
-                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.major}</span>
+                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.courseSubject.course.code}</span>
                                   </div>
                                 </div>
                                 <div className="p-2 sm:w-1/2 w-full">
@@ -91,7 +83,7 @@ const DetailModal: React.FC<DialogComponentProps> = ({ classItem, isOpen, onClos
                                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                     </svg>
                                     <span className={`${classes.itemTitle} title-font font-medium mr-2 ml-2`}>Tuition fees:</span>
-                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.fee} VND</span>
+                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.courseSubject.subject.price} VND</span>
                                   </div>
                                 </div>
                                 <div className="p-2 sm:w-1/2 w-full">
@@ -101,7 +93,7 @@ const DetailModal: React.FC<DialogComponentProps> = ({ classItem, isOpen, onClos
                                     </svg>
 
                                     <span className={`${classes.itemTitle} title-font font-medium mr-2 ml-2`}>Lessions/week:</span>
-                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.session}</span>
+                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.quantity}</span>
                                   </div>
                                 </div>
                                 <div className="p-2 sm:w-1/2 w-full">
@@ -111,7 +103,7 @@ const DetailModal: React.FC<DialogComponentProps> = ({ classItem, isOpen, onClos
                                     </svg>
 
                                     <span className={`${classes.itemTitle} title-font font-medium mr-2 ml-2`}>Start date:</span>
-                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.dateOfStudy.toDateString()}</span>
+                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.study}</span>
                                   </div>
                                 </div>
                                 <div className="p-2 sm:w-1/2 w-full">
@@ -121,7 +113,8 @@ const DetailModal: React.FC<DialogComponentProps> = ({ classItem, isOpen, onClos
                                     </svg>
 
                                     <span className={`${classes.itemTitle} title-font font-medium mr-2 ml-2`}>Tutor:</span>
-                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.tutor}</span>
+                                    <span className={`${classes.typography} title-font font-medium`}>
+                                      {classItem.tutor ? `${classItem.tutor.firstName + ' ' + classItem.tutor.lastName}` : 'No tutor'}</span>
                                   </div>
                                 </div>
                                 <div className="p-2  w-full">
@@ -132,7 +125,7 @@ const DetailModal: React.FC<DialogComponentProps> = ({ classItem, isOpen, onClos
                                       <path d="M22 4L12 14.01l-3-3"></path>
                                     </svg> */}
                                     <span className={`${classes.itemTitle} title-font font-medium mr-2 ml-2`}>About the course:</span>
-                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.about}</span>
+                                    <span className={`${classes.typography} title-font font-medium`}>{classItem.description}</span>
 
                                   </div>
                                 </div>
