@@ -2,11 +2,11 @@
 import { useEffect, useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import classes from './listCard.module.css'
-import ClassModal from './classModal';
 import useAxiosAuth from '@/app/lib/hooks/useAxiosAuth';
 import { Class } from '@/app/types/Class';
 import moment from 'moment-timezone';
-
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ListCard() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -15,8 +15,43 @@ export default function ListCard() {
 
     const getListClasses = async () => {
         const response = await axiosAuth.get('/Order?pageNumber=0&pageSize=100')
-        console.log(response.data.data);
         setListClasses(response.data.data)
+
+    }
+
+    const handleApply = async (id: string) => {
+        try {
+            const response = await axiosAuth.post('/Order/register-order-by-tutor',
+                id
+            )
+
+            toast.success('Sent apply successfull', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        } catch (error: any) {
+            console.log(error);
+
+            toast.error(error.response.data.Message, {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        }
+
 
     }
     useEffect(() => {
@@ -25,6 +60,19 @@ export default function ListCard() {
 
     return (
         <div>
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                transition={Bounce}
+            />
             <div>
                 <section className="text-gray-600 body-font">
                     <div className="container px-5 py-18 mt-16 mx-auto">
@@ -35,8 +83,8 @@ export default function ListCard() {
                                         className={`${classes.card} container p-0 mb-16 w-full`}>
                                         <div className="h-full w-full">
                                             {/* First set of content */}
-                                            <div className="flex p-3">
-                                                <div className="flex mt-4 ml-6 flex-col md:pr-10 md:mb-0 mb-6 pr-0 mb-16 w-full md:w-2/3 md:text-left text-center">
+                                            <div className="flex relative p-3 justify-between">
+                                                <div className={classes.box_content + " flex mt-4 ml-6 flex-col md:pr-10 md:mb-0 mb-6 pr-0 mb-16 w-full md:w-2/3 md:text-left text-center"}>
                                                     <p className={classes.cardContent}>{classItem.summary}</p>
                                                     <p className={classes.cardDescription}>{classItem.description}</p>
                                                     <p className={`${classes.studyDate} `}>
@@ -44,20 +92,33 @@ export default function ListCard() {
                                                             moment.utc(classItem.study).tz('Asia/Ho_Chi_Minh').format('DD-MM-YYYY')
                                                         }
                                                     </p>
+                                                    <p>
+                                                        Status: {classItem.stateInfo ? 'Urgent' : 'Normal'}
+                                                    </p>
+                                                    <p>
+                                                        Sessions: {classItem.quantity}
+                                                    </p>
                                                 </div>
 
-                                                <div className="flex p-4 items-center md:ml-auto md:mr-0 mx-auto flex-shrink-0">
-                                                    <button className={classes.cardButtonWaiting}>
-                                                        <h2 className={classes.cardButtonWaitingContent}>Waiting</h2>
+                                                <div className={classes.box_btn + " flex flex-col p-4 items-center  md:mr-0  flex-shrink-0"}>
+                                                    <button type='button' disabled className={classes.cardButtonWaiting}>
+                                                        Waiting
+                                                    </button>
+                                                    <button
+                                                        type='button'
+                                                        onClick={() => handleApply(classItem.id)}
+                                                        className={classes.cardButtonApply}>
+                                                        Apply
                                                     </button>
                                                 </div>
                                             </div>
 
                                             {/* Second set of content */}
-                                            <div className="flex pb-4 pl-4">
-                                                <div className="flex flex-col md:pr-10 md:mb-0 mb-2 pr-0 mb-2 w-full md:w-2/3 md:text-left text-center">
+                                            <div className="flex pb-4 pl-4 justify-between">
+                                                <div
+                                                    style={{ flex: 2 }}
+                                                    className="flex flex-col md:pr-10 md:mb-0 mb-2 pr-0 mb-2 w-full md:w-2/3 md:text-left text-center">
                                                     <div className="flex flex-wrap pr-2">
-
                                                         <div className="p-4">
                                                             <div className={`${classes.cardTag} p-2 mr-4 rounded-lg inline-block`}>
                                                                 <p className={`${classes.cardTagContent} leading-relaxed text-base`}>{classItem.courseSubject.course.name}</p>
@@ -72,8 +133,11 @@ export default function ListCard() {
 
                                                     </div>
                                                 </div>
-                                                <div className="flex items-center md:ml-auto md:mr-0 mx-auto flex-shrink-0 ">
-                                                    <h2
+                                                <div
+                                                    style={{ flex: 1, paddingRight: '20px' }}
+                                                    className="flex flex-col items-end justify-center md:mr-0 flex-shrink-0 ">
+
+                                                    <h6
                                                         className={`${classes.startDate} flex items-center flex-col leading-none`}
                                                     >
                                                         Create At: {
@@ -81,7 +145,13 @@ export default function ListCard() {
 
                                                         }
 
-                                                    </h2>
+                                                    </h6>
+                                                    <span className={classes.class_fee}>
+                                                        Fees: {classItem.courseSubject.subject.price
+                                                            * classItem.quantity} VND
+                                                    </span>
+
+
                                                 </div>
                                             </div>
                                         </div>
