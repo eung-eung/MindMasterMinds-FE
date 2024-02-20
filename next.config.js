@@ -5,6 +5,7 @@ const nextConfig = {
         domains: ['i.pinimg.com', 'firebasestorage.googleapis.com'],
     }, env: {
         API_KEY: process.env.API,
+        PORT: process.env.NEXTAUTH_URL
     },
     reactStrictMode: false,
 }
