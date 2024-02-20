@@ -21,6 +21,8 @@ import { Subject } from '@/app/types/Subject'
 import { Bounce, ToastContainer, toast } from 'react-toastify'
 import dayjs from 'dayjs'
 import { Order } from '@/app/types/Order'
+import CircularLoading from '../circularProgress/CircularProgress'
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -48,14 +50,18 @@ export default function FindTutorPage() {
     const theme = useTheme();
     const [isNormal, setIsNormal] = React.useState<boolean>(true)
     const [isLoading, setLoading] = React.useState<boolean>(true)
+    const [isCalculateFee, setIscalculateFee] = React.useState<boolean>(false)
     const [majorName, setMajorName] = React.useState('');
     const [majorList, setMajorList] = React.useState([])
     const [subjectName, setSubjectName] = React.useState('');
+    const [phoneNumber, setPhoneNumber] = React.useState('')
+    const [feeNumber, setFeeNumber] = React.useState(0)
     const [subjectList, setSubjectList] = React.useState([])
     const [date, setDate] = React.useState(dayjs(new Date().setDate(new Date().getDate() + 1)))
     const [lessons, setLessons] = React.useState(1)
     const description = useRef<HTMLTextAreaElement>(null)
     const summary = useRef<HTMLInputElement>(null)
+    const phone = useRef<HTMLInputElement>(null)
     const axiosAuth = useAxiosAuth()
 
     const getListMajors = async () => {
@@ -63,28 +69,99 @@ export default function FindTutorPage() {
         setMajorList(response.data.data)
     }
     const getListSubjects = async (id: string) => {
+        setIscalculateFee(true)
         const response = await axiosAuth.get(`/Subject/get-subject-by-courseId/${id}?pageNumber=0&pageSize=30`)
+        setSubjectName(response.data.data[0].id)
+        setIscalculateFee(false)
         setSubjectList(response.data.data)
     }
-    const handleSubmitPost = (e: React.FormEvent) => {
+
+    const regexPhoneNumber = (phone: any) => {
+        const regexPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
+        return phone.match(regexPhoneNumber) ? true : false;
+    }
+
+    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPhoneNumber(e.target.value)
+    }
+
+    const getCourseSubjectId = async () => {
+        const response = await axiosAuth.post('/CourseSubject/get-course-subject', {
+            courseId: majorName,
+            subjectId: subjectName
+        })
+        return response.data.id
+    }
+    const getTuitionFees = async () => {
+        if (subjectName) {
+            const courseSubjectId = await getCourseSubjectId()
+            const fee = await axiosAuth.post('/Order/get-total-tuition-fee', {
+                courseSubjectId,
+                quantity: lessons,
+                stateInfo: !isNormal
+            })
+            setFeeNumber(fee.data.message)
+        }
+    }
+
+    useEffect(() => {
+        getTuitionFees()
+    }, [subjectName, lessons, isNormal])
+
+    useEffect(() => {
+        setFeeNumber(0)
+    }, [majorName])
+
+    const handleSubmitPost = async (e: React.FormEvent) => {
         e.preventDefault()
         const order = {} as Order
-        if (subjectName && description.current && summary.current) {
-            order.courseSubjectId = subjectName
-            order.description = description.current.innerText
-            order.summary = summary.current.innerText
+        if (
+            subjectName &&
+            description.current &&
+            summary.current &&
+            phone.current &&
+            regexPhoneNumber(phone.current?.value)
+        ) {
+            const courseSubjectId = await getCourseSubjectId()
+            order.courseSubjectId = courseSubjectId
+            order.description = description.current.value.trim()
+            order.summary = summary.current.value.trim()
             order.quantity = lessons
             order.study = date.toDate()
             order.stateInfo = !isNormal
-            order.phone = '000'
+            order.phone = phone.current.value.trim()
+            console.log('order: ', { ...order });
+
+            const response = await axiosAuth.post('/Order', {
+                summary: order.summary,
+                courseSubjectId: order.courseSubjectId,
+                stateInfo: order.stateInfo,
+                phone: order.phone,
+                description: order.description,
+                quantity: order.quantity,
+                study: order.study
+            })
+
+            if (response.status === 200) {
+                toast.success('Posted successfully', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
+            }
         }
-        console.log(order);
+
 
     }
     const handleDateChange = (value: any, context: any) => {
         const currentDate = new Date().getTime()
         const pickedDate = new Date(value.$d).getTime()
-        console.log(currentDate > pickedDate);
         if (currentDate > pickedDate) {
             toast.error('You cannot choose a past date', {
                 position: "top-center",
@@ -114,7 +191,6 @@ export default function FindTutorPage() {
         const {
             target: { value },
         } = event;
-
         setSubjectName(
             value
         );
@@ -178,6 +254,45 @@ export default function FindTutorPage() {
                                         </div>
 
                                         <div className="sm:col-span-3">
+                                            <label htmlFor="phone" className={classes.label}>
+                                                Contact Phone:
+                                            </label>
+                                            <div className="mt-4">
+                                                <input
+                                                    value={phoneNumber}
+                                                    onChange={handlePhoneChange}
+                                                    ref={phone}
+                                                    type="text"
+                                                    name="phone"
+                                                    id="phone"
+                                                    autoComplete="Phone"
+                                                    className="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                                    placeholder="Example: 0912345678"
+                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
+                                                />
+                                            </div>
+                                        </div>
+
+
+
+                                        <div className="sm:col-span-full">
+                                            <label htmlFor="describe" className={classes.label}>
+                                                Describe the tutoring request in detail:
+                                            </label>
+                                            <div className="mt-4">
+                                                <textarea
+                                                    id="describe"
+                                                    name="describe"
+                                                    rows={3}
+                                                    ref={description}
+                                                    className="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                                    defaultValue={''}
+                                                    placeholder="Describe in detail the content you want to learn here..."
+                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="sm:col-span-3">
                                             <div className="mt-4">
                                                 <FormControl sx={{ width: '100%' }}>
                                                     <InputLabel id="single-select-major">Major</InputLabel>
@@ -232,18 +347,26 @@ export default function FindTutorPage() {
 
                                         <div className="sm:col-span-3">
                                             <label htmlFor="estimated" className={classes.label}>
-                                                Estimated tuition fees (VND/session):
+                                                Estimated tuition fees
                                             </label>
-                                            <div className="mt-4">
-                                                <input
-                                                    type="text"
-                                                    name="estimated"
-                                                    id="estimated"
-                                                    autoComplete="Estimated"
-                                                    className="block w-full rounded-md border-0 py-3 px-4 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                    placeholder="Example: 300.000"
-                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
-                                                />
+                                            <div className="mt-4 flex">
+                                                {
+                                                    isCalculateFee
+                                                        ?
+                                                        <CircularLoading />
+                                                        :
+                                                        <input
+                                                            disabled
+                                                            name="estimated"
+                                                            id="estimated"
+                                                            value={feeNumber.toLocaleString() + ' ' + 'VND'}
+                                                            autoComplete="Estimated"
+                                                            className="block w-full rounded-md border-0 py-3 px-4 text-gray-600 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                                            placeholder="Click button to see fee"
+                                                            style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
+                                                        />
+                                                }
+
                                             </div>
                                         </div>
 
@@ -281,44 +404,6 @@ export default function FindTutorPage() {
 
                                             </div>
                                         </fieldset>
-
-                                        <div className="sm:col-span-3">
-                                            <label htmlFor="phone" className={classes.label}>
-                                                Contact Phone:
-                                            </label>
-                                            <div className="mt-4">
-                                                <input
-                                                    type="text"
-                                                    name="phone"
-                                                    id="phone"
-                                                    autoComplete="Phone"
-                                                    className="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                    placeholder="Example: 0912345678"
-                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
-                                                />
-                                            </div>
-                                        </div>
-
-
-
-                                        <div className="sm:col-span-full">
-                                            <label htmlFor="describe" className={classes.label}>
-                                                Describe the tutoring request in detail:
-                                            </label>
-                                            <div className="mt-4">
-                                                <textarea
-                                                    id="describe"
-                                                    name="describe"
-                                                    rows={3}
-                                                    ref={description}
-                                                    className="block w-full rounded-md border-0 py-3 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                    defaultValue={''}
-                                                    placeholder="Describe in detail the content you want to learn here..."
-                                                    style={{ fontFamily: 'Belanosima', fontSize: '16px' }}
-                                                />
-                                            </div>
-                                        </div>
-
                                         <fieldset className="sm:col-span-full">
                                             <legend className={`${classes.label} text-sm font-semibold leading-6 text-gray-900`}>Number of lessons per week: </legend>
                                             <div className="mt-4 flex gap-x-24">
@@ -389,7 +474,6 @@ export default function FindTutorPage() {
                                             <div className="mt-4">
                                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                     <DatePicker
-
                                                         value={date}
                                                         format='YYYY-MM-DD'
                                                         onChange={handleDateChange
