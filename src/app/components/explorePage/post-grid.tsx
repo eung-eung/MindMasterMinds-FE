@@ -6,7 +6,6 @@ export default function PostGrid({ children }: { children: any }) {
     const [state, setState] = useState(children)
 
     useEffect(() => {
-        console.log('child: ', children);
         setState(children)
     }, [children])
     return (
