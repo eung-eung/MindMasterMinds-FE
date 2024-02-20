@@ -116,9 +116,12 @@ export default function FindTutorPage() {
         e.preventDefault()
         const order = {} as Order
         if (
+            majorName &&
             subjectName &&
             description.current &&
+            description.current.value.trim() &&
             summary.current &&
+            summary.current.value.trim() &&
             phone.current &&
             regexPhoneNumber(phone.current?.value)
         ) {
@@ -132,17 +135,17 @@ export default function FindTutorPage() {
             order.phone = phone.current.value.trim()
             console.log('order: ', { ...order });
 
-            const response = await axiosAuth.post('/Order', {
-                summary: order.summary,
-                courseSubjectId: order.courseSubjectId,
-                stateInfo: order.stateInfo,
-                phone: order.phone,
-                description: order.description,
-                quantity: order.quantity,
-                study: order.study
-            })
 
-            if (response.status === 200) {
+            try {
+                const response = await axiosAuth.post('/Order', {
+                    summary: order.summary,
+                    courseSubjectId: order.courseSubjectId,
+                    stateInfo: order.stateInfo,
+                    phone: order.phone,
+                    description: order.description,
+                    quantity: order.quantity,
+                    study: order.study
+                })
                 toast.success('Posted successfully', {
                     position: "top-center",
                     autoClose: 2000,
@@ -154,7 +157,35 @@ export default function FindTutorPage() {
                     theme: "light",
                     transition: Bounce,
                 });
+
+            } catch (error) {
+                console.log('error: ', error);
+                toast.error('Posted failed', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                });
             }
+
+        } else {
+            toast.error('Please fill all fields', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+
         }
 
 
