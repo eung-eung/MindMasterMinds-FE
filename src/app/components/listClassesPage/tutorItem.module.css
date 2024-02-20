@@ -1,0 +1,59 @@
+.left_content {
+    width: 10%;
+    height: auto;
+    object-fit: cover;
+    margin-right: 30px;
+    border-radius: 20px;
+}
+
+.tutor_card {
+    position: relative;
+    display: flex;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-top-left-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-bottom-left-radius: 20px;
+}
+
+.approve_btn {
+    position: absolute;
+    padding: 10px 20px;
+    background: #000;
+    bottom: 10%;
+    color: #fff;
+    border-radius: 20px;
+    right: 5%;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.right_content {
+    padding: 10px;
+}
+
+.card_item {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.tutor_name {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.tutor_role {
+    color: #000;
+    background: #93FDD3;
+    font-weight: 500;
+    padding: 5px 20px;
+    border-radius: 20px;
+    width: fit-content;
+    margin-top: 10px;
+}
+
+.tutor_mail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
