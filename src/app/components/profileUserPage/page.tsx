@@ -22,29 +22,24 @@ export default function ProfileUserPage() {
     const [phoneNum, setPhoneNum] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumError, setPhoneNumError] = useState('');
+    const [balance, setBalance] = useState('')
     const [emailError, setEmailError] = useState('');
     const [avatar, setAvatar] = useState<File | null>(null);
     const [avatarURL, setAvatarURL] = useState<string | null>(null);
     const [isLoading, setLoading] = useState<boolean>(true);
     const token = session?.user.accessToken;
     const userId = session?.user.userViewLogin.id;
-
-    console.log(session);
-    console.log(userId);
-
-
-
-
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axiosAuth.get(`/User/${userId}`);
+                const response = await axiosAuth.get(`/User/get-user-detail/${userId}`);
                 const userData = response.data;
                 setFirstName(userData.firstName || '');
                 setLastName(userData.lastName || '');
                 setPhoneNum(userData.phoneNumber || '');
                 setEmail(userData.email || '');
                 setAvatarURL(userData.avatar || null);
+                setBalance(userData.wallet.balance)
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -303,7 +298,9 @@ export default function ProfileUserPage() {
                                                 {emailError && <p style={{ fontFamily: "Belanosima" }} className="text-red-500 text-sm flex justify-center">{emailError}</p>}
                                                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                                                     <dt className={classes.typography}>Balance</dt>
-                                                    <dd className={`${classes.typographyInput} mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0`}>$120,000</dd>
+                                                    <dd className={`${classes.typographyInput} mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0`}>
+                                                        {balance.toLocaleString()} VND
+                                                    </dd>
                                                 </div>
                                                 <div className="mt-6 flex items-center justify-start gap-x-6">
                                                     <button type="submit" onClick={handleSubmit} className={`${classes.button} rounded-md px-3 py-2`}>
