@@ -170,7 +170,7 @@ export default function Nav() {
 
                               {/* Dialog title */}
                               <Dialog.Title as="h3" className="text-lg font-medium text-gray-900">
-                              <Alert severity="warning">This is a warning Alert.</Alert>
+                                <Alert severity="warning">This is a warning Alert.</Alert>
                               </Dialog.Title>
 
                               {/* Dialog content */}
@@ -278,10 +278,10 @@ export default function Nav() {
                         <BanknotesIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                       </div>
                       <div className="flex-auto">
-                        <a href="/pricing" className="block font-semibold text-gray-900">
+                        <Link href="/pricing" className="block font-semibold text-gray-900">
                           Pricing
                           <span className="absolute inset-0" />
-                        </a>
+                        </Link>
                       </div>
 
                     </div>
