@@ -178,17 +178,6 @@ export default function ProfileUserPage() {
                         <div className="container px-1 py-24 mx-auto flex flex-col">
                             <div className="lg:w-5/6 mx-auto mb-16">
                                 <h1 className={classes.typographyWelcome}>Welcome, {session?.user.userViewLogin.firstName} {session?.user.userViewLogin.lastName}</h1>
-                                <div className={classes.createGoalBar}>
-                                    <span className='mr-4'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                            <path d="M19.8 0H2.2C0.99 0 0.011 0.855 0.011 1.9L0 19L4.4 15.2H19.8C21.01 15.2 22 14.345 22 13.3V1.9C22 0.855 21.01 0 19.8 0ZM12.1 8.55H9.9V2.85H12.1V8.55ZM12.1 12.35H9.9V10.45H12.1V12.35Z" fill="black" />
-                                        </svg>
-                                    </span>
-                                    You have not created your goal for your exam preparation process.
-                                    <span className='ml-2'>
-                                        <a href='#' style={{ textDecoration: "underline" }}>Create now</a>
-                                    </span>
-                                </div>
                             </div>
 
 

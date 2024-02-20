@@ -159,7 +159,6 @@ export default function FindTutorPage() {
                 });
 
             } catch (error) {
-                console.log('error: ', error);
                 toast.error('Posted failed', {
                     position: "top-center",
                     autoClose: 2000,
