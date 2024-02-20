@@ -37,6 +37,14 @@
     background: #93FDD3;
 }
 
+.cardDescription {
+    color: black;
+    font-size: 19px;
+    margin-top: 20px;
+}
+
+.studyDate {}
+
 .cardTagContent {
     color: #222;
     font-family: Belanosima;
