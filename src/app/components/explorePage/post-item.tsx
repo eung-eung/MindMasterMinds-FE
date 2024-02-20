@@ -11,6 +11,10 @@ import Image from 'next/image';
 
 const PostItem = React.forwardRef(({ post }: { post: PostExplore }, ref: any) => {
     const [isLoading, setIsLoading] = React.useState(true)
+    const handleLike = () => {
+        console.log('like');
+
+    }
     const postComponent = (
         <>
             <div className={classes.header}>
@@ -64,7 +68,7 @@ const PostItem = React.forwardRef(({ post }: { post: PostExplore }, ref: any) =>
                 </div>
             </div>
             <div className={classes.action}>
-                <div className={classes.action_box}>
+                <div className={classes.action_box} onClick={handleLike}>
                     <ThumbUpOutlinedIcon />
                     <span>Like</span>
                 </div>
