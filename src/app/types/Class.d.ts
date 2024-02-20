@@ -31,7 +31,24 @@ export interface Class {
     stateInfo: boolean,
     quantity: number,
     statusOrder: string,
-    tutor: string,
-    study: date
+    study: date,
+    tutor: {
+        avatar: string,
+        creationDate: Date,
+        email: string,
+        emailConfirmed: boolean
+        firstName: string,
+        id: string,
+        isDeleted: boolean,
+        lastName: string,
+        lastUpdateDate: Date,
+        phoneNumber: string,
+        userRole: {
+            id: string,
+            roleName: string
+        },
 
+
+
+    }
 }
