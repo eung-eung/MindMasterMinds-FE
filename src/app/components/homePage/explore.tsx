@@ -31,7 +31,7 @@ export default function Explore() {
               <div className={`${classes.box} flex relative`}>
                 <div className="flex  md:flex-row flex-col items-center px-12 py-10 relative z-10 w-full">
                   <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-                    <img src="https://www.svgrepo.com/show/308968/smart-work-artificial-intelligence-ai.svg" width="96" height="96" />
+                    <img src="/images/artificial_intelligence.svg" width="96" height="96" />
                   </div>
                   <h3 className={classes.item}>Artificial Intelligence</h3>
                 </div>
@@ -41,7 +41,7 @@ export default function Explore() {
               <div className={`${classes.box} flex relative`}>
                 <div className="flex  md:flex-row flex-col items-center px-12 py-10 relative z-10 w-full">
                   <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-                    <img src="https://www.svgrepo.com/show/267988/paint-palette-art.svg" width="96" height="84" />
+                    <img src="/images/digital_art.svg" width="96" height="84" />
                   </div>
                   <h3 className={classes.item}>Digital Art Design</h3>
                 </div>
@@ -51,7 +51,7 @@ export default function Explore() {
               <div className={`${classes.box} flex relative`}>
                 <div className="flex  md:flex-row flex-col items-center px-12 py-10 relative z-10 w-full">
                   <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3780/3780538.png" width="96" height="96" />
+                    <img src="/images/digital_marketing.png" width="96" height="96" />
                   </div>
                   <h3 className={classes.item}>Digital Marketing</h3>
                 </div>
@@ -80,7 +80,7 @@ export default function Explore() {
               <div className={`${classes.box} flex relative`}>
                 <div className="flex  md:flex-row flex-col items-center px-10 py-10 relative z-10 w-full">
                   <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-                    <img src="https://www.svgrepo.com/show/389986/cinema-film-add.svg" width="96" height="96" />
+                    <img src="/images/multimedia_comunicate.svg" width="96" height="96" />
                   </div>
                   <h3 className={classes.item}>Multimedia comunicate</h3>
                 </div>

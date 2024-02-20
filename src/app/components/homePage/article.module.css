@@ -1,34 +1,6 @@
-.button {
-    border-radius: 60px;
-    background: #000;
-    width: 200px;
-height: 40px;
-flex-shrink: 0;
-}
-
-.typography {
-    color: #FFF;
-    text-align: center;
-    font-family: Belanosima;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 108.412%;
-    /* 26.019px */
-}
-
-.p {
-    color: #000;
-text-align: right;
-font-family: Belanosima;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-}
-
 .title {
     color: #000;
+text-align: center;
 font-family: Belanosima;
 font-size: 64px;
 font-style: normal;
@@ -36,58 +8,50 @@ font-weight: 400;
 line-height: 107.912%; /* 69.064px */
 }
 
-.image {
-    border-radius: 25px 25px 0px 0px;
-}
-
-.frame {
-    border-radius: 25px;
-background: #FFF;
-}
-
-.date {
-    color: #222;
-font-family: Belanosima;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-}
-
-.cardTitle {
+.p {
     color: #000;
+text-align: center;
 font-family: Belanosima;
 font-size: 24px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-margin-top: 28.84px;
+margin-top: 40px;
+margin-bottom: 42px;
 }
 
-.cardContent {
-    color: #000;
-font-family: Belanosima;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-margin-top: 28.84px;
-}
-
-.cardButton {
-    border-radius: 19px;
+.button {
+    border-radius: 60px;
 background: #93FDD3;
-height: 40px;
+width: 269px;
+height: 48px;
 flex-shrink: 0;
-align-items: center;
 }
 
-.cardButtonContent {
+.button:hover {
+    border-radius: 60px;
+background: #4f8972;
+width: 269px;
+height: 48px;
+flex-shrink: 0;
+}
+
+.buttonContent {
     color: #000;
 text-align: center;
 font-family: Belanosima;
-font-size: 15px;
+font-size: 24px;
 font-style: normal;
 font-weight: 400;
-line-height: 107.912%; /* 16.187px */
+line-height: 108.412%; /* 26.019px */
+}
+
+.buttonContent:hover {
+    color: #ffffff;
+text-align: center;
+font-family: Belanosima;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 108.412%; /* 26.019px */
 }

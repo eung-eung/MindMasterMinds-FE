@@ -35,7 +35,7 @@ export default function HomePage() {
                         <Explore />
                         <Tutor />
                         <Article />
-                        <Join />
+                        {/* <Join /> */}
                         <Footer />
                     </div>
             }

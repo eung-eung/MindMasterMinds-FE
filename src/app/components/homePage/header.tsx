@@ -58,14 +58,14 @@ const Header: React.FC<HeaderProps> = ({ title, titleDetail, height, isHome }) =
                   <div className="flex flex-wrap -m-4">
                     <div className="lg:w-1/4 md:w-1/2 p-6 w-full hidden md:block mb-24">
                       <div className={`${classes.card} p-6 flex flex-col items-center justify-center text-center`}>
-                        <img className={classes.cardImage} src="https://www.svgrepo.com/show/504405/google-classroom.svg" alt="content" />
+                        <img className={classes.cardImage} src="/images/online_study.svg" alt="content" />
                         <h3 className={classes.cardTitle}>100%</h3>
                         <h2 className={`${classes.cardContent} b-4`}>Online study sessions</h2>
                       </div>
                     </div>
                     <div className="lg:w-1/4 md:w-1/2 p-6 w-full hidden md:block">
                       <div className={`${classes.card} p-6 flex flex-col items-center justify-center text-center`}>
-                        <img className={classes.cardImage} src="https://s3-alpha-sig.figma.com/img/999c/4ff0/df012989e410c105873ddedec4ac834c?Expires=1707696000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=jpvQ~0UEaEM6huZvOT2vgYIzi1kCFk0cczf326ZtB26AdK0vr4MBYRLqFa-Btg3JULVC~BMml35lTRc2zta4CRuzToRIiXMcPftB7a3feTb4NxFH7bRWCs5rboCL10mQRV5hvZIqZZw-d-xvWh67AC8KLIl88j3iLjaQoL8VNlp7VJvaNuvI8Ep1anliVxnh1pEPUbMlrmwgaOB9fYIWGMeuA~T2oatdoonSlx4DJ75QKY98ZI1Au7n5dUDtF1O6HmZvI1ECuy6Ic~BSQZbB~ViYBBzuGfRZs~XFpSGLkpgcuNc45ob1c-cNV8Z529~2znNYjkEUMN6yILoNMQcr6Q__" alt="content" />
+                        <img className={classes.cardImage} src="/images/reputation_teacher.svg" alt="content" />
                         <h3 className={classes.cardTitle}>100%</h3>
                         <h2 className={`${classes.cardContent} b-4`}>Reputable teachers</h2>
                       </div>
@@ -73,14 +73,14 @@ const Header: React.FC<HeaderProps> = ({ title, titleDetail, height, isHome }) =
 
                     <div className="lg:w-1/4 md:w-1/2 p-6 w-full hidden md:block">
                       <div className={`${classes.card} p-6 flex flex-col items-center justify-center text-center`}>
-                        <img className={classes.cardImage} src="https://www.svgrepo.com/show/151328/open-book.svg" alt="content" />
+                        <img className={classes.cardImage} src="/images/open-book.svg" alt="content" />
                         <h3 className={classes.cardTitle}>50+</h3>
                         <h2 className={`${classes.cardContent} b-4`}>Tips for various fields</h2>
                       </div>
                     </div>
                     <div className="lg:w-1/4 md:w-1/2 p-6 w-full hidden md:block">
                       <div className={`${classes.card} p-6 flex flex-col items-center justify-center text-center`}>
-                        <img className={classes.cardImage} src="https://www.svgrepo.com/download/169825/graduation-hat.svg" alt="content" />
+                        <img className={classes.cardImage} src="/images/graduation_hat.svg" alt="content" />
                         <h3 className={classes.cardTitle}>80%</h3>
                         <h2 className={`${classes.cardContent} b-4`}>Students in progress</h2>
                       </div>

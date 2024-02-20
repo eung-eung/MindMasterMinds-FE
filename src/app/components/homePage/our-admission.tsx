@@ -17,7 +17,7 @@ export default function Admission() {
           <section className="text-gray-600 body-font">
             <div className="container px-5 py-12 mx-auto flex flex-wrap">
               <div className="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
-                <img alt="feature" className={classes.image} src="https://s3-alpha-sig.figma.com/img/7c0c/0795/7dea5a35491c670e26a4ba76df23245f?Expires=1707696000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pY7SqubbTci~4zvZ0oV~ITeIkwEY5J~ma1NamhLpV6c1AdSgDBS4A1uJDzQXZmv60eLbCSN0NV6hXxUl5G5rJL4VsNOaE7heRV-E7T1kAp9qHCWVpw-AksNgeJiSTKTp1ttEGW6vCcBcP9ZY6CntzQbvHOjlaIXLBbPOwZ6VxFqcWOQTQqyaq3sTEpB8wddO78KlWizt3n-lRvqxAcqdli7Jomv0fxEStnYq5G8UrXIgCdnV4CVaPbqdk-ydp6i2TrgLRYEkItTiTRlV1iMaShXb8jlpOKj9tKTUQGdobIktMKbDRptBDOWjcqudLzbtyPTQjmN7xpwyDJx~~6iNcg__" />
+                <img alt="feature" className={classes.image} src="/images/premier_choice.png" />
               </div>
               <div className="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
                 <div className="flex flex-row items-center mb-10 lg:items-start items-center">
