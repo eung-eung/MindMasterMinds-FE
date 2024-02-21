@@ -18,8 +18,9 @@
 
 .content_items {
     margin-top: 50px;
-    border: 1px solid #ddd;
+    border-top: 0.5px solid #ddd;
     padding: 8px 10px;
+    margin-bottom: 20px;
 }
 
 .title_item {
@@ -30,4 +31,13 @@
 
 .content {
     font-size: 18px;
+}
+
+.complete_btn {
+    font-weight: 600;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 8px 10px;
+    background: red;
+    color: #fff;
 }
