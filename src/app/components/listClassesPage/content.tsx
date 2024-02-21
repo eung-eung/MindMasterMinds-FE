@@ -6,7 +6,7 @@ import moment from 'moment-timezone'
 import ContentItem from './contentItem'
 import { Content } from '@/app/types/Content'
 import useAxiosAuth from '@/app/lib/hooks/useAxiosAuth'
-import { Bounce, ToastContainer } from 'react-toastify'
+import { Bounce, ToastContainer, toast } from 'react-toastify'
 export default function ContentComponent({ content, setRefresh, role }
     : { content: Content, setRefresh: any, role: any }) {
     const axiosAuth = useAxiosAuth()
@@ -14,9 +14,19 @@ export default function ContentComponent({ content, setRefresh, role }
         try {
             const response = await axiosAuth.post('/Order/complete-order', id)
             setRefresh((prev: boolean) => !prev)
-        } catch (error) {
-            console.log('error: ', error);
-
+        } catch (error: any) {
+            console.log('error: ', error.response.data.Message);
+            toast.error(error.response.data.Message, {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
         }
 
     }
@@ -71,7 +81,7 @@ export default function ContentComponent({ content, setRefresh, role }
                     moment.utc(content?.study).tz('Asia/Ho_Chi_Minh').format('DD-MM-YYYY')
                 } />
                 <ContentItem title='Status' content={
-                    content?.statusOrder
+                    content?.statusOrder === 'Confirmed' ? 'On Progress' : content.statusOrder
                 } />
                 {
                     content?.statusOrder === 'Confirmed' && role === 'Tutor'
