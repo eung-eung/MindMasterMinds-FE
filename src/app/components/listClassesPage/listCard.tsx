@@ -81,7 +81,6 @@ const ListCard: React.FC = () => {
   const totalPages = Math.ceil(classItem.length / itemPerPage);
   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
-  console.log('list: ', listClasses);
 
 
   const handlePageChange = (page: number) => {
