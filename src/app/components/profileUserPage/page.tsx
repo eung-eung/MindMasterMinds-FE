@@ -141,12 +141,9 @@ export default function ProfileUserPage() {
                     draggable: true,
                     progress: undefined,
                 });
-
-
-
             }
         } catch (error: any) {
-            console.error('Error updating profile:', error); 0
+            console.error('Error updating profile:', error); 
             toast.error('Failed to update profile', {
                 position: 'top-right',
                 autoClose: 5000,
