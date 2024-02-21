@@ -106,22 +106,22 @@ export default function Nav() {
                     <div className="ml-6">
 
                       {/* Check role */}
-                      {role==="Tutor" ? 
-                      <div
-                        key="tutorDashboard"
-                        className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                      >
-                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                          <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
-                        </div>
-                        <div className="flex-auto">
+                      {role === "Tutor" ?
+                        <div
+                          key="tutorDashboard"
+                          className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
+                        >
+                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                            <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                          </div>
+                          <div className="flex-auto">
                             <Link href="/tutorDashboard" className="block font-semibold text-gray-900">
                               Dashboard for tutor
                               <span className="absolute inset-0" />
                             </Link>
+                          </div>
                         </div>
-                      </div>
-                      :""}
+                        : ""}
 
 
                       <div
@@ -138,20 +138,24 @@ export default function Nav() {
                           </Link>
                         </div>
                       </div>
-                      <div
-                        key="becomeTutor"
-                        className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
-                      >
-                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                          <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+
+                      {role === "Tutor" ?
+                        <div
+                          key="becomeTutor"
+                          className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
+                        >
+                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                            <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                          </div>
+                          <div className="flex-auto">
+                            <Link href="/tutors" className="block font-semibold text-gray-900">
+                              Become A Tutor
+                              <span className="absolute inset-0" />
+                            </Link>
+                          </div>
                         </div>
-                        <div className="flex-auto">
-                          <Link href="/tutors" className="block font-semibold text-gray-900">
-                            Become A Tutor
-                            <span className="absolute inset-0" />
-                          </Link>
-                        </div>
-                      </div>
+                        : ""}
+
                       <div
                         key="ListTutor"
                         className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
@@ -167,7 +171,6 @@ export default function Nav() {
                         </div>
                       </div>
 
-                      {role==="Tutor" ? 
                       <div
                         key="findClass"
                         className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
@@ -182,8 +185,7 @@ export default function Nav() {
                           </Link>
                         </div>
                       </div>
-                      :""}
-                      
+
                       <div
                         key="Explore"
                         className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
