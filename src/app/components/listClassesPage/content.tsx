@@ -81,7 +81,7 @@ export default function ContentComponent({ content, setRefresh, role }
                     moment.utc(content?.study).tz('Asia/Ho_Chi_Minh').format('DD-MM-YYYY')
                 } />
                 <ContentItem title='Status' content={
-                    content?.statusOrder === 'Confirmed' ? 'On Progress' : content.statusOrder
+                    content?.statusOrder === 'Confirmed' ? 'On Progress' : content?.statusOrder
                 } />
                 {
                     content?.statusOrder === 'Confirmed' && role === 'Tutor'

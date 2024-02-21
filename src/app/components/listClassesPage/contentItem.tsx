@@ -4,7 +4,9 @@ export default function ContentItem({ title, content }: { title: any, content: a
     return (
         <div className={classes.content_item}>
             <span className={classes.title_item}>{title}:</span>
-            <span className={classes.content}>{content}</span>
+            <span
+                style={content === 'On Progress' ? { color: 'blue', fontWeight: '600' } : { color: 'black' }}
+                className={classes.content}>{content}</span>
         </div>
     )
 }
