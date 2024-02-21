@@ -106,6 +106,7 @@ export default function Nav() {
                     <div className="ml-6">
 
                       {/* Check role */}
+                      {role==="Tutor" ? 
                       <div
                         key="tutorDashboard"
                         className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
@@ -114,86 +115,13 @@ export default function Nav() {
                           <ChevronRightIcon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                         </div>
                         <div className="flex-auto">
-                          {role === 'Tutor' ? (
                             <Link href="/tutorDashboard" className="block font-semibold text-gray-900">
                               Dashboard for tutor
                               <span className="absolute inset-0" />
                             </Link>
-                          ) : (
-                            <button onClick={() => setModalOpen(true)} className="block font-semibold text-gray-900">
-                              Dashboard for tutor
-                              <span className="absolute inset-0" />
-                            </button>
-                          )}
                         </div>
                       </div>
-                      <Dialog
-                        as="div"
-                        className="fixed inset-0 z-10 overflow-y-auto my-24"
-                        open={modalOpen}
-                        onClose={handleClose}
-                      >
-                        <div className="min-h-screen px-4 text-center">
-                          {/* Background overlay */}
-                          <Transition
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0"
-                            enterTo="opacity-100"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100"
-                            leaveTo="opacity-0"
-                          >
-                            <Dialog.Overlay className="fixed inset-0 bg-black opacity-70" />
-                          </Transition>
-
-                          {/* Dialog content */}
-                          <Transition
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0 scale-95"
-                            enterTo="opacity-100 scale-100"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100 scale-100"
-                            leaveTo="opacity-0 scale-95"
-                          >
-                            <div className="inline-block align-middle my-8 w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-xl">
-                              {/* Close button */}
-                              <div className="absolute top-0 right-0 pt-4 pr-4">
-                                <button
-                                  className="text-gray-500 hover:text-gray-700"
-                                  onClick={() => setModalOpen(false)}
-                                >
-                                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                                </button>
-                              </div>
-
-                              {/* Dialog title */}
-                              <Dialog.Title as="h3" className="text-lg font-medium text-gray-900">
-                                <Alert severity="warning">This is a warning Alert.</Alert>
-                              </Dialog.Title>
-
-                              {/* Dialog content */}
-                              <div className="mt-6 ml-2 flex items-center">
-                                <p className={classes.modalContent}>
-                                  You are not Tutor
-                                </p>
-                              </div>
-
-                              {/* Dialog actions */}
-                              <div className="mt-4 flex justify-end">
-                                <button
-                                  type="button"
-                                  className="inline-flex justify-center px-4 py-2 text-sm font-medium text-black bg-[#93FDD3] border border-transparent rounded-md shadow-sm hover:bg-[#559a7f] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-#6754"
-                                  onClick={() => setModalOpen(false)}
-                                >
-                                  Close
-                                </button>
-                              </div>
-                            </div>
-                          </Transition>
-                        </div>
-                      </Dialog>
+                      :""}
 
 
                       <div
@@ -238,6 +166,8 @@ export default function Nav() {
                           </Link>
                         </div>
                       </div>
+
+                      {role==="Tutor" ? 
                       <div
                         key="findClass"
                         className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
@@ -252,6 +182,8 @@ export default function Nav() {
                           </Link>
                         </div>
                       </div>
+                      :""}
+                      
                       <div
                         key="Explore"
                         className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
