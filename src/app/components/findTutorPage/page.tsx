@@ -133,9 +133,6 @@ export default function FindTutorPage() {
             order.study = date.toDate()
             order.stateInfo = !isNormal
             order.phone = phone.current.value.trim()
-            console.log('order: ', { ...order });
-
-
             try {
                 const response = await axiosAuth.post('/Order', {
                     summary: order.summary,
@@ -157,9 +154,9 @@ export default function FindTutorPage() {
                     theme: "light",
                     transition: Bounce,
                 });
-
-            } catch (error) {
-                toast.error('Posted failed', {
+                redirect('/listClasses')
+            } catch (error: any) {
+                toast.error(error.response.data.Message, {
                     position: "top-center",
                     autoClose: 2000,
                     hideProgressBar: false,
