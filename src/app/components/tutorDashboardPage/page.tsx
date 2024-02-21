@@ -9,6 +9,7 @@ import { redirect } from 'next/navigation'
 import LoadingTheme from '../loadingTheme/loadingTheme';
 import Header from '../homePage/header';
 import Footer from '../footer/footer';
+import ErrorPage from '../errorPage/page'
 
 
 interface Item {
@@ -34,6 +35,7 @@ export default function TutorDashboardPage() {
   const { data: session, status } = useSession()
   const [isLoading, setLoading] = React.useState<boolean>(true)
   console.log(session);
+  const role = session?.user.userViewLogin.userRole.roleName;
 
   React.useEffect(() => {
     if (status !== 'loading') setLoading(false)
@@ -45,24 +47,32 @@ export default function TutorDashboardPage() {
     <div>
       {isLoading ? <LoadingTheme /> :
         <>
-          {/* Header */}
-          <Header title='Tutor Dashboard' isHome={false} />
-          <div className="container mx-auto">
-            <h1 className={`${classes.title} mb-12 mt-24 `}>Dashboard</h1>
-            <div className={classes.cardContainer}>
-              {array.map((item, i) => <Card key={i} item={item} />)}
-            </div>
-            <div className={classes.chartBar}>
-              <h3 style={{ textAlign: "left", marginBottom: "30px", fontFamily: "Belanosima", fontSize: "30px" }}>Revenue</h3>
-              <Revenue />
-            </div>
-            <div style={{ marginTop: "100px", marginBottom: "100px" }}>
-              <BasicTable />
-            </div>
+          {role === "Tutor" ?
+            <div>
+              {/* Header */}
+              <Header title='Tutor Dashboard' isHome={false} />
+              <div className="container mx-auto">
+                <h1 className={`${classes.title} mb-12 mt-24 `}>Dashboard</h1>
+                <div className={classes.cardContainer}>
+                  {array.map((item, i) => <Card key={i} item={item} />)}
+                </div>
+                <div className={classes.chartBar}>
+                  <h3 style={{ textAlign: "left", marginBottom: "30px", fontFamily: "Belanosima", fontSize: "30px" }}>Revenue</h3>
+                  <Revenue />
+                </div>
+                <div style={{ marginTop: "100px", marginBottom: "100px" }}>
+                  <BasicTable />
+                </div>
 
-          </div>
+              </div>
 
-          <Footer />
+              <Footer />
+            </div>
+            :
+            <div>
+              <ErrorPage />
+            </div>
+          }
         </>
       }
     </div>
