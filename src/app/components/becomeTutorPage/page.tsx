@@ -8,6 +8,7 @@ import classes from './page.module.css'
 import Footer from '../../components/footer/footer'
 import ClassModal from './classModal'
 import ListCard from './listCard'
+import ErrorPage from '../errorPage/page'
 
 
 export default function BecomeTutorPage() {
@@ -15,7 +16,8 @@ export default function BecomeTutorPage() {
     const { data: session, status } = useSession()
     const [isLoading, setLoading] = React.useState<boolean>(true)
     console.log(session);
-   
+    const role = session?.user.userViewLogin.userRole.roleName;
+
 
     React.useEffect(() => {
         if (status !== 'loading') setLoading(false)
@@ -27,6 +29,7 @@ export default function BecomeTutorPage() {
         <div>
             {isLoading ? <LoadingTheme /> :
                 <>
+                 {role==="Tutor" ? 
                     <div style={{ background: "#fff" }}>
                         {/* Header */}
                         <Header title='Become A Tutor' isHome={false} />
@@ -58,6 +61,11 @@ export default function BecomeTutorPage() {
                         <Footer />
 
                     </div>
+                    : 
+                    <div>
+                      <ErrorPage/>
+                    </div>
+                    }
                 </>
             }
 
