@@ -6,11 +6,10 @@ import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import React from 'react'
 export default function AClassLayout({
-  children,
-  modal
+  children
 }: {
   children: React.ReactNode
-  modal: React.ReactNode
+
 }) {
   const { data: session, status } = useSession()
   const [isLoading, setLoading] = React.useState<boolean>(true)
