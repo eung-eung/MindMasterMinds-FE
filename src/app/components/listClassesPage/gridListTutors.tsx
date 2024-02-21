@@ -4,7 +4,9 @@ import React from 'react'
 import classes from './gridListTutors.module.css'
 import TutorItem from './tutorItem'
 import CircularLoading from '../circularProgress/CircularProgress'
-export default function GridListTutors({ id }: { id: any }) {
+import Content from './content'
+export default function GridListTutors({ id, role }: { id: any, role: any }) {
+
     const axiosAuth = useAxiosAuth()
     const [listTutors, setListTutors] = React.useState<Tutor[]>([])
     const [isLoadingListTutors, setIsLoadingListTutors] = React.useState<boolean>(false)
@@ -18,12 +20,14 @@ export default function GridListTutors({ id }: { id: any }) {
 
 
     React.useEffect(() => {
-        getListTutors()
+        if (role === 'Student') {
+            getListTutors()
+        }
     }, [id])
     return (
         <div className={classes.box + ' container mx-auto'}>
             <div style={{ flex: 3 }}>
-                <span className={classes.title}>Tutor's application list</span>
+                <span className={classes.title}>Tutor application list</span>
                 {
                     listTutors.length === 0 ?
                         <div className={classes.grid_tutors}>
@@ -32,14 +36,15 @@ export default function GridListTutors({ id }: { id: any }) {
                         :
                         <div className={classes.grid_tutors}>
                             {
-                                listTutors.map(tutor => <TutorItem tutor={tutor} />)
+                                listTutors.map(tutor => <TutorItem key={tutor.id} tutor={tutor} />)
                             }
                         </div>
                 }
             </div>
 
             <div className={classes.content}>
-                content
+                <span className={classes.title}>Class Detail</span>
+                <Content id={id} role={role} />
             </div>
         </div>
     )
