@@ -9,6 +9,7 @@ import useAxiosAuth from '@/app/lib/hooks/useAxiosAuth';
 import { Class } from '@/app/types/Class';
 import moment from 'moment-timezone';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 
 
@@ -42,6 +43,7 @@ const ListCard: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedClass, setSelectedClass] = useState<Class | null>(null);
   const axiosAuth = useAxiosAuth()
+  const { data: session } = useSession()
   const [filterMajor, setFilterMajor] = useState('all');
 
   const filterClassByMajor = classItem.filter((classByMajor) => {
@@ -57,8 +59,18 @@ const ListCard: React.FC = () => {
     console.log(response);
     setListClasses(response.data.data)
   }
+  const getAllListClassesRoleTutor = async () => {
+    const response = await axiosAuth.get('/Order/get-list-order-by-course-and-status-by-tutor?pageNumber=0&pageSize=100')
+    console.log(response.data.data);
+    setListClasses(response.data.data)
+  }
   useEffect(() => {
-    getAllListClasses()
+    if (session?.user.userViewLogin.userRole.roleName === 'Tutor') {
+      getAllListClassesRoleTutor()
+
+    } else if (session?.user.userViewLogin.userRole.roleName === 'Student') {
+      getAllListClasses()
+    }
   }, [])
 
 
@@ -164,7 +176,11 @@ const ListCard: React.FC = () => {
                           </svg>
                           <h2 className={`${classes.titleItem} mr-2 ml-2`}>Tutor:</h2>
                           <p className={classes.contentItem}>
-                            {classItem.tutor ? `${classItem.tutor.firstName + ' ' + classItem.tutor.lastName}` : 'No tutor'}</p>
+                            {session?.user.userViewLogin.userRole.roleName === 'Tutor' ? 'Applied' :
+                              classItem.tutor ? `${classItem.tutor.firstName + ' ' + classItem.tutor.lastName}` : 'No tutor'}
+                          </p>
+
+
                         </div>
                         <div className="flex item-center mb-5">
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
