@@ -1,0 +1,20 @@
+.student_card {
+    display: flex;
+}
+
+.left_content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.left_content img {
+    width: 50%;
+}
+
+.right_content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
