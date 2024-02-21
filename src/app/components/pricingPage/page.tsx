@@ -27,9 +27,9 @@ export default function PricingPage() {
       {isLoading ? <LoadingTheme /> :
         <>
           {/* Header */}
-          <Header title='Pricing' isHome={false} />
+          <Header title='Top Up' isHome={false} />
           <div className="container mx-auto my-4">
-           
+
             <Packages />
 
           </div>
