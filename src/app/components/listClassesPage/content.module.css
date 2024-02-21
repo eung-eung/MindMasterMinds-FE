@@ -1,0 +1,33 @@
+.textfield {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    font-size: 18px;
+}
+
+.summary,
+.description {
+    margin-bottom: 20px;
+}
+
+.summary span,
+.description span,
+.title_item {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.content_items {
+    margin-top: 50px;
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+}
+
+.title_item {
+    display: inline-block;
+    margin-right: 10px;
+    min-width: 30%;
+}
+
+.content {
+    font-size: 18px;
+}
