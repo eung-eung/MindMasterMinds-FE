@@ -6,7 +6,7 @@ export default function PostItemSkeleton() {
         <div className={classes.post_item + ' w-full border'}>
             <div className={classes.header}>
                 <div className={classes.header_left}>
-                    <Skeleton className={classes.avatar_post_item} animation="wave" />
+                    <Skeleton style={{ height: '100%', width: '100%' }} className={classes.avatar_post_item} animation="wave" />
 
                 </div>
                 <div className={classes.header_right}>

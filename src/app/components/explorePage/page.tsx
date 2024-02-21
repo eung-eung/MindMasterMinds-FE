@@ -43,6 +43,7 @@ export default function ExplorePage() {
             <>
                 <div style={{ background: "#F0F2F5" }}>
                     <FormPostBlog setPageNum={setPageNum} />
+
                     <PostGrid >
                         {content}
                         {isLoading && <PostItemSkeleton />}

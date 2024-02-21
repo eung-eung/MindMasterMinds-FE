@@ -13,6 +13,7 @@ export default function PostCardInputComment({ postId, setIsRefresh }: { postId:
     const { data: session } = useSession()
     const [comment, setComment] = React.useState(String)
     const axiosAuth = useAxiosAuth()
+    console.log(comment);
 
     const handleChange = () => {
         if (inputField && inputField.current?.innerHTML) {
@@ -24,7 +25,6 @@ export default function PostCardInputComment({ postId, setIsRefresh }: { postId:
 
     const handlePostComment = async () => {
 
-        console.log(inputField.current?.innerText.trim().length);
         if (inputField.current && inputField.current.innerText.trim().length <= 0) {
             toast.error('Do not have content', {
                 position: "top-center",
@@ -43,18 +43,9 @@ export default function PostCardInputComment({ postId, setIsRefresh }: { postId:
                 postId: postId,
                 comment: inputField.current?.innerHTML
             })
-
-            toast.success('Posted sucessfully', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Bounce,
-            });
+            if (inputField.current) {
+                inputField.current.innerText = ''
+            }
             setIsRefresh((prev: any) => !prev)
             setIsLoading(false)
         }

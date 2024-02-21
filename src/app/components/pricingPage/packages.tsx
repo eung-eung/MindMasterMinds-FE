@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './packages.module.css'
+import useAxiosAuth from '@/app/lib/hooks/useAxiosAuth';
 
 interface PackagesProp {
   id: number;
@@ -28,32 +29,42 @@ const packageItem: PackagesProp[] = [
 
 ]
 export default function Packages() {
+  const axiosAuth = useAxiosAuth()
+
+  const handlePayment = async (value: any) => {
+    console.log(process.env.PORT);
+    const payment = await axiosAuth.post('/TransactionWallet/deposit/vnpay', {
+      amount: value,
+      redirectUrl: `${process.env.PORT + '/profile'}`
+    })
+    console.log(payment.data.paymentUrl);
+
+    window.location.href = payment.data.paymentUrl
+  }
   return (
     <div>
-      <section className="text-gray-600 body-font bg-white h-screen flex justify-center items-center"> 
+      <section className="text-gray-600 body-font bg-white h-screen flex justify-center items-center">
         <div className="container px-5 py-10 mb-10 mx-auto">
-        <h1 className={classes.title}>Pricing Plans</h1>
           <div className="flex flex-wrap -m-4 text-center">
             {packageItem.map((item) => (
-            <div key={item.id} className="p-6 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-100">
-            <div className="flex items-center p-6 rounded-lg bg-white shadow-indigo-20 shadow-md border border-gray-200">
-              <div className="flex flex-col">
-                <h2 className={`${classes.name} font-bold`}>{item.name}</h2>
-                <h3 className={`${classes.price} mt-2 text-xl font-bold text-left`}>
-                  {item.price.toLocaleString()} VND
-                </h3>
-                <button className={`${classes.button} w-40 text-sm mt-4 px-6 py-2 rounded-lg tracking-wider outline-none`}>
-                  Add to cart
-                </button>
-              </div>
-              <div className="w-32 h-32 rounded-full flex justify-center items-center ml-auto">
-                <div>
-                  <img className='pl-4' alt='image' src={item.image} />
+              <div
+                onClick={() => handlePayment(item.price)}
+                key={item.id} className="p-6 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-100 cursor-pointer">
+                <div className="flex items-center p-6 rounded-lg bg-white shadow-indigo-20 shadow-md border border-gray-200">
+                  <div className="flex flex-col">
+                    <h2 className={`${classes.name} font-bold`}>{item.name}</h2>
+                    <h3 className={`${classes.price} mt-2 text-xl font-bold text-left`}>
+                      {item.price.toLocaleString()} VND
+                    </h3>
+                  </div>
+                  <div className="w-32 h-32 rounded-full flex justify-center items-center ml-auto">
+                    <div>
+                      <img className='pl-4' alt='image' src={item.image} />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          
+
             ))}
           </div>
         </div>
