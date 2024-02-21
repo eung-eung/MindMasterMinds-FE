@@ -48,7 +48,6 @@ export interface Class {
             roleName: string
         },
 
-
-
     }
+    checkApply: boolean
 }

@@ -1,28 +1,40 @@
 'use client'
-import useAxiosAuth from '@/app/lib/hooks/useAxiosAuth'
-import { Content } from '@/app/types/Content'
-import React, { useEffect, useState } from 'react'
+
+import React from 'react'
 import classes from './content.module.css'
 import moment from 'moment-timezone'
 import ContentItem from './contentItem'
-export default function Content({ id, role }: { id: any, role: any }) {
+import { Content } from '@/app/types/Content'
+import useAxiosAuth from '@/app/lib/hooks/useAxiosAuth'
+import { Bounce, ToastContainer } from 'react-toastify'
+export default function ContentComponent({ content, setRefresh, role }
+    : { content: Content, setRefresh: any, role: any }) {
     const axiosAuth = useAxiosAuth()
-    const [content, setContent] = useState<Content>()
-    const getAContentClassByStudent = async () => {
-        const response = await axiosAuth.get(
-            `/Order/get-order-detail-by-student?orderId=${id.classId}`
-        )
-        setContent(response.data)
+    const handleComplete = async (id: any) => {
+        try {
+            const response = await axiosAuth.post('/Order/complete-order', id)
+            setRefresh((prev: boolean) => !prev)
+        } catch (error) {
+            console.log('error: ', error);
+
+        }
 
     }
-    useEffect(() => {
-        if (role === 'Student') {
-            getAContentClassByStudent()
-        }
-    }, [])
-
     return (
         <div className={classes.content_container}>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                transition={Bounce}
+            />
             <div className={classes.summary}>
                 <span>Summary</span>
                 <div className={classes.textfield}>
@@ -46,9 +58,6 @@ export default function Content({ id, role }: { id: any, role: any }) {
                 <ContentItem title='Class Fees' content={
                     content?.totalPrice
                 } />
-                <ContentItem title='Status' content={
-                    content?.statusOrder
-                } />
                 <ContentItem title='Class Type' content={
                     content?.stateInfo ? 'Urgent' : 'Normal'
                 } />
@@ -58,7 +67,18 @@ export default function Content({ id, role }: { id: any, role: any }) {
                 <ContentItem title='Student email' content={
                     content?.student.email
                 } />
-
+                <ContentItem title='Start day' content={
+                    moment.utc(content?.study).tz('Asia/Ho_Chi_Minh').format('DD-MM-YYYY')
+                } />
+                <ContentItem title='Status' content={
+                    content?.statusOrder
+                } />
+                {
+                    content?.statusOrder === 'Confirmed' && role === 'Tutor'
+                    && <button
+                        onClick={() => handleComplete(content.id)}
+                        className={classes.complete_btn}>Complete</button>
+                }
             </div>
 
         </div>

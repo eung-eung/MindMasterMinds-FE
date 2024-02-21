@@ -61,7 +61,6 @@ const ListCard: React.FC = () => {
   }
   const getAllListClassesRoleTutor = async () => {
     const response = await axiosAuth.get('/Order/get-list-order-by-course-and-status-by-tutor?pageNumber=0&pageSize=100')
-    console.log(response.data.data);
     setListClasses(response.data.data)
   }
   useEffect(() => {
@@ -212,7 +211,9 @@ const ListCard: React.FC = () => {
                           <h2 className={`${classes.titleItem} mr-2 ml-2`}> Status:</h2>
                           <p className={classes.contentItem}>
                             {
-                              classItem.statusOrder
+                              classItem.statusOrder === "Confirmed"
+                                ? "On Progress"
+                                : classItem.statusOrder
                             }
                           </p>
                         </div>
