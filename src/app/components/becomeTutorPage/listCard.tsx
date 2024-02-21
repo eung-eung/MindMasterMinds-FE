@@ -12,7 +12,7 @@ export default function ListCard() {
     const [currentPage, setCurrentPage] = useState(1);
     const axiosAuth = useAxiosAuth()
     const [listClasses, setListClasses] = useState<Class[]>([])
-
+    const [refresh, setRefresh] = useState<boolean>(false)
     const getListClasses = async () => {
         const response = await axiosAuth.get('/Order?pageNumber=0&pageSize=100')
         setListClasses(response.data.data)
@@ -36,6 +36,7 @@ export default function ListCard() {
                 theme: "light",
                 transition: Bounce,
             });
+            setRefresh(prev => !prev)
         } catch (error: any) {
             console.log(error);
 
@@ -56,7 +57,7 @@ export default function ListCard() {
     }
     useEffect(() => {
         getListClasses()
-    }, [])
+    }, [refresh])
 
     return (
         <div>
@@ -101,15 +102,27 @@ export default function ListCard() {
                                                 </div>
 
                                                 <div className={classes.box_btn + " flex flex-col p-4 items-center  md:mr-0  flex-shrink-0"}>
-                                                    <button type='button' disabled className={classes.cardButtonWaiting}>
-                                                        Waiting
-                                                    </button>
-                                                    <button
-                                                        type='button'
-                                                        onClick={() => handleApply(classItem.id)}
-                                                        className={classes.cardButtonApply}>
-                                                        Apply
-                                                    </button>
+                                                    {
+                                                        !classItem.checkApply ? <>
+                                                            <button type='button' disabled className={classes.cardButtonWaiting}>
+                                                                Waiting
+                                                            </button>
+                                                            <button
+                                                                type='button'
+                                                                onClick={() => handleApply(classItem.id)}
+                                                                className={classes.cardButtonApply}>
+                                                                Apply
+                                                            </button>
+                                                        </>
+                                                            :
+                                                            <>
+                                                                <button
+                                                                    type='button'
+                                                                    className={classes.cardButtonApply}>
+                                                                    Applied
+                                                                </button>
+                                                            </>
+                                                    }
                                                 </div>
                                             </div>
 
