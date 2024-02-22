@@ -1,46 +1,62 @@
 .title {
     color: #222;
-font-family: Belanosima;
-font-size: 40px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-margin-bottom: 80px;
+    font-family: Belanosima;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 80px;
+}
+
+.pagi_box {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.pagi_button {
+    display: flex;
+    justify-content: center;
+}
+
+.pagi_button ul li button {
+    color: #000 !important;
+    border: none !important;
+    background: #93FDD3;
 }
 
 .subject {
     color: #222;
-font-family: Belanosima;
-font-size: 26px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+    font-family: Belanosima;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .titleItem {
     color: #000000;
-font-family: Belanosima;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .contentItem {
     color: #686868;
-font-family: Belanosima;
-font-size: 20px;
-font-style: normal;
-line-height: normal;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    line-height: normal;
 }
 
 .link {
     color: #59AA8A;
-font-family: Belanosima;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-family: Belanosima;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .paginationBackground:focus {
@@ -50,16 +66,17 @@ line-height: normal;
 
 .filter {
     border-radius: 10px;
-background: #93FDD3;
-width: fit-content;
-padding: 20px;
-height: 34px;
-flex-shrink: 0;
-color: #000;
-text-align: center;
-font-family: Belanosima;
-font-size: 22px;
-font-style: normal;
-font-weight: 400;
-line-height: 107.912%; /* 12.949px */
-} 
+    background: #93FDD3;
+    width: fit-content;
+    padding: 20px;
+    height: 34px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Belanosima;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 107.912%;
+    text-transform: uppercase;
+}
