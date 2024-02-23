@@ -29,6 +29,8 @@ export default function ProfileUserPage() {
     const [isLoading, setLoading] = useState<boolean>(true);
     const token = session?.user.accessToken;
     const userId = session?.user.userViewLogin.id;
+    const role = session?.user.userViewLogin.userRole.roleName;
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -138,7 +140,7 @@ export default function ProfileUserPage() {
                 });
             }
         } catch (error: any) {
-            console.error('Error updating profile:', error); 
+            console.error('Error updating profile:', error);
             toast.error('Failed to update profile', {
                 position: 'top-right',
                 autoClose: 5000,
@@ -292,11 +294,21 @@ export default function ProfileUserPage() {
                                                     <button type="submit" onClick={handleSubmit} className={`${classes.button} rounded-md px-3 py-2`}>
                                                         Save
                                                     </button>
-                                                    <Link href="/historyOrder">
-                                                        <button type="button" className={`${classes.button} rounded-md px-3 py-2`}>
-                                                            History Order
-                                                        </button>
-                                                    </Link>
+                                                    {role === "Student" &&
+                                                        <Link href="/historyOrder">
+                                                            <button type="button" className={`${classes.button} rounded-md px-3 py-2`}>
+                                                                History Order
+                                                            </button>
+                                                        </Link>
+                                                    }
+                                                       {role === "Tutor" &&
+                                                        <Link href="/tutorDashboard">
+                                                            <button type="button" className={`${classes.button} rounded-md px-3 py-2`}>
+                                                                History Order
+                                                            </button>
+                                                        </Link>
+                                                    }
+
                                                 </div>
                                                 <div className="mt-6 flex items-center justify-start gap-x-6">
 

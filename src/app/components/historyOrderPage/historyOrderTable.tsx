@@ -36,7 +36,7 @@ interface Order {
 
 
 
-export default function TableStudent() {
+export default function HistoryOrderTable() {
   const getRowId = (row: Order) => row.id;
   const [order, setOrder] = useState<Order[]>([]);
 
@@ -109,23 +109,30 @@ export default function TableStudent() {
 
   return (
     <div style={{ width: '100%' }}>
-      <DataGrid
-        rows={order}
-        columns={columns}
-        getRowId={getRowId}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
-          },
-        }}
-        pageSizeOptions={[5, 10]}
-        // checkboxSelection
-        disableRowSelectionOnClick
-        rowHeight={100}
-        sx={{ fontFamily: "Belanosima", fontSize: "17px", backgroundColor: "white", paddingLeft: "30px" }}
-      />
+      {order.length > 0 ?
+        < DataGrid
+          rows={order}
+          columns={columns}
+          getRowId={getRowId}
+          initialState={{
+            pagination: {
+              paginationModel: { page: 0, pageSize: 5 },
+            },
+          }}
+          pageSizeOptions={[5, 10]}
+          // checkboxSelection
+          disableRowSelectionOnClick
+          rowHeight={100}
+          sx={{ fontFamily: "Belanosima", fontSize: "17px", backgroundColor: "white", paddingLeft: "30px" }}
+        />
+        :
+        <div>
+        <h1 className='font-[Belanosima] text-center text-3xl text-gray-500'>
+          You have not ordered yet!  <Link href='/findTutor' className='ml-2 text-2xl font-regular text-gray-400 hover:text-[#6cc198] hover:underline'>Order now</Link>
+          </h1>
+          </div>
+      }
 
-   
     </div>
   );
 }
