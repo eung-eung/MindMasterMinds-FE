@@ -16,7 +16,19 @@ export default NextAuth({
             clientSecret: GOOGLE_CLIENT_SECRET,
             profile: async (profile) => {
                 try {
-                    const response = await axious.post('/Auth/login-email', profile.email)
+                    console.log({
+                        "email": profile.email,
+                        "firstName": profile.family_name,
+                        "lastName": profile.given_name
+                    });
+                    const response = await axious.post('/Auth/login-email',
+                        {
+                            "email": profile.email,
+                            "firstName": profile.family_name || "A",
+                            "lastName": profile.given_name
+                        }
+                    )
+
                     return {
                         id: profile.sub,
                         ...profile,
