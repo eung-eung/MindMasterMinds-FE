@@ -3,13 +3,14 @@ import React from 'react'
 import Card from './card/Card'
 import classes from './page.module.css'
 import Revenue from './revenue/Revenue'
-import BasicTable from './table/Table';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation'
 import LoadingTheme from '../loadingTheme/loadingTheme';
 import Header from '../homePage/header';
 import Footer from '../footer/footer';
 import ErrorPage from '../errorPage/page'
+import BasicTable from './table/Table'
+import { ClipboardDocumentCheckIcon } from '@heroicons/react/24/outline'
 
 
 interface Item {
@@ -52,7 +53,7 @@ export default function TutorDashboardPage() {
               {/* Header */}
               <Header title='Tutor Dashboard' isHome={false} />
               <div className="container mx-auto">
-                <h1 className={`${classes.title} mb-12 mt-24 `}>Dashboard</h1>
+                <h1 className="font-[Belanosima] flex justify-center mb-14 text-5xl font-semibold mb-12 mt-24">Dashboard</h1>
                 <div className={classes.cardContainer}>
                   {array.map((item, i) => <Card key={i} item={item} />)}
                 </div>
@@ -60,7 +61,10 @@ export default function TutorDashboardPage() {
                   <h3 style={{ textAlign: "left", marginBottom: "30px", fontFamily: "Belanosima", fontSize: "30px" }}>Revenue</h3>
                   <Revenue />
                 </div>
-                <div style={{ marginTop: "100px", marginBottom: "100px" }}>
+                <div className='container mx-auto my-24'>
+                  <h1 className='font-[Belanosima] flex justify-center mb-14 text-5xl font-semibold'>
+                    History Order 
+                  </h1>
                   <BasicTable />
                 </div>
 
