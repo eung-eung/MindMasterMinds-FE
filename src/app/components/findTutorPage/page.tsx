@@ -134,15 +134,18 @@ export default function FindTutorPage() {
             order.stateInfo = !isNormal
             order.phone = phone.current.value.trim()
             try {
-                const response = await axiosAuth.post('/Order', {
-                    summary: order.summary,
-                    courseSubjectId: order.courseSubjectId,
-                    stateInfo: order.stateInfo,
-                    phone: order.phone,
-                    description: order.description,
-                    quantity: order.quantity,
-                    study: order.study
-                })
+                const response = await axiosAuth.post('/Order/missing-order-by-student', '5AE02E33-2C97-4562-B246-85113EA4CC54')
+                console.log('money: ', response);
+
+                // const response = await axiosAuth.post('/Order', {
+                //     summary: order.summary,
+                //     courseSubjectId: order.courseSubjectId,
+                //     stateInfo: order.stateInfo,
+                //     phone: order.phone,
+                //     description: order.description,
+                //     quantity: order.quantity,
+                //     study: order.study
+                // })
                 toast.success('Posted successfully', {
                     position: "top-center",
                     autoClose: 2000,
