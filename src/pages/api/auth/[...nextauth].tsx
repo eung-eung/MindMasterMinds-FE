@@ -15,8 +15,6 @@ export default NextAuth({
             clientId: GOOGLE_CLIENT_ID,
             clientSecret: GOOGLE_CLIENT_SECRET,
             profile: async (profile) => {
-                console.log('aa');
-
                 try {
                     console.log({
                         "email": profile.email,
