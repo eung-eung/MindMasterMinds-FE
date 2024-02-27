@@ -28,7 +28,7 @@
     "react-datepicker": "^6.1.0",
     "react-dom": "^18",
     "react-toastify": "^10.0.4",
-    "sweetalert2": "^11.10.4"
+    "sweetalert2": "^11.10.5"
   },
   "devDependencies": {
     "@types/node": "^20",
