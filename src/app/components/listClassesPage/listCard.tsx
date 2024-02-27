@@ -95,8 +95,8 @@ const ListCard: React.FC = (
                     <div className="py-1 grid grid-cols-1 ">
                       {/* Add 'All Majors' button */}
 
-                      {listStatus.map(status =>
-                        <Menu.Item>
+                      {listStatus.map((status, index) =>
+                        <Menu.Item key={index}>
                           <button
                             style={{ padding: "10px", width: '100%', paddingBottom: "10px", paddingTop: "10px", fontFamily: "Belanosima" }}
                             className={`mr-4 ${filterMajor === status ? 'bg-gray-100' : ''}`}
