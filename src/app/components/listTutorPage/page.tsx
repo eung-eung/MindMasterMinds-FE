@@ -95,11 +95,8 @@ export default function ListTutorPage() {
                 <div className="flex md:ml-auto md:mr-0 mx-auto items-end flex-shrink-0 space-x-6">
 
                   <span className="ml-16 flex items-center flex-col leading-none">
-                    <img className={classes.cardAdvertise} src='https://s3-alpha-sig.figma.com/img/0ed2/e1d3/62320044d8e7ac180490bcaa86dd2c1e?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aI9bs5~jWl3cJ~BWSr14QbCsWyuDazNj0p5Zk0Qtj3VYWvnJ-vLlC7LN6BJ820775GkVpK037VTSy1n6WoqN6Dj~AEHYDedIT~7VMPeBpNl7DGjvUYkyrVybZAWlo9hl2XyyxwpQgdYpm1irLC2OIe05iZlnnLAGnMROiNW9P46J0jctb5sxuUE4UrvRZZI5tiMVXI7vk1cHOh7akCzDgWxMxdSsVvdU90vMNf17LjZ6oDmhqGUHsuoiYCZat94KILT-q4WBMw6WVdA81JWm~l8HQJxl4zFKFdDARnxHAoJf9vMAjU0eaBFNNZ3uTTto0HPspyoU9S4Vkh~ILSjRsw__' />
-                    <img className={classes.cardAdvertise} src='https://s3-alpha-sig.figma.com/img/0ed2/e1d3/62320044d8e7ac180490bcaa86dd2c1e?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aI9bs5~jWl3cJ~BWSr14QbCsWyuDazNj0p5Zk0Qtj3VYWvnJ-vLlC7LN6BJ820775GkVpK037VTSy1n6WoqN6Dj~AEHYDedIT~7VMPeBpNl7DGjvUYkyrVybZAWlo9hl2XyyxwpQgdYpm1irLC2OIe05iZlnnLAGnMROiNW9P46J0jctb5sxuUE4UrvRZZI5tiMVXI7vk1cHOh7akCzDgWxMxdSsVvdU90vMNf17LjZ6oDmhqGUHsuoiYCZat94KILT-q4WBMw6WVdA81JWm~l8HQJxl4zFKFdDARnxHAoJf9vMAjU0eaBFNNZ3uTTto0HPspyoU9S4Vkh~ILSjRsw__' />
-                    <img className={classes.cardAdvertise} src='https://s3-alpha-sig.figma.com/img/0ed2/e1d3/62320044d8e7ac180490bcaa86dd2c1e?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aI9bs5~jWl3cJ~BWSr14QbCsWyuDazNj0p5Zk0Qtj3VYWvnJ-vLlC7LN6BJ820775GkVpK037VTSy1n6WoqN6Dj~AEHYDedIT~7VMPeBpNl7DGjvUYkyrVybZAWlo9hl2XyyxwpQgdYpm1irLC2OIe05iZlnnLAGnMROiNW9P46J0jctb5sxuUE4UrvRZZI5tiMVXI7vk1cHOh7akCzDgWxMxdSsVvdU90vMNf17LjZ6oDmhqGUHsuoiYCZat94KILT-q4WBMw6WVdA81JWm~l8HQJxl4zFKFdDARnxHAoJf9vMAjU0eaBFNNZ3uTTto0HPspyoU9S4Vkh~ILSjRsw__' />
-
-                    <img className={classes.cardAdvertise} src='https://s3-alpha-sig.figma.com/img/0ed2/e1d3/62320044d8e7ac180490bcaa86dd2c1e?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aI9bs5~jWl3cJ~BWSr14QbCsWyuDazNj0p5Zk0Qtj3VYWvnJ-vLlC7LN6BJ820775GkVpK037VTSy1n6WoqN6Dj~AEHYDedIT~7VMPeBpNl7DGjvUYkyrVybZAWlo9hl2XyyxwpQgdYpm1irLC2OIe05iZlnnLAGnMROiNW9P46J0jctb5sxuUE4UrvRZZI5tiMVXI7vk1cHOh7akCzDgWxMxdSsVvdU90vMNf17LjZ6oDmhqGUHsuoiYCZat94KILT-q4WBMw6WVdA81JWm~l8HQJxl4zFKFdDARnxHAoJf9vMAjU0eaBFNNZ3uTTto0HPspyoU9S4Vkh~ILSjRsw__' />
+                    <img className={classes.cardAdvertise} src="/images/bannerMarket.jpg" />
+                    <img className={classes.cardAdvertise} src="/images/bannerMarket.jpg" />
                   </span>
                 </div>
               </div>
