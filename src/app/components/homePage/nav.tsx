@@ -213,7 +213,7 @@ export default function Nav() {
                       </div>
                       <div className="flex-auto">
                         <Link href="/pricing" className="block font-semibold text-gray-900">
-                          Pricing
+                          Top Up
                           <span className="absolute inset-0" />
                         </Link>
                       </div>
