@@ -178,7 +178,7 @@ export default function FindTutorPage() {
             } catch (error: any) {
                 if (error.response.status === 400 && error.response.data.message) {
                     Swal.fire({
-                        title: `You need ${error.response.data.message} to register`,
+                        title: `You need ${error.response.data.message} VND to register`,
                         showDenyButton: true,
                         showCancelButton: true,
                         confirmButtonText: "Top up your wallet",

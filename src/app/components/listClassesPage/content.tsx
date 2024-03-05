@@ -7,6 +7,7 @@ import ContentItem from './contentItem'
 import { Content } from '@/app/types/Content'
 import useAxiosAuth from '@/app/lib/hooks/useAxiosAuth'
 import { Bounce, ToastContainer, toast } from 'react-toastify'
+
 export default function ContentComponent({ content, setRefresh, role }
     : { content: Content, setRefresh: any, role: any }) {
     const axiosAuth = useAxiosAuth()
@@ -65,7 +66,7 @@ export default function ContentComponent({ content, setRefresh, role }
                     moment.utc(content?.createdAt).tz('Asia/Ho_Chi_Minh').format('DD-MM-YYYY')
                 } />
                 <ContentItem title='Class Fees' content={
-                    content?.totalPrice
+                    content?.totalPrice + ' VND'
                 } />
                 <ContentItem title='Class Type' content={
                     content?.stateInfo ? 'Urgent' : 'Normal'
