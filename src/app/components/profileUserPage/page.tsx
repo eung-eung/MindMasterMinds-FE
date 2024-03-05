@@ -128,7 +128,7 @@ export default function ProfileUserPage() {
                 });
 
             if (response.status === 200) {
-                console.log('Profile updated successfully');
+
                 toast.success('Profile updated successfully', {
                     position: 'top-right',
                     autoClose: 5000, // Close the toast after 5 seconds
@@ -301,7 +301,7 @@ export default function ProfileUserPage() {
                                                             </button>
                                                         </Link>
                                                     }
-                                                       {role === "Tutor" &&
+                                                    {role === "Tutor" &&
                                                         <Link href="/tutorDashboard">
                                                             <button type="button" className={`${classes.button} rounded-md px-3 py-2`}>
                                                                 History Order

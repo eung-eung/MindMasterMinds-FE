@@ -12,7 +12,7 @@ import Image from 'next/image';
 const PostItem = React.forwardRef(({ post }: { post: PostExplore }, ref: any) => {
     const [isLoading, setIsLoading] = React.useState(true)
     const handleLike = () => {
-        console.log('like');
+
 
     }
     const postComponent = (

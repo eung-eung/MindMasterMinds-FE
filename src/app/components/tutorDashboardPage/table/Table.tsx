@@ -56,7 +56,7 @@ export default function BasicTable() {
                 });
 
                 const orderResponse: Order[] = response.data.data;
-                console.log('response', response.data.data[0]);
+
                 const formatOrder = orderResponse.map((item: Order) => ({
                     ...item,
                     id: item.id,

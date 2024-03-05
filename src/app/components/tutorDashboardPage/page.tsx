@@ -35,7 +35,7 @@ const array: Item[] = [
 export default function TutorDashboardPage() {
   const { data: session, status } = useSession()
   const [isLoading, setLoading] = React.useState<boolean>(true)
-  console.log(session);
+
   const role = session?.user.userViewLogin.userRole.roleName;
 
   React.useEffect(() => {
@@ -63,7 +63,7 @@ export default function TutorDashboardPage() {
                 </div>
                 <div className='container mx-auto my-24'>
                   <h1 className='font-[Belanosima] flex justify-center mb-14 text-5xl font-semibold'>
-                    History Order 
+                    History Order
                   </h1>
                   <BasicTable />
                 </div>

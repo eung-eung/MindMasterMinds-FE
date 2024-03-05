@@ -13,7 +13,7 @@ export default function PostCardInputComment({ postId, setIsRefresh }: { postId:
     const { data: session } = useSession()
     const [comment, setComment] = React.useState(String)
     const axiosAuth = useAxiosAuth()
-    console.log(comment);
+
 
     const handleChange = () => {
         if (inputField && inputField.current?.innerHTML) {

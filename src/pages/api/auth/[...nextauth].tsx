@@ -16,11 +16,7 @@ export default NextAuth({
             clientSecret: GOOGLE_CLIENT_SECRET,
             profile: async (profile) => {
                 try {
-                    console.log({
-                        "email": profile.email,
-                        "firstName": profile.family_name,
-                        "lastName": profile.given_name
-                    });
+
                     const response = await axious.post('/Auth/login-email',
                         {
                             "email": profile.email,

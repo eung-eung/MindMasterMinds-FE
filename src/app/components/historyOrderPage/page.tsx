@@ -15,7 +15,7 @@ function classNames(...classes: any) {
 export default function HistoryOrderPage() {
   const { data: session, status } = useSession()
   const [isLoading, setLoading] = React.useState<boolean>(true)
-  console.log(session);
+
 
   React.useEffect(() => {
     if (status !== 'loading') setLoading(false)
@@ -33,8 +33,8 @@ export default function HistoryOrderPage() {
 
           {/* Table */}
           <div className='container mx-auto my-24'>
-          <h1 className='font-[Belanosima] flex justify-center mb-14 text-5xl font-semibold'>
-            History Order <ClipboardDocumentCheckIcon className='w-12 h-12 ml-4'/>
+            <h1 className='font-[Belanosima] flex justify-center mb-14 text-5xl font-semibold'>
+              History Order <ClipboardDocumentCheckIcon className='w-12 h-12 ml-4' />
             </h1>
             <HistoryOrderTable />
           </div>

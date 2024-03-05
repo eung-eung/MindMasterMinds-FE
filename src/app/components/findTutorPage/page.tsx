@@ -144,8 +144,7 @@ export default function FindTutorPage() {
             order.stateInfo = !isNormal
             order.phone = phone.current.value.trim()
             try {
-                console.log('fee number: ', feeNumber);
-                console.log(typeof feeNumber.toString());
+
 
                 const responseMising = await axiosAuth.post('/Order/missing-order-by-student', {
                     total: feeNumber

@@ -12,7 +12,7 @@ export default function PostCardGridComments({ postId, isRefresh }: { postId: an
         try {
             setIsLoading(true)
             const response = await axiosAuth.get(`/Post/all-post-comment-by-postId/${postId}?pageNumber=0&pageSize=100`)
-            console.log('response: ', response.data.data);
+
             setListCommments(response.data.data)
             setIsLoading(false)
         } catch (e) {
@@ -31,7 +31,6 @@ export default function PostCardGridComments({ postId, isRefresh }: { postId: an
 
     }
     useEffect(() => {
-        console.log('haha');
 
         getListComments()
     }, [isRefresh])

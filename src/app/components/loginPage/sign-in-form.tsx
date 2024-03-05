@@ -28,7 +28,7 @@ export default function SignInForm() {
             password: passwordInput.current.value,
             callbackUrl: '/'
         });
-        console.log('response: ', res);
+
         if (!res || !res.url) {
             toast.update(toastId.current, {
                 render: "Login failed",

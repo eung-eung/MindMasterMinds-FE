@@ -32,13 +32,10 @@ export default function Packages() {
   const axiosAuth = useAxiosAuth()
 
   const handlePayment = async (value: any) => {
-    console.log(process.env.PORT);
     const payment = await axiosAuth.post('/TransactionWallet/deposit/vnpay', {
       amount: value,
       redirectUrl: `${process.env.PORT + '/profile'}`
     })
-    console.log(payment.data.paymentUrl);
-
     window.location.href = payment.data.paymentUrl
   }
   return (

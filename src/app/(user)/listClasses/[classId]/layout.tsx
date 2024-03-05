@@ -13,7 +13,7 @@ export default function AClassLayout({
 }) {
   const { data: session, status } = useSession()
   const [isLoading, setLoading] = React.useState<boolean>(true)
-  console.log(session);
+
 
 
   React.useEffect(() => {

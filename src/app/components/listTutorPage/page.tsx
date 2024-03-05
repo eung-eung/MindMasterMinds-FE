@@ -12,7 +12,7 @@ import ListCard from './listCard'
 export default function ListTutorPage() {
   const { data: session, status } = useSession()
   const [isLoading, setLoading] = React.useState<boolean>(true)
-  console.log(session);
+
 
 
   React.useEffect(() => {
@@ -83,7 +83,7 @@ export default function ListTutorPage() {
 
 
               </div>
-              
+
             </div>
 
             {/* Card Tutor List */}

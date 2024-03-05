@@ -61,7 +61,6 @@ export default function HistoryOrderTable() {
         });
 
         const orderResponse: Order[] = response.data.data;
-        console.log('response', response.data.data[0]);
         const formatOrder = orderResponse.map((item: Order) => ({
           ...item,
           id: item.id,
@@ -127,10 +126,10 @@ export default function HistoryOrderTable() {
         />
         :
         <div>
-        <h1 className='font-[Belanosima] text-center text-3xl text-gray-500'>
-          You have not ordered yet!  <Link href='/findTutor' className='ml-2 text-2xl font-regular text-gray-400 hover:text-[#6cc198] hover:underline'>Order now</Link>
+          <h1 className='font-[Belanosima] text-center text-3xl text-gray-500'>
+            You have not ordered yet!  <Link href='/findTutor' className='ml-2 text-2xl font-regular text-gray-400 hover:text-[#6cc198] hover:underline'>Order now</Link>
           </h1>
-          </div>
+        </div>
       }
 
     </div>

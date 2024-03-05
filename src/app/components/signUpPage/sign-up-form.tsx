@@ -57,7 +57,7 @@ export default function SignUpForm() {
         try {
             toastId.current = toast.loading("Sending OTP...")
             const response = await axious.post('/User/send-OTP-email', email.current.value)
-            console.log(response);
+
             if (response.status === 200) {
                 toast.update(toastId.current, {
                     render: "Sent successfully",
@@ -74,7 +74,7 @@ export default function SignUpForm() {
                 })
             }
         } catch (error: any) {
-            console.log('error: ', error.response.data.Message)
+
             toast.update(toastId.current, {
                 render: error.response.data.Message,
                 type: "error",

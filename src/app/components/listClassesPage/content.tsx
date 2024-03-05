@@ -15,7 +15,6 @@ export default function ContentComponent({ content, setRefresh, role }
             const response = await axiosAuth.post('/Order/complete-order', id)
             setRefresh((prev: boolean) => !prev)
         } catch (error: any) {
-            console.log('error: ', error.response.data.Message);
             toast.error(error.response.data.Message, {
                 position: "top-center",
                 autoClose: 3000,

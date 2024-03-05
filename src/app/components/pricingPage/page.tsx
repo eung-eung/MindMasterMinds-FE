@@ -12,7 +12,7 @@ import Packages from './packages'
 export default function PricingPage() {
   const { data: session, status } = useSession()
   const [isLoading, setLoading] = React.useState<boolean>(true)
-  console.log(session);
+
 
 
   React.useEffect(() => {

@@ -12,7 +12,7 @@ import ListCard from './listCard'
 export default function ListClassesPage() {
   const { data: session, status } = useSession()
   const [isLoading, setLoading] = React.useState<boolean>(true)
-  console.log(session);
+
 
 
   React.useEffect(() => {
@@ -26,7 +26,7 @@ export default function ListClassesPage() {
     <div>
       {isLoading ? <LoadingTheme /> :
         <>
-        
+
           {/* Header */}
           <Header title='List Of Classes' isHome={false} />
           <div className="container mx-auto my-24">

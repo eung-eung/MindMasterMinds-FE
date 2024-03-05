@@ -7,7 +7,7 @@ export default function LoginPage() {
     //     secret: process.env.JWT_SECRET!,
     // });
     // user exists 
-    console.log(session);
+
 
     if (session) {
         return (
