@@ -20,13 +20,15 @@ export default function BecomeTutorPage() {
         if (!session && status === 'unauthenticated') {
             redirect('/signIn')
         }
+        if (role !== "Tutor" && session) {
+            return notFound();
+        }
+
     }, [status])
 
     if (isLoading) return <LoadingTheme />;
 
-    if (role !== "Tutor") {
-        return notFound();
-    }
+
 
     return (
         <div style={{ background: "#fff" }}>
