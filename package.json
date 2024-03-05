@@ -28,6 +28,7 @@
     "react-datepicker": "^6.1.0",
     "react-dom": "^18",
     "react-toastify": "^10.0.4",
+    "sass": "^1.71.1",
     "sweetalert2": "^11.10.5"
   },
   "devDependencies": {
