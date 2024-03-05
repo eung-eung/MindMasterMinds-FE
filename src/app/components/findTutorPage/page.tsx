@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import Header from '@/app/components/homePage/header'
 import LoadingTheme from '@/app/components/loadingTheme/loadingTheme'
 import { useSession } from 'next-auth/react'
-import { redirect } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import classes from './page.module.css'
 import { useTheme } from '@mui/material/styles';
 import Footer from '../../components/footer/footer'
@@ -22,6 +22,7 @@ import { Bounce, ToastContainer, toast } from 'react-toastify'
 import dayjs from 'dayjs'
 import { Order } from '@/app/types/Order'
 import CircularLoading from '../circularProgress/CircularProgress'
+import Swal from 'sweetalert2'
 
 
 const ITEM_HEIGHT = 48;
@@ -63,7 +64,7 @@ export default function FindTutorPage() {
     const summary = useRef<HTMLInputElement>(null)
     const phone = useRef<HTMLInputElement>(null)
     const axiosAuth = useAxiosAuth()
-
+    const router = useRouter()
     const getListMajors = async () => {
         const response = await axiosAuth.get('/Course?pageNumber=0&pageSize=100')
         setMajorList(response.data.data)
@@ -92,6 +93,15 @@ export default function FindTutorPage() {
         })
         return response.data.id
     }
+
+    const handlePayment = async (value: any) => {
+        const payment = await axiosAuth.post('/TransactionWallet/deposit/vnpay', {
+            amount: value,
+            redirectUrl: `${process.env.PORT + '/paymentSuccessful'}`
+        })
+        window.open(payment.data.paymentUrl, '_blank', 'noopener,noreferrer');
+    }
+
     const getTuitionFees = async () => {
         if (subjectName) {
             const courseSubjectId = await getCourseSubjectId()
@@ -134,31 +144,54 @@ export default function FindTutorPage() {
             order.stateInfo = !isNormal
             order.phone = phone.current.value.trim()
             try {
-                // const response = await axiosAuth.post('/Order/missing-order-by-student', '5AE02E33-2C97-4562-B246-85113EA4CC54')
-                // console.log('money: ', response);
+                console.log('fee number: ', feeNumber);
+                console.log(typeof feeNumber.toString());
 
-                const response = await axiosAuth.post('/Order', {
-                    summary: order.summary,
-                    courseSubjectId: order.courseSubjectId,
-                    stateInfo: order.stateInfo,
-                    phone: order.phone,
-                    description: order.description,
-                    quantity: order.quantity,
-                    study: order.study
+                const responseMising = await axiosAuth.post('/Order/missing-order-by-student', {
+                    total: feeNumber
                 })
-                toast.success('Posted successfully', {
-                    position: "top-center",
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                    transition: Bounce,
-                });
-                redirect('/listClasses')
+
+                if (responseMising.data.message === 'Bạn đủ tiền để thuê gia sư') {
+                    const response = await axiosAuth.post('/Order', {
+                        summary: order.summary,
+                        courseSubjectId: order.courseSubjectId,
+                        stateInfo: order.stateInfo,
+                        phone: order.phone,
+                        description: order.description,
+                        quantity: order.quantity,
+                        study: order.study
+                    })
+                    toast.success('Posted successfully', {
+                        position: "top-center",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        transition: Bounce,
+                    });
+
+                }
+
+
             } catch (error: any) {
+                if (error.response.status === 400 && error.response.data.message) {
+                    Swal.fire({
+                        title: `You need ${error.response.data.message} to register`,
+                        showDenyButton: true,
+                        showCancelButton: true,
+                        confirmButtonText: "Top up your wallet",
+                        denyButtonText: "Pay Immediately"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            router.push('/pricing')
+                        } else if (result.isDenied) {
+                            handlePayment(error.response.data.message)
+                        }
+                    });
+                }
                 toast.error(error.response.data.Message, {
                     position: "top-center",
                     autoClose: 2000,
