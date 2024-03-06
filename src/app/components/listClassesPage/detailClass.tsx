@@ -12,7 +12,7 @@ export default function DetailClass({ id }: { id: any }) {
 
     return (
         <div>
-            <GridListTutors role={session?.user.userViewLogin.userRole.roleName} id={id} />
+            <GridListTutors idUser={session?.user.userViewLogin.id} role={session?.user.userViewLogin.userRole.roleName} id={id} />
         </div>
     )
 }

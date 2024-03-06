@@ -157,14 +157,10 @@ export default function ListCard() {
                                                             moment.utc(classItem.createdAt).tz('Asia/Ho_Chi_Minh').format('DD-MM-YYYY')
 
                                                         }
-
                                                     </h6>
                                                     <span className={classes.class_fee}>
-                                                        Fees: {classItem.courseSubject.subject.price
-                                                            * classItem.quantity} VND
+                                                        Fees: {classItem.totalPrice} VND
                                                     </span>
-
-
                                                 </div>
                                             </div>
                                         </div>

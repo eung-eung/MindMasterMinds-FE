@@ -7,8 +7,10 @@ import CircularLoading from '../circularProgress/CircularProgress'
 import { Content } from '@/app/types/Content'
 import ContentComponent from './content'
 import StudentItem from './studentItem'
-export default function GridListTutors({ id, role }: { id: any, role: any }) {
+import { useRouter } from 'next/navigation'
 
+export default function GridListTutors({ idUser, id, role }: { idUser: any, id: any, role: any }) {
+    const router = useRouter()
     const axiosAuth = useAxiosAuth()
     const [listTutors, setListTutors] = React.useState<Tutor[]>([])
     const [refresh, setRefresh] = React.useState<boolean>(false)
@@ -29,18 +31,29 @@ export default function GridListTutors({ id, role }: { id: any, role: any }) {
     }
 
     const getAContentClassByStudent = async () => {
-        const response = await axiosAuth.get(
-            `/Order/get-order-detail-by-student?orderId=${id.classId}`
-        )
-        return response.data
-
+        try {
+            const response = await axiosAuth.get(
+                `/Order/get-order-detail-by-student?orderId=${id.classId}`
+            )
+            return response.data
+        } catch (e) {
+            router.replace('/')
+        }
     }
 
     const getAContentClassByTutor = async () => {
         setIsLoadingListTutors(true)
-        const response = await axiosAuth.get(`/Order/get-order-detail-by-tutor?orderId=${id.classId}`)
-        setContent(response.data)
-        setIsLoadingListTutors(false)
+        try {
+            const response = await axiosAuth.get(`/Order/get-order-detail-by-tutor?orderId=${id.classId}`)
+
+            if (response.data.tutor.id !== idUser) {
+                throw new Error('Error')
+            }
+            setContent(response.data)
+            setIsLoadingListTutors(false)
+        } catch (e) {
+            router.replace('/')
+        }
     }
     React.useEffect(() => {
         if (role === 'Student') {
@@ -82,16 +95,26 @@ export default function GridListTutors({ id, role }: { id: any, role: any }) {
                                             :
                                             <div className={classes.grid_tutors}>
                                                 {
-                                                    listTutors.map(
-                                                        tutor =>
+                                                    isOrdered ?
+                                                        listTutors.map(
+                                                            tutor =>
+                                                                <TutorItem
+                                                                    isOrder={isOrdered}
+                                                                    key={tutor.id}
+                                                                    orderId={id.classId}
+                                                                    tutor={tutor}
+                                                                    setRefresh={setRefresh}
+                                                                />
+                                                        ) :
+                                                        <>
                                                             <TutorItem
                                                                 isOrder={isOrdered}
-                                                                key={tutor.id}
-                                                                orderId={id.classId}
-                                                                tutor={tutor}
+                                                                key={content.tutor.id}
+                                                                orderId={content.classId}
+                                                                tutor={content.tutor}
                                                                 setRefresh={setRefresh}
                                                             />
-                                                    )
+                                                        </>
                                                 }
                                             </div>
                                     }

@@ -11,14 +11,11 @@ export default function StudentItem({ content }: { content: Content }) {
                     <img src={content.student.avatar} />
                 </div>
                 <div className={classes.right_content}>
-                    <div className={classes.card_item + ' ' + classes.student_name}>
-                        {content.student.firstName + ' ' + content.student.lastName}
+                    <div className={classes.card_item}>
+                        Name: {content.student.firstName + ' ' + content.student.lastName}
                     </div>
-                    <div className={classes.card_item + ' ' + classes.student_mail}>
+                    <div className={classes.card_item}>
                         <EmailOutlinedIcon />     {content.student.email}
-                    </div>
-                    <div className={classes.card_item + ' ' + classes.student_role}>
-                        {content.student.userRole.roleName}
                     </div>
                 </div>
 
