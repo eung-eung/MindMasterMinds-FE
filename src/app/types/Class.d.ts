@@ -49,5 +49,6 @@ export interface Class {
         },
 
     }
-    checkApply: boolean
+    checkApply: boolean,
+    totalPrice: number
 }
