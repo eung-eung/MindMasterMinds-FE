@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function Article() {
   return (
     <div>
-     <section className="text-gray-600 body-font">
+      {/* <section className="text-gray-600 body-font">
         <div className="container mx-auto flex flex-col px-5 py-16 justify-center items-center">
           <div className="w-full md:w-2/3 flex flex-col mb-16 items-center text-center">
             <h1 className={classes.title}>Explore social network page</h1>
@@ -17,7 +17,7 @@ export default function Article() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }
