@@ -186,7 +186,7 @@ export default function Nav() {
                         </div>
                       </div>
 
-                      <div
+                      {/* <div
                         key="Explore"
                         className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
                       >
@@ -199,7 +199,7 @@ export default function Nav() {
                             <span className="absolute inset-0" />
                           </Link>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
 
 
@@ -364,7 +364,7 @@ export default function Nav() {
                           </Link>
                         </div>
                       </div>
-                      <div
+                      {/* <div
                         key="Explore"
                         className="group relative flex items-center gap-x-6 rounded-lg p-1 text-sm leading-6 hover:bg-gray-50"
                       >
@@ -377,7 +377,7 @@ export default function Nav() {
                             <span className="absolute inset-0" />
                           </Link>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                     <div
                       key="Chat"
