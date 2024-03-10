@@ -141,7 +141,7 @@ export default function FindTutorPage() {
             order.summary = summary.current.value.trim()
             order.quantity = lessons
             order.study = date.toDate()
-            order.stateInfo = !isNormal
+            order.stateInfo = isNormal
             order.phone = phone.current.value.trim()
             try {
 

@@ -69,7 +69,7 @@ export default function ContentComponent({ content, setRefresh, role }
                     content?.totalPrice + ' VND'
                 } />
                 <ContentItem title='Class Type' content={
-                    content?.stateInfo ? 'Urgent' : 'Normal'
+                    content?.stateInfo ? 'Normal' : 'Urgent'
                 } />
                 <ContentItem title='Student' content={
                     content?.student.firstName + ' ' + content?.student.lastName
