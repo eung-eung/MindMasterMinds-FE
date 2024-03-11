@@ -2,13 +2,13 @@ import React from 'react'
 import { Metadata } from 'next'
 import TutorDashboardPage from '@/app/components/tutorDashboardPage/page'
 export const metadata: Metadata = {
-    title: 'Tutor Dashboard'
+  title: 'History'
 }
 
 export default function TutorDashboard() {
   return (
     <div>
-        <TutorDashboardPage/>
+      <TutorDashboardPage />
     </div>
   )
 }

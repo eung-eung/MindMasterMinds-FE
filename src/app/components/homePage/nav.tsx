@@ -116,7 +116,7 @@ export default function Nav() {
                           </div>
                           <div className="flex-auto">
                             <Link href="/tutorDashboard" className="block font-semibold text-gray-900">
-                              Dashboard for tutor
+                              History
                               <span className="absolute inset-0" />
                             </Link>
                           </div>

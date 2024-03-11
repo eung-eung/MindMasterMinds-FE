@@ -53,10 +53,10 @@ export default function TutorDashboardPage() {
               {/* Header */}
               <Header title='Tutor Dashboard' isHome={false} />
               <div className="container mx-auto">
-                <h1 className="font-[Belanosima] flex justify-center mb-14 text-5xl font-semibold mb-12 mt-24">Dashboard</h1>
-                <div className={classes.cardContainer}>
+                {/* <h1 className="font-[Belanosima] flex justify-center mb-14 text-5xl font-semibold mb-12 mt-24">Dashboard</h1> */}
+                {/* <div className={classes.cardContainer}>
                   {array.map((item, i) => <Card key={i} item={item} />)}
-                </div>
+                </div> */}
                 <div className={classes.chartBar}>
                   <h3 style={{ textAlign: "left", marginBottom: "30px", fontFamily: "Belanosima", fontSize: "30px" }}>Revenue</h3>
                   <Revenue />
@@ -65,7 +65,7 @@ export default function TutorDashboardPage() {
                   <h1 className='font-[Belanosima] flex justify-center mb-14 text-5xl font-semibold'>
                     History Order
                   </h1>
-                  <BasicTable />
+                  {/* <BasicTable /> */}
                 </div>
 
               </div>
